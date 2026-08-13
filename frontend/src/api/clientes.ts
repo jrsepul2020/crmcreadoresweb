@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { api } from "./client";
+import { supabase } from "./supabase";
 
 export interface Cliente {
   id: string;
@@ -13,8 +13,9 @@ export function useClientes() {
   return useQuery({
     queryKey: ["clientes"],
     queryFn: async () => {
-      const res = await api.get<Cliente[]>("/clientes");
-      return res.data;
+      const { data, error } = await supabase.from("Cliente").select("*").order("createdAt", { ascending: false });
+      if (error) throw error;
+      return data as Cliente[];
     },
   });
 }
@@ -23,12 +24,11 @@ export function useCrearCliente() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (data: Partial<Cliente>) => {
-      const res = await api.post<Cliente>("/clientes", data);
-      return res.data;
+      const { data: created, error } = await supabase.from("Cliente").insert(data).select().single();
+      if (error) throw error;
+      return created;
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["clientes"] });
-    },
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["clientes"] }),
   });
 }
 
@@ -36,10 +36,9 @@ export function useEliminarCliente() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (id: string) => {
-      await api.delete(`/clientes/${id}`);
+      const { error } = await supabase.from("Cliente").delete().eq("id", id);
+      if (error) throw error;
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["clientes"] });
-    },
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["clientes"] }),
   });
 }

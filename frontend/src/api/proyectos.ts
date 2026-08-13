@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { api } from "./client";
+import { supabase } from "./supabase";
 
 export interface Proyecto {
   id: string;
@@ -12,8 +12,9 @@ export function useProyectos() {
   return useQuery({
     queryKey: ["proyectos"],
     queryFn: async () => {
-      const res = await api.get<Proyecto[]>("/proyectos");
-      return res.data;
+      const { data, error } = await supabase.from("Proyecto").select("*").order("createdAt", { ascending: false });
+      if (error) throw error;
+      return data as Proyecto[];
     },
   });
 }
@@ -22,8 +23,9 @@ export function useCrearProyecto() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (data: Partial<Proyecto>) => {
-      const res = await api.post<Proyecto>("/proyectos", data);
-      return res.data;
+      const { data: created, error } = await supabase.from("Proyecto").insert(data).select().single();
+      if (error) throw error;
+      return created;
     },
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["proyectos"] }),
   });
@@ -32,7 +34,10 @@ export function useCrearProyecto() {
 export function useEliminarProyecto() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: async (id: string) => { await api.delete(`/proyectos/${id}`); },
+    mutationFn: async (id: string) => {
+      const { error } = await supabase.from("Proyecto").delete().eq("id", id);
+      if (error) throw error;
+    },
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["proyectos"] }),
   });
 }
