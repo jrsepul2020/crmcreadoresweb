@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Alert, Button, Group, Skeleton, Stack, Text, Title } from "@mantine/core";
+import { Alert, Button, Skeleton, Stack, Text, Title } from "@mantine/core";
 import { IconAlertCircle, IconArrowLeft } from "@tabler/icons-react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useClientes } from "../api/clientes";

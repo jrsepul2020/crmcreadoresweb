@@ -1,8 +1,6 @@
-import { Badge, Button, Center, Group, Menu, Paper, Skeleton, Table, Text } from "@mantine/core";
+import { Badge, Button, Center, Menu, Skeleton, Table, Text } from "@mantine/core";
 import { IconDots, IconEdit, IconEye, IconTrash } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
-import type { Cliente } from "../../api/clientes";
-import type { Producto } from "../../api/productos";
 import type { ServicioRecurrente } from "../../api/serviciosRecurrentes";
 import ServicioRecurrenteStatusBadge from "./ServicioRecurrenteStatusBadge";
 

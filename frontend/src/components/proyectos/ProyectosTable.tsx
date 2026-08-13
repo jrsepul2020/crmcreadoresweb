@@ -1,4 +1,4 @@
-import { Button, Center, Group, Menu, Paper, Skeleton, Table, Text } from "@mantine/core";
+import { Button, Center, Menu, Skeleton, Table, Text } from "@mantine/core";
 import { IconDots, IconEdit, IconEye, IconTrash } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import type { Proyecto } from "../../api/proyectos";
