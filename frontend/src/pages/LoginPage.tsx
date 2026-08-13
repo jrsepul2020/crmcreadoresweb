@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { TextInput, PasswordInput, Button, Stack, Title, Paper, Alert } from "@mantine/core";
+import { TextInput, PasswordInput, Checkbox, Button, Stack, Title, Paper, Alert } from "@mantine/core";
 import { supabase } from "../api/supabase";
 
+const rememberedEmailKey = "creadores-web-remembered-email";
+
 export default function LoginPage({ onLogin }: { onLogin: () => void }) {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(() => localStorage.getItem(rememberedEmailKey) ?? "");
   const [password, setPassword] = useState("");
+  const [rememberPassword, setRememberPassword] = useState(() => Boolean(localStorage.getItem(rememberedEmailKey)));
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -17,6 +20,8 @@ export default function LoginPage({ onLogin }: { onLogin: () => void }) {
       setError("Email o contraseña incorrectos");
       return;
     }
+    if (rememberPassword) localStorage.setItem(rememberedEmailKey, email);
+    else localStorage.removeItem(rememberedEmailKey);
     onLogin();
   };
 
@@ -26,7 +31,8 @@ export default function LoginPage({ onLogin }: { onLogin: () => void }) {
         <Title order={2} mb="md">Creadores Web</Title>
         <Stack>
           <TextInput label="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          <PasswordInput label="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <PasswordInput label="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="current-password" />
+          <Checkbox label="Recordar contraseña" checked={rememberPassword} onChange={(event) => setRememberPassword(event.currentTarget.checked)} />
           {error && <Alert color="red">{error}</Alert>}
           <Button onClick={handleLogin} loading={loading}>
             Entrar
