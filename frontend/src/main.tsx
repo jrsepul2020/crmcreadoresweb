@@ -7,12 +7,14 @@ import { BrowserRouter } from "react-router-dom";
 import "@mantine/core/styles.css";
 import "@mantine/notifications/styles.css";
 import App from "./App";
+import { theme } from "./theme";
+import "./index.css";
 
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <MantineProvider>
+    <MantineProvider theme={theme} defaultColorScheme="light">
       <Notifications />
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>

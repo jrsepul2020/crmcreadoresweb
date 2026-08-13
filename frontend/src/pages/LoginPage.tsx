@@ -23,7 +23,7 @@ export default function LoginPage({ onLogin }: { onLogin: () => void }) {
   return (
     <Stack align="center" justify="center" style={{ height: "100vh" }}>
       <Paper shadow="md" p="xl" w={350}>
-        <Title order={2} mb="md">CRM Agencia</Title>
+        <Title order={2} mb="md">Creadores Web</Title>
         <Stack>
           <TextInput label="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
           <PasswordInput label="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
