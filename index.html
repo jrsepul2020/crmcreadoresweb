@@ -105,6 +105,9 @@
 const SUPABASE_URL = "https://hrphggzabhdjfqtuxsub.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhycGhnZ3phYmhkamZxdHV4c3ViIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY2MDU0OTgsImV4cCI6MjEwMjE4MTQ5OH0.X9rbRfw6g4RBhLO9wWy-n5b179i_MFRtzTt_Bw_snpo";
 
+// El enlace del email de recuperación llega con #...type=recovery; hay que leerlo antes de que supabase-js limpie el hash.
+const RECOVERY_IN_URL = /type=recovery/.test(window.location.hash);
+
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: { persistSession: true, autoRefreshToken: true }
 });
@@ -1757,7 +1760,106 @@ function Layout({ current, navigate, userEmail, onLogout, children }) {
 // ===================== pages/Login.js =====================
 const REMEMBER_LOGIN_KEY = 'crm_remember_login';
 
+function ForgotPasswordForm({ initialEmail, onBack }) {
+  const [email, setEmail] = useState(initialEmail || '');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [sent, setSent] = useState(false);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setError('');
+    setLoading(true);
+    const redirectTo = window.location.origin + window.location.pathname;
+    const { error } = await supabaseClient.auth.resetPasswordForEmail(email.trim(), { redirectTo });
+    setLoading(false);
+    if (error) {
+      setError(error.status === 429 || /rate limit/i.test(error.message || '')
+        ? 'Has pedido demasiados correos seguidos. Espera unos minutos e inténtalo de nuevo.'
+        : (error.message || 'No se pudo enviar el correo de recuperación.'));
+      return;
+    }
+    setSent(true);
+  }
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-ink-900 px-4">
+      <div className="w-full max-w-md fade-in">
+        <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-2xl shadow-black/40 p-8 sm:p-11 space-y-6">
+          <div className="text-center">
+            <h1 className="text-ink-900 font-bold text-2xl">Recuperar contraseña</h1>
+            <p className="text-ink-500 text-base mt-1.5">Te enviaremos un enlace para crear una nueva</p>
+          </div>
+          {sent ? (
+            <div className="text-emerald-700 bg-emerald-50 rounded-lg px-3.5 py-3 text-sm font-medium">
+              Si el correo existe, recibirás un enlace en unos minutos. Revisa también la carpeta de spam.
+            </div>
+          ) : (
+            <>
+              <div className="flex flex-col gap-1.5">
+                <span className="text-sm font-semibold text-ink-600">Correo electrónico</span>
+                <input type="email" required autoFocus value={email} onChange={(e) => setEmail(e.target.value)} placeholder="tucorreo@dominio.com"
+                  className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-ink-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/40 focus:border-brand-400 transition" />
+              </div>
+              {error && (
+                <div className="flex items-center gap-2 text-rose-600 bg-rose-50 rounded-lg px-3.5 py-2.5 text-sm font-medium">
+                  <Icons.Alert className="w-4 h-4 shrink-0" /> {error}
+                </div>
+              )}
+              <Button type="submit" className="w-full text-base py-3" size="lg" disabled={loading}>{loading ? 'Enviando...' : 'Enviar enlace'}</Button>
+            </>
+          )}
+          <button type="button" onClick={onBack} className="w-full text-sm text-brand-600 hover:underline">Volver al inicio de sesión</button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+function ResetPasswordForm({ onDone }) {
+  const [password, setPassword] = useState('');
+  const [confirm, setConfirm] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setError('');
+    if (password.length < 6) { setError('La contraseña debe tener al menos 6 caracteres.'); return; }
+    if (password !== confirm) { setError('Las contraseñas no coinciden.'); return; }
+    setLoading(true);
+    const { error } = await supabaseClient.auth.updateUser({ password });
+    setLoading(false);
+    if (error) { setError(error.message || 'No se pudo cambiar la contraseña.'); return; }
+    try { window.localStorage.removeItem(REMEMBER_LOGIN_KEY); } catch (e) { /* ignorar */ }
+    onDone();
+  }
+
+  const inputCls2 = 'w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-ink-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/40 focus:border-brand-400 transition';
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-ink-900 px-4">
+      <div className="w-full max-w-md fade-in">
+        <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-2xl shadow-black/40 p-8 sm:p-11 space-y-6">
+          <div className="text-center">
+            <h1 className="text-ink-900 font-bold text-2xl">Nueva contraseña</h1>
+            <p className="text-ink-500 text-base mt-1.5">Elige la contraseña con la que vas a acceder</p>
+          </div>
+          <input type="password" required autoFocus value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Nueva contraseña" className={inputCls2} />
+          <input type="password" required value={confirm} onChange={(e) => setConfirm(e.target.value)} placeholder="Repite la contraseña" className={inputCls2} />
+          {error && (
+            <div className="flex items-center gap-2 text-rose-600 bg-rose-50 rounded-lg px-3.5 py-2.5 text-sm font-medium">
+              <Icons.Alert className="w-4 h-4 shrink-0" /> {error}
+            </div>
+          )}
+          <Button type="submit" className="w-full text-base py-3" size="lg" disabled={loading}>{loading ? 'Guardando...' : 'Guardar contraseña'}</Button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
 function Login() {
+  const [forgot, setForgot] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -1791,6 +1893,8 @@ function Login() {
       else window.localStorage.removeItem(REMEMBER_LOGIN_KEY);
     } catch (e) { /* localStorage no disponible: no bloquear el login */ }
   }
+
+  if (forgot) return <ForgotPasswordForm initialEmail={email} onBack={() => setForgot(false)} />;
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-ink-900 px-4 relative overflow-hidden">
@@ -1841,6 +1945,7 @@ function Login() {
             />
             Recordar mis datos
           </label>
+          <button type="button" onClick={() => setForgot(true)} className="text-sm text-brand-600 hover:underline -mt-2 block">¿Has olvidado tu contraseña?</button>
           {error && (
             <div className="flex items-center gap-2 text-rose-600 bg-rose-50 rounded-lg px-3.5 py-2.5 text-sm font-medium">
               <Icons.Alert className="w-4 h-4 shrink-0" /> {error}
@@ -6051,10 +6156,12 @@ function AppShell({ session }) {
 
 function App() {
   const [session, setSession] = useState(undefined); // undefined = cargando, null = sin sesión
+  const [recovering, setRecovering] = useState(RECOVERY_IN_URL);
 
   useEffect(() => {
     supabaseClient.auth.getSession().then(({ data }) => setSession(data.session));
-    const { data: listener } = supabaseClient.auth.onAuthStateChange((_event, sess) => {
+    const { data: listener } = supabaseClient.auth.onAuthStateChange((event, sess) => {
+      if (event === 'PASSWORD_RECOVERY') setRecovering(true);
       setSession(sess);
     });
     return () => listener.subscription.unsubscribe();
@@ -6063,6 +6170,7 @@ function App() {
   if (session === undefined) {
     return <div className="min-h-screen flex items-center justify-center bg-ink-900"><Spinner className="w-8 h-8 border-white/30 border-t-white" /></div>;
   }
+  if (recovering && session) return <ResetPasswordForm onDone={() => setRecovering(false)} />;
   if (!session) return <Login />;
 
   return (
