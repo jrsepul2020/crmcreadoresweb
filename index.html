@@ -127,7 +127,7 @@ const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_
 const ICONO_BLANCO_DATA_URI = "data:image/png;base64,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";
 
 // Versión de la app: la actualiza scripts/bump-version.py antes de cada commit/subida
-const APP_VERSION = { numero: '1.11', fecha: '2026-11-14T13:45:28+01:00' };
+const APP_VERSION = { numero: '1.12', fecha: '2026-11-14T15:37:01+01:00' };
 function textoVersion(corto) {
   const d = new Date(APP_VERSION.fecha);
   const fechaHora = isNaN(d.getTime()) ? '' : d.toLocaleString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }).replace(',', '');
@@ -635,6 +635,7 @@ const ESTADO_STYLES = {
   borrador: 'bg-slate-100 text-slate-600 ring-slate-500/20',
   enviado: 'bg-blue-50 text-blue-700 ring-blue-600/20',
   aceptado: 'bg-emerald-50 text-emerald-700 ring-emerald-600/20',
+  facturado: 'bg-violet-50 text-violet-700 ring-violet-600/20',
   rechazado: 'bg-rose-50 text-rose-700 ring-rose-600/20',
   caducado: 'bg-slate-100 text-slate-500 ring-slate-500/20',
   // Factura
@@ -660,7 +661,7 @@ const ESTADO_LABELS = {
   activo: 'Activo', inactivo: 'Inactivo', potencial: 'Potencial',
   pendiente: 'Pendiente', pausado: 'Pausado', completado: 'Completado', cancelado: 'Cancelado',
   en_progreso: 'En progreso', completada: 'Completada',
-  borrador: 'Borrador', enviado: 'Enviado', aceptado: 'Aceptado', rechazado: 'Rechazado', caducado: 'Caducado',
+  borrador: 'Borrador', enviado: 'Enviado', aceptado: 'Aceptado', facturado: 'Facturado', rechazado: 'Rechazado', caducado: 'Caducado',
   emitida: 'Enviada', pagada: 'Pagada', pagada_parcial: 'Pago parcial', vencida: 'Vencida', cancelada: 'Cancelada',
   nuevo: 'Nuevo', contactado: 'Contactado', calificado: 'Calificado',
   propuesta_enviada: 'Propuesta enviada', convertido: 'Convertido', perdido: 'Perdido',
@@ -4738,7 +4739,7 @@ function PresupuestoForm({ initial, clientes, proyectos, productos, existentesNu
         <Field label="Estado">
           <Select value={header.estado} onChange={set('estado')}>
             <option value="borrador">Borrador</option><option value="enviado">Enviado</option>
-            <option value="aceptado">Aceptado</option><option value="rechazado">Rechazado</option><option value="caducado">Caducado</option>
+            <option value="aceptado">Aceptado</option><option value="facturado">Facturado</option><option value="rechazado">Rechazado</option><option value="caducado">Caducado</option>
           </Select>
         </Field>
         <Field label="Proyecto (opcional)">
@@ -4849,7 +4850,7 @@ function PresupuestoDetail({ presupuesto, clienteById, navigate, onClose, onEdit
         notas: `Creado a partir del presupuesto ${presupuesto.numero}.`,
       });
       await api.update('Presupuesto', presupuesto.id, {
-        proyectoId: nuevo.id, estado: presupuesto.estado === 'aceptado' ? presupuesto.estado : 'aceptado',
+        proyectoId: nuevo.id, estado: ['aceptado', 'facturado'].includes(presupuesto.estado) ? presupuesto.estado : 'aceptado',
       });
       toast(`Proyecto "${nombre}" creado`);
       onChanged();
@@ -5009,7 +5010,7 @@ function Presupuestos({ prefill, onConsumePrefill, navigate }) {
           <Select value={filterEstado} onChange={(e) => setFilterEstado(e.target.value)} className="!py-1.5 !text-xs w-auto">
             <option value="todos">Todos los estados</option>
             <option value="borrador">Borrador</option><option value="enviado">Enviado</option>
-            <option value="aceptado">Aceptado</option><option value="rechazado">Rechazado</option><option value="caducado">Caducado</option>
+            <option value="aceptado">Aceptado</option><option value="facturado">Facturado</option><option value="rechazado">Rechazado</option><option value="caducado">Caducado</option>
           </Select>
         } />
 
@@ -5053,7 +5054,7 @@ function Presupuestos({ prefill, onConsumePrefill, navigate }) {
                   <Td className="text-right font-semibold text-brand-700">{formatCurrency(p.totalATransferir)}</Td>
                   <Td onClick={(e) => e.stopPropagation()}>
                     <EstadoSelect estado={p.estado} onChange={(v) => cambiarEstado(p, v)}
-                      opciones={['borrador', 'enviado', 'aceptado', 'rechazado', 'caducado']} />
+                      opciones={['borrador', 'enviado', 'aceptado', 'facturado', 'rechazado', 'caducado']} />
                   </Td>
                   <Td className="text-right" onClick={(e) => e.stopPropagation()}>
                     <div className="flex justify-end gap-1">
@@ -5351,8 +5352,6 @@ function EmitirFacturaForm({ factura, onCancel, onDone }) {
       const { data, error } = await supabaseClient.rpc('emitir_factura', args);
       if (error) await manejarError(error);
       toast(`Factura ${data.numero || ''} emitida`.replace('  ', ' '));
-      try { await archivarFacturaPDF(data.id); toast('Copia en PDF archivada'); }
-      catch (errArchivo) { toast('Factura emitida, pero no se pudo archivar su PDF: hazlo desde el detalle de la factura', 'error'); }
       onDone(data.id);
     } catch (err) { toast(err.message || 'No se pudo emitir la factura', 'error'); }
     finally { setSaving(false); }
@@ -5526,12 +5525,12 @@ function FacturaDetail({ factura, facturas, clienteById, onClose, onEdit, onChan
   const [guardandoFechas, setGuardandoFechas] = useState(false);
 
   useEffect(() => {
-    if (!factura.numero || factura.estado === 'borrador') { setArchivo('no-aplica'); return undefined; }
+    if (!factura.numero || factura.estado === 'borrador' || !factura.enviadaAt) { setArchivo('no-aplica'); return undefined; }
     let vivo = true;
     supabaseClient.storage.from(BUCKET_FACTURAS_CLIENTES).createSignedUrl(rutaArchivoFactura(factura), 60)
       .then(({ error }) => { if (vivo) setArchivo(error ? 'no' : 'si'); });
     return () => { vivo = false; };
-  }, [factura.id, factura.numero, factura.estado]);
+  }, [factura.id, factura.numero, factura.estado, factura.enviadaAt]);
 
   async function archivarAhora() {
     setArchivo('guardando');
@@ -5576,7 +5575,17 @@ function FacturaDetail({ factura, facturas, clienteById, onClose, onEdit, onChan
     } catch (err) { toast('No se pudo generar el PDF', 'error'); }
   }
 
-  const puedeEditarFechas = !esBorrador && factura.estado !== 'cancelada';
+  const enviada = !!factura.enviadaAt;
+  const puedeEditarFechas = !esBorrador && !enviada && factura.estado !== 'cancelada';
+  const [confirmEnviar, setConfirmEnviar] = useState(false);
+  async function marcarEnviada() {
+    setConfirmEnviar(false);
+    try {
+      await archivarFacturaPDF(factura.id);
+      await api.update('Factura', factura.id, { enviadaAt: new Date().toISOString() });
+      toast('Factura marcada como enviada y archivada. Fechas bloqueadas.'); onChanged(factura.id);
+    } catch (err) { toast(err.message || 'No se pudo marcar como enviada', 'error'); }
+  }
   const pagoFinal = pagos.length ? pagos.reduce((m, p) => (String(p.fecha) > String(m.fecha) ? p : m), pagos[0]) : null;
   function abrirEditarFechas() {
     setFEmision(toDateInput(factura.fechaEmision)); setFPago(toDateInput(factura.fechaPago)); setEditFechas(true);
@@ -5652,6 +5661,7 @@ function FacturaDetail({ factura, facturas, clienteById, onClose, onEdit, onChan
           </>) : <button type="button" className="text-sm text-brand-600 hover:underline" onClick={abrirEditarFechas}>Editar fechas de emisión y pago</button>}
         </div>
       )}
+      {!esBorrador && enviada && <p className="text-xs text-slate-500 -mt-2">🔒 Enviada al cliente el {formatDate(factura.enviadaAt)} · fechas bloqueadas (para corregir, crea una rectificativa).</p>}
 
       {loading ? <PageLoader /> : (
         <div className="border border-slate-200 rounded-lg overflow-hidden overflow-x-auto">
@@ -5696,6 +5706,7 @@ function FacturaDetail({ factura, facturas, clienteById, onClose, onEdit, onChan
 
       <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-100">
         {esBorrador && <Button size="sm" icon={Icons.Check} onClick={() => setAccion('emitir')}>Emitir factura</Button>}
+        {!esBorrador && !enviada && factura.estado !== 'cancelada' && <Button size="sm" variant="secondary" icon={Icons.Send || Icons.Check} onClick={() => setConfirmEnviar(true)}>Marcar como enviada</Button>}
         {puedeCobrar && <Button size="sm" icon={Icons.Euro} onClick={() => setAccion('cobro')}>Registrar cobro</Button>}
         {puedeRectificar && <Button size="sm" variant="danger" icon={Icons.Repeat} onClick={() => setAccion('rectificar')}>Rectificar</Button>}
         <Button size="sm" variant="secondary" icon={Icons.Download} onClick={descargarPDF}>Descargar PDF</Button>
@@ -5705,6 +5716,8 @@ function FacturaDetail({ factura, facturas, clienteById, onClose, onEdit, onChan
         {esBorrador && <Button size="sm" variant="ghost" icon={Icons.Edit} onClick={onEdit}>Editar</Button>}
       </div>
 
+      <ConfirmDialog open={confirmEnviar} title="Marcar como enviada" message="Al marcarla como enviada se guarda la copia en PDF en el archivo y se bloquean las fechas de emisión y de cobro. Después solo se puede corregir con una rectificativa. ¿Continuar?"
+        onCancel={() => setConfirmEnviar(false)} onConfirm={marcarEnviada} />
       <Modal open={accion === 'emitir'} onClose={() => setAccion(null)} title="Emitir factura">
         {accion === 'emitir' && <EmitirFacturaForm factura={factura} onCancel={() => setAccion(null)} onDone={(id) => { setAccion(null); onChanged(id); }} />}
       </Modal>
@@ -5790,6 +5803,7 @@ function Facturas({ prefill, onConsumePrefill }) {
     cliente: (f) => (clienteById[f.clienteId] || {}).empresa || (clienteById[f.clienteId] || {}).nombre,
     tipo: (f) => f.tipoFactura,
     fechaEmision: (f) => f.fechaEmision || '',
+    fechaPago: (f) => f.fechaPago || '',
     aTransferir: (f) => Number(f.totalATransferir || 0),
     subtotal: (f) => Number(f.subtotal || 0),
     fechaVencimiento: (f) => f.fechaVencimiento || '',
@@ -5799,6 +5813,16 @@ function Facturas({ prefill, onConsumePrefill }) {
   const noPagadas = sortRows(filtered.filter((f) => f.estado !== 'pagada'), sort, sortGetters);
   const pagadas = sortRows(filtered.filter((f) => f.estado === 'pagada'), sort, sortGetters);
 
+  async function descargarPDFFactura(f) {
+    try {
+      const [its, empresas, cli, original] = await Promise.all([
+        api.list('FacturaItem', { order: 'orden', ascending: true }), api.list('Empresa'), api.get('Cliente', f.clienteId),
+        f.facturaRectificadaId ? api.get('Factura', f.facturaRectificadaId) : Promise.resolve(null),
+      ]);
+      generateDocumentoPDF('Factura', f, its.filter((i) => i.facturaId === f.id), cli, empresas[0] || {}, { facturaOriginal: original }).save(`Factura_${f.numero || 'Borrador'}.pdf`);
+    } catch (err) { toast('No se pudo generar el PDF', 'error'); }
+  }
+
   function renderTablaFacturas(lista, emptyTitle) {
     if (lista.length === 0) {
       return <CardTable><EmptyState icon={Icons.Receipt} title={emptyTitle} /></CardTable>;
@@ -5807,12 +5831,11 @@ function Facturas({ prefill, onConsumePrefill }) {
       <CardTable>
         <table className="w-full min-w-[1000px]">
           <thead className="bg-slate-700 text-white"><tr>
-            <SortableTh sortKey="numero" sort={sort} onSort={onSort}>Número</SortableTh>
-            <SortableTh sortKey="cliente" sort={sort} onSort={onSort}>Cliente</SortableTh>
+            <SortableTh sortKey="numero" sort={sort} onSort={onSort}>Nº Factura</SortableTh>
+            <SortableTh sortKey="cliente" sort={sort} onSort={onSort}>Nombre del Cliente</SortableTh>
             <SortableTh sortKey="tipo" sort={sort} onSort={onSort}>Tipo</SortableTh>
-            <SortableTh sortKey="fechaEmision" sort={sort} onSort={onSort}>Fecha Emisión</SortableTh>
-            <SortableTh sortKey="total" sort={sort} onSort={onSort} className="text-right">Total</SortableTh>
-            <SortableTh sortKey="aTransferir" sort={sort} onSort={onSort} className="text-right">A transferir</SortableTh>
+            <SortableTh sortKey="fechaPago" sort={sort} onSort={onSort}>Fecha de pago</SortableTh>
+            <SortableTh sortKey="total" sort={sort} onSort={onSort} className="text-right">Total IVA incluido</SortableTh>
             <Th className="text-right">Beneficio</Th>
             <SortableTh sortKey="estado" sort={sort} onSort={onSort}>Estado</SortableTh>
             <Th className="text-right">Acciones</Th>
@@ -5826,18 +5849,19 @@ function Facturas({ prefill, onConsumePrefill }) {
                   {(clienteById[f.clienteId] || {}).empresa && <p className="text-xs text-rose-500">{(clienteById[f.clienteId] || {}).nombre}</p>}
                 </Td>
                 <Td className="text-slate-500">{FACTURA_TIPOS[f.tipoFactura] || f.tipoFactura}</Td>
-                <Td>{formatDate(f.fechaEmision)}</Td>
+                <Td>{f.fechaPago ? formatDate(f.fechaPago) : '—'}</Td>
                 <Td className="text-right text-ink-800">{formatCurrency(f.total)}</Td>
-                <Td className="text-right font-semibold text-brand-700">{formatCurrency(f.totalATransferir)}</Td>
                 <Td className="text-right text-emerald-600">{f.beneficioReal !== null && f.beneficioReal !== undefined ? formatCurrency(f.beneficioReal) : '—'}</Td>
                 <Td><FacturaEstadoBadge estado={f.estado} /></Td>
                 <Td className="text-right" onClick={(e) => e.stopPropagation()}>
-                  {f.estado === 'borrador' && (
-                    <div className="flex justify-end gap-1">
-                      <button className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500" onClick={() => setModal({ mode: 'edit', item: f })}><Icons.Edit className="w-4 h-4" /></button>
-                      <button className="p-1.5 rounded-lg hover:bg-rose-50 text-rose-500" onClick={() => setToDelete(f)}><Icons.Trash className="w-4 h-4" /></button>
-                    </div>
-                  )}
+                  <div className="flex justify-end gap-1">
+                    {f.estado !== 'borrador' && <button className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500" title="Descargar PDF" onClick={() => descargarPDFFactura(f)}><Icons.Download className="w-4 h-4" /></button>}
+                    <button className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500" title="Ver detalle" onClick={() => setDetail(f)}><Icons.Eye className="w-4 h-4" /></button>
+                    {f.estado === 'borrador' && <>
+                      <button className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500" title="Editar" onClick={() => setModal({ mode: 'edit', item: f })}><Icons.Edit className="w-4 h-4" /></button>
+                      <button className="p-1.5 rounded-lg hover:bg-rose-50 text-rose-500" title="Eliminar borrador" onClick={() => setToDelete(f)}><Icons.Trash className="w-4 h-4" /></button>
+                    </>}
+                  </div>
                 </Td>
               </tr>
             ))}
@@ -7214,7 +7238,7 @@ function FacturasEmitidasArchivo() {
 
   const clienteById = Object.fromEntries(clientes.map((c) => [c.id, c]));
   const filas = facturas.map((f) => ({ ...f, archivada: guardadas.has(rutaArchivoFactura(f)) }));
-  const faltan = filas.filter((f) => !f.archivada);
+  const faltan = filas.filter((f) => !f.archivada && f.enviadaAt);
   const filtered = filas.filter((f) => {
     if (filtro === 'faltan' && f.archivada) return false;
     const q = search.toLowerCase();
@@ -7243,7 +7267,7 @@ function FacturasEmitidasArchivo() {
 
   return (
     <div className="fade-in">
-      <PageHeader title="Facturas emitidas a clientes" subtitle={`${facturas.length - faltan.length} de ${facturas.length} con copia en PDF archivada`}
+      <PageHeader title="Facturas emitidas a clientes" subtitle={`${filas.filter((f) => f.archivada).length} de ${facturas.length} con copia en PDF archivada`}
         action={<div className="flex flex-wrap gap-2">
           <ExportCsvButton nombre="facturas_emitidas_archivo" filas={sorted} columnas={[
             { titulo: 'Número', valor: (f) => f.numero }, { titulo: 'Cliente', valor: (f) => csvCliente(clienteById[f.clienteId]) },
@@ -7287,7 +7311,8 @@ function FacturasEmitidasArchivo() {
                   <Td>
                     {f.archivada
                       ? <button type="button" onClick={() => abrir(f)} className="inline-flex items-center gap-1.5 text-sm text-brand-600 hover:underline"><Icons.FileText className="w-4 h-4" /> Abrir PDF</button>
-                      : <span className="text-xs text-amber-700 bg-amber-50 ring-1 ring-inset ring-amber-600/20 rounded-full px-2.5 py-1">Falta archivar</span>}
+                      : f.enviadaAt ? <span className="text-xs text-amber-700 bg-amber-50 ring-1 ring-inset ring-amber-600/20 rounded-full px-2.5 py-1">Falta archivar</span>
+                      : <span className="text-xs text-slate-500">Pendiente de enviar</span>}
                   </Td>
                 </tr>
               ))}

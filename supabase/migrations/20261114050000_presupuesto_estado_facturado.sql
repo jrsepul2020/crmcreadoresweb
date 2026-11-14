@@ -1,0 +1,2 @@
+-- Nuevo estado de presupuesto "facturado": se asigna al crear la factura desde el presupuesto.
+-- Ya aplicada en Supabase (crear_factura_desde_presupuesto actualizada con: update "Presupuesto" set estado='facturado').
