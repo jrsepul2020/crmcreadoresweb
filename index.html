@@ -74,6 +74,8 @@
     box.textContent = titulo + '\n\n' + detalle;
   }
   window.addEventListener('error', function (e) {
+    // "ResizeObserver loop ..." es un aviso inofensivo del navegador (el layout cambió de tamaño durante un fotograma): no es un fallo de la app.
+    if (/ResizeObserver loop/i.test(e.message || '')) { e.stopImmediatePropagation(); return; }
     var detalle = e.error && e.error.stack ? e.error.stack : (e.message || 'Error desconocido');
     if (e.filename) detalle += '\n\nArchivo: ' + e.filename + (e.lineno ? (':' + e.lineno + ':' + e.colno) : '');
     mostrarErrorBoot('Error al cargar el CRM:', detalle);
@@ -124,7 +126,7 @@ const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_
 const LOGO_DATA_URI = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAYAAACLz2ctAAAWD0lEQVR42u3de5RlVX0n8O9v733OuffWrVtV3dVPumkE5NGg4wTlIbqqAcNDY3CSVR0dQx6SNWNcI2pcOnEGKcq4ZhmHWbM0ZowmGWYSDGPXQpwoiVEiXfiAAAsalRawgX7Qr6qu132fs/f+/eaPWx3ISEK/0KL5fdaqP/quW1338T2/39777HsuoJRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppU5GAiHBqNVXQv2cgzhmBGNGXwn1MwscADy74QOXTK/9yBXP3b7FahB/ftwr7gnHUrO/vzaZb7jxq/W5qU9TffNDh4MIbGYCRGOhXpoqONardK1Xj90t53xGirU35u0VH/7zqf7rzjp8n3sw4gQgfbV+Nl5ZrWf8PAKA2F74EwlN2CSRcjb4nsFs7UOt2g3/7UDf21ddhslAgOhE5WfjFXekC8bMBMbp7ev+43dK2cAlMe+0EKRsgzGhqO8ruo0/vKu47082Y3txeGxIGGeNigbwhAWQMM6zg9e/tn9g7XedKfXHbqtA4Gh8LJMXhNB6pJCFT/YVf/WV3u+MWmBCx4cawBMbwpkV119ay1bfYkQuNtGB8zakKDo2Uhkc4LnztYIWxqr+jkd6vzfiCJMRGkQN4PG6B2PuMoyHXWv+3ZUD3l1SjuZ8K+ZyE7GMi+ApRhixSYQvCnS+0EoPfGpF5+59hysiYSJqfHQScsw2ASwYtf3Z8rxcW3mdlPq45etf7sb2AwJhCJsYOwVFsWWuvX+oOO3hlvu3N2wBUsJE1IVsrYAnrBW3137onWU7fDvaTeTt+pQJxYCNnDBHAQAisEWSgFIE6j7SRmNsIG752uG2DExGHR9qAI81hI4wHuoDv/uOsqne5nLpi3kjF/aOJULASEDUaxY2GkoTGEYhzTsarnHTcPHX27UtawBPiIXyr19UotqtqU/Ojb7hPTwCoi3BkEOCxbWYICCyJnWBOs2A/I+n+3Z++tT6/bMCIeBm0mUbDeARVj8QAbLr1N8dCt259Iyp/3MQANrpb3y+HJL3Rg5owhcJ2FWQEoMgIKbe70YQjDWJC5TvCtT4ZNnf+We6bKMBPIoAChFInjzld9atL6/+lsv5kfbM/r8caN/6jTn79ssyrny2LNl5c+igDBdLcCaCmEAQAliYDVisS1MkDgXm78399H+qha3f6820R9xlmAwn4EAxwMj/N+GZZAJYA/iyD+EWS9gcOxs+cnOpsm4s1A8gzs/vlPbCXzTN/FbL7m1W3PUOdjCBFQvL0quEAIQJ0ZIRlkom1pgkSItjbH1xf/uZ8Vdh+4HeTHkcxxKWXiXdwgSSf66CY2TEYuVKwcaNvfts3957T6emaCuATZNLO6gaQICAMXoM4+6M9R/dWqoMXeLbTU6mG6bRPZAH5H/dpfxgCnepFXt+FSXjYBFBEIAJsEQe0pcAFp5MdMbCFlLf64v6x6uN7956DNWQBKPm8KTmUHrqxpIbutAYWo8SCffRs90+fmB4+7btR/QcRQibN5e2Tk3JpsnJfCkNDXQS8o/LMZ/gfYPv2rBs4NRvZ656emg22n7mUJKEPJlBnQsq9gTIcCamNIwKUiQIBCaQJQmQMoHKlmFyEhvZOEmIAnyo/12r0/j9oYVHty1WQ/mXAtA7IAQEkkP2nCsrZuCj1mZvTjOXIgFQDkDZw2e+4IweDC75G3j70Exwe+m0klmTJcONQ8Up7MMwR67EvGiKTfe1Bt2+KZEdewcHZzZPLJ3Zugbwn4RwnPeWfunU5UNn3JqZ/svR6iJvzPp2bKJAnrSQS0EhGjCtlLIMUlkY1ogwiQugZSRkIsEGsPMRNohzJg2x2/F586bKs9tuObzV64VCeLgaT2Ccrk4u/HRVBn+PkCEkeaCsCHNph9L+QqoVJknZ2QpZ9BnIIIMSAuoOzf1xLu/QfV2O9xRkHpRWePz0Z340vVTbsAbwBUK4BbDX1H7znWlMf90EvtxFpO3QxBxaEhBjAU85FVJDwqtRsSkSiuIhy8Gmj41QgLjA5AoiI8xWyBm4bl6/rfTED38LY2OC8Z+qhP/Ydpv20r/qo9XvKqRbiFkAZV3jyuB/Nf8Ts24gwd+eP4SQeqLVhccgJfZQtPnOcH9nL3+xvmv2qxuAuRcO9wsHXwO4lEI4Omp3PrAxWV4r/iDttg50d+/ploK5iMRcknPY0EFhckTkFNCFZws2w0hpuaQwZXA8hQ2MJySegQAyTJwyG+JgHEpFtzmRbXtis4yOWkw8t1SzuNEhTKUjN64Iq/6gg2aHzaEkSbqECsOVmf9M5kwYDPK+szLE5SHaLGZhh9/Tesp/bHBH60vPfw5bp6Zo0+QkA5ClvBykAfypAG6xNLE5Ns/98HV91TV/Eef2zcrs/h93G3PTwrI+gTu/y8G1RKSLKAFsCvKUEWMFp1w7A0TL2Uj03FsqDIadRHJM5GI0iUnbjcZ/7fuHZz4qIyOOJifD4bMoz9gLNq3Ghm9DfCjoAKU2kCvnQM0D1cBuOVsMe8RlhbdGMv90ftfc/c3fWdXGARHQVoLdBPxLpwXpuYKoAVzSVZAmJmLj7A/dXO1fNYbWLFCfR2xOC/JGQPAmiKArwrmQ6YhQk4IUEjHYz7ThDRYShCGBiNkwYqQSE7lIsOINcdZoNH61du+Br/xo48b0/O3bi+2Vc9asKs54IONkrZd94qxHkhZw1RwYDMBAYO73RpZFTqsxae4s/mf/1tb1ACAjcDSJF5thWwBRK+DLZWlmdIuhic0xP/2Gz6aVgfcj5JGLTpRuA+gsGHTrkNAVcLQsjK6INElkjtkMnyNYdbaV2IogE4k5MplAthooGmFryYTCT88+23ndygemD24lZOfYt9zdR9mlLZ4pygiJcwUnqYcdyAnLCpYyw/QHMcs46S507ip/s/VLMgaDcRzJGqNB7z7VxX83l8prrduJXvioFExsZsGYyZ7+7A3t+sEPhKLbMKaS2tJQagfWOFq23kltFaHUL9Y5qphIy6nAKSZI/nSkrg+gPgFKQtTHQCkSmwiqBoqVIrqVWDV0uv3szbQxWdd34ZeqZC9dkJmuIbEACRkWmN7GMHgCGAwyNjT8QT/V+m167rEeUfjSNP3VSl/fo/39/ec9ryJqBXy5zIxnS2/dkA2suNYYc6WztFEkDhMkJXBCoSApGhLyBjM3TbtbAGcSL3+jJe5EIxRYEMgYT5Kw2IEocEKwPh783vJHw/2nvt6krUAAUgCZSQzcLKdZIFMtIP1B0Be9G4zlVmx9pHp345ajabtpmv6yS9P/64yB9/7CTqfz4FJpyVoBX9S4yOgWe/dw3xRn/SvZZNta3e638m73m91262npeJEIQVIVV1lBWWUVarUh2F0p8pkI08+CRIRKLCYTIQfhCOJyACdsV/3i1OsrFy0UpkitKQxsYUFdQ6aZEDcZCNKLSkJpCNJo5/FLAhAmX7Ty0WLbLVvnbrHGoPD+7zudzuPPa8laAV8eVbD3Ec3ilBU3paUVNyGvI7YXIuedgNi1UXKTo5BIIkLBiAkIoWAsa2LF27xFNBGmILKB4FgAJlP14HIQ5C2WtQMmhLMoPOYjtUAJ51YkRnQI5mAgzHWj6+O0WB6+n317/6WHd/EcSfVzzr05LZXuNUDsdrtvDiHct5QmJE7jdSRHaW8LfrZ3fKy+/F37yqb/vzublk0SLFEAxSAihFwCPHvkwcNbj2K/IfsDwYo3RoptwCQCNkxIIyAM5JHgEoNn5il7S52S10USH8iaiCiGYFNQUQHPrRV8rw1+bM8OAMDoqMGLn07rLTwTrSUiEeZmCGH34u1LZhlGW/ARh3CcBaO2NnP7F5qtfW/q8sL/LtB9xJMcImd9aqyUjZGKMegzFhVYVMsW9YcT1HczbL8gAgQHCATwERIEMAR4Bj+8FyzDhNkILIhQnYGFAsIMOt0I3jsA/OZpUwCA903RERXuXgA7BBAI2eIQc0ktSmsAj7oSjtqh9tcfLs/c/lvTcfbX5qh+XQOdL+ZWniRDsCRsDYsloZSAkjNy6O+tdOeFbJkhkUE+AhAiRxAvRNaJmZsHHVwAVq8Ex5wkEZBlwARgfg5YmIdZVxzNkEkAoCiKH8QYO0QmTUvp5qU29NIAHls7dk+eeXVWK6/+4MrS+r8dzFb+h8z1n21cZksudX3G2cwQHPXabuwSHbzLSuhEWIoCFrDtbTNFLiKFEKwFPbEDki4Dsj4gSi9BMYdIFzARiOFoJg68ONbbKUK3gchY425K0/TsxfGf0QC+fGfG8dU7vlHUpm57fyvOfaxAvotNCMHEuY4UT7RNvofJS4FCInu4LEqYBQ59PRUWIVMSACToRtB8AADhaCD1DnCoDSxfCxQBIAPQYpuGICLOHOUDZQCm22l9OIRwt3NJJcuy5UupCmoAj23pQBZ/uDrzlU9tPbTlvHo++7oG198bjf++Q/QEzw6Ry2D0CcGVGHP7mHbdmaBYEDLiCQcKwAvgAQSAAkCtLpD29xbDBRAhQCIhMgC756gn8L2fRrfdvjr44oN5LrPPb9EawJNgieYqoDXcvPfHJZO8sZpUf7ts09OrNkkHrU1TS2iJR90XQBbRPgjs/XJJmg8lMGRgLIhAQCGAt0C1H4gEIQOwgDgCwjbkMRYH608CADZN8lGGkADETqfzmaJoPv686qjLMCfHmBAEjBqam/i9+b7XPJBZvDuKH+wipE0u3jDPQTIiWCa4LEKi4ND9JbR3WFRP6Ui2xpMddojnnw309QOdBkAgEQGxiE2sKw42du+8beePF/+oHG0ZvBkwWwEz2Rv/LZmZsAbwBLVkLH5+Y7D1w9sB3A4AD6YrP9Rv3GlkpCLgEnMUyyJCgE0iccsgr6+AfW1N6KIhwlBF0C0IpgNEARkBUsuUe5HHD973um+hJVtgafPRLSLTc614ye2K1gC+BC0Z2CjAVoNi02eeGv7avadnq++2KWdscpJKgBmIlKwNYk91MKtSSI16K3Q+QjjCtubAbCHWEnImPDVDvhm/fGyPZ8RNYbq0Ett5sRV3ltL2fA3gS9CSF994QxjnUHrnx23WN8jSzE2tYzAcCDUPrCjATsDtCCIBnBGRBDR7EGy7kFICHOqyfXbBFS3/+O7amXeJbCeiI6t+h0/X/QQLQxuGLrk30hU1CJvIcg0W/se2pXIpEZ2EvATuWdxe31p+7b+3VL3WF+0iInexVFDIPQJ5cIgEH4Wi9D5mDEPkmwB3e7v1Hp0H/WCeUYBisJ88f3x7gYkjf796lxkeM2dh2zQo3WnT4bXWDaxObTXVFnxSt+AxY/CJMJ9deWZKA7cg+AjriaoBxFEkC0I2AJ5JmAjWiFCErdclNprAbAOYb0KIoh1O07yRT/7h51q3bxk9+rHfYoFh323cntrBq1mCRGLRAJ604QMB20kgVM6G/9RRWo1FI2DAGzIeSALgAhCFYAC0C6DVJqrXwZ02CTOQCFHZiuk31k/7+YX5cP3NgGDjsTyi8QgA0+0938yyZXVnKzUDrwE8eY1YwkRoln7lP6dS3cR5s6CKdyYT7l1NJoDyQMQdYP8cbKMJXi+QugBVA0osiRE2LgIHvWs9m79n1YPFUzIKS+NHv33qcBsmjB/Iw1nfh6ldjbC0ZsIawBM4+yVMhLnK5b9QktpN7LseLhope0JcABdzZObbBFOwtNtEMYLXJUBqAA4CFghzNCQGT3vX3JXfUNsd7pQROJrA8VzgyAgg3di+A8xXA5lWwJOz9QJPAllfXHGrhUlDzAvqrxvIXohvgsQLbCAUAbAGKBGwyoH39663ZcDeeKTtpzznU/n7ls2Ezx/htvsXa8NMgDTbu+8KbiB3rrakJiE6Cz5xrTeekr3jEwlqr2XfKZC0LEq7QdLuXUjLkKAbBQwQk2CFheQC0+AIJ4QZSed/GHZMPx1+cdlM+LzgRISv96ElwZip4jv7I3e+i1hUtQKejK03u/KyEgY+yqHlRYJDdVqEAogAWIEUgVAwJLWwGYBBisVPPIEpndnB3tf9F3a33I1vRj53D+AIxx++52xdbMPdrwauOw3gSdV6N8qTOLNWkYE/BcDCnpC2wGkLVgAxQogR0gkga9gR2NeQNrdFHFoAco53tjvxv1wUWotfmgh7YsMHHL6I+jzPfCPwfLl328YlMRbUDyUdVwB7C87d0rV/nsmK94TYzCkWiQwehPTNinERRDlxO4/GgowVxyXC4zO+3WzJXb7Mf/Sm+fnvHA4eetcbfEmDMQaY8SV0Kk4DeHytN7bKb/2VClbdgZgXMXojtm3cqmkAOYNaFDotRCHbsRF1xPum2/KVvQ3/1WtR37EYPHN4rPZKfB21BR9b6zXARqnjguHUDHwOLMxgwwiUlK3MFmV6pjNPjaLNJJxkJdnR7vL1VzQP3fv8/2Oid772Ff3VDhrAY5v1GsJ4aPW/43OOKmuitD0sucQhHoxzdN/M01Kw52oGOmtN0a7W/DvWPNp6TAC7FaCtvVarX+WgATz2WW9j8G3vrrjBX4ux68laK7Ej3bCHHmsfQEKBXj0EPm+Dz5AVN9J97cd+tBEpbUehr6COAY+z9Yp0Sm9a72rrt1ly/YBApGls5yl5tujIs6FNG1/lpbaSrXf+x3fva/zCNf8aARPQ7w15AboQfdStl8QOLv9iUsqGOAlBXMugeFxg2tYHT+cOM9VOi4IhpjwLN791B/LFI13DpwE8/iWXxvAVN6SVgauiLQokXSfhCbbW23nqPDFYKkLfqzzLoCTdxP/DLd/q3CFjMDQB/Q45DeDxjvsmw+zKi19Tri37FEz0cC2L+FRwWeGKzN9FrnP7wBpJzfoYUY4IafjYOMDYrsMcDeDxjfsIo8BDQNJfW3GrLSflmNatyM7osm4p2OKRH67Zs7ky5N5o1gcyyyTLKUz0b8nvkVFYrX46Cz7OYd+IpYmJkJ91xbirVC5AXIjCO6fzrMECmTkkc1edmdRKWJVfjHWEwGG60eh8QMZgoOM+DeBxt97JibBw5oUXu0rl92Hrgc2u2Oge/HpqZaCbFu9b+1jzUHNd5arklKQWB4Xz+XjdyjuxX5xWPw3gCWi9+59AX8Ut+18m8QbJDvJh9iONdvc7/eVsx7KHmwsCUGe9u0gGDYrcv7P6l/nf3XP8m0jVKz6AIyMOANpvuOhzMnKVyOWvkmKk+vF/ep/eAdx4d/8Hm7/Rfw0AyOjSuPi3ejmHb7R3Sd6F17/mGrniLRLf8urYuqLv/YcDJr1t7j81u10c9yl1XK3XAMD8xouXFVe+aT687TVz9cur/wYA7hl54SGLCGiLVj51ApCMjRm54IKkddW53/a/fO53p6/C2c9vt0q9dNVvsYUe2LT+2oUrN3z4uZas1U39DKvg31yNDOhd2VvHdernNBHRqqeUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZam/wco3+rHNixemAAAAABJRU5ErkJggg==";
 
 // Versión de la app: la actualiza scripts/bump-version.py antes de cada commit/subida
-const APP_VERSION = { numero: '1.7', fecha: '2026-11-14T13:03:31+01:00' };
+const APP_VERSION = { numero: '1.8', fecha: '2026-11-14T13:15:50+01:00' };
 function textoVersion(corto) {
   const d = new Date(APP_VERSION.fecha);
   const fechaHora = isNaN(d.getTime()) ? '' : d.toLocaleString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }).replace(',', '');
@@ -1033,10 +1035,17 @@ function ClienteQuickForm({ onCancel, onCreated }) {
   const [saving, setSaving] = useState(false);
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
   const esEspana = !form.pais || form.pais === 'España';
+  const nifRes = esEspana && !['ue', 'fuera_ue'].includes(form.tipoCliente) && form.nif.trim() ? validarNifEspanol(form.nif) : null;
+
+  function alCambiarCP(valor) {
+    const cp = esEspana ? valor.replace(/\D/g, '') : valor;
+    setForm((f) => ({ ...f, codigoPostal: cp, provincia: !f.provincia && esEspana && cp.length === 5 ? provinciaDeCP(cp) : f.provincia }));
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
     if (!form.nombrePila.trim()) { toast('El nombre es obligatorio', 'error'); return; }
+    if (nifRes && !nifRes.ok) { toast(`NIF/CIF no válido: ${nifRes.msg}`, 'error'); return; }
     setSaving(true);
     try {
       const nombre = [form.nombrePila, form.apellidos].map((x) => x.trim()).filter(Boolean).join(' ');
@@ -1065,14 +1074,14 @@ function ClienteQuickForm({ onCancel, onCreated }) {
             {Object.entries(CLIENTE_TIPOS).map(([k, label]) => <option key={k} value={k}>{label}</option>)}
           </Select>
         </Field>
-        <Field label="NIF / CIF" className="sm:col-span-3"><Input value={form.nif} onChange={(e) => setForm((f) => ({ ...f, nif: e.target.value.toUpperCase() }))} maxLength={15} className="uppercase" /></Field>
+        <Field label="NIF / CIF" hint={avisoNif(nifRes)} className="sm:col-span-3"><Input value={form.nif} onChange={(e) => setForm((f) => ({ ...f, nif: e.target.value.toUpperCase() }))} maxLength={15} className="uppercase" /></Field>
         {form.tipoCliente === 'ue' && (
           <Field label="NIF-IVA intracomunitario" className="sm:col-span-6">
             <Input value={form.nifIntracomunitario} onChange={(e) => setForm((f) => ({ ...f, nifIntracomunitario: e.target.value.toUpperCase() }))} maxLength={20} className="uppercase" />
           </Field>
         )}
         <Field label="Dirección fiscal" className="sm:col-span-6"><Input value={form.direccion} onChange={set('direccion')} /></Field>
-        <Field label="Código postal" className="sm:col-span-2"><Input value={form.codigoPostal} onChange={(e) => setForm((f) => ({ ...f, codigoPostal: esEspana ? e.target.value.replace(/\D/g, '') : e.target.value }))} maxLength={esEspana ? 5 : 10} inputMode={esEspana ? 'numeric' : 'text'} /></Field>
+        <Field label="Código postal" className="sm:col-span-2"><Input value={form.codigoPostal} onChange={(e) => alCambiarCP(e.target.value)} maxLength={esEspana ? 5 : 10} inputMode={esEspana ? 'numeric' : 'text'} /></Field>
         <Field label="Población" className="sm:col-span-4"><Input value={form.poblacion} onChange={set('poblacion')} /></Field>
         <Field label="Provincia" className="sm:col-span-3">
           {esEspana ? (
@@ -2836,6 +2845,68 @@ const PAISES_SUGERIDOS = ['España', ...PAISES_UE, 'Reino Unido', 'Suiza', 'Noru
 const SERVICIOS_INTERES = ['Diseño web', 'Tienda online', 'SEO / posicionamiento', 'Mantenimiento y hosting', 'Dominio y correo', 'Diseño gráfico / branding', 'Marketing digital y redes', 'Otro'];
 const ORIGENES_LEAD = ['Recomendación', 'Búsqueda en Google', 'Redes sociales', 'Directorio o web', 'Cliente anterior', 'Publicidad', 'Evento o networking', 'Otro'];
 
+const PROVINCIA_POR_PREFIJO_CP = {
+  '01': 'Álava', '02': 'Albacete', '03': 'Alicante', '04': 'Almería', '05': 'Ávila', '06': 'Badajoz', '07': 'Baleares', '08': 'Barcelona', '09': 'Burgos', '10': 'Cáceres',
+  '11': 'Cádiz', '12': 'Castellón', '13': 'Ciudad Real', '14': 'Córdoba', '15': 'A Coruña', '16': 'Cuenca', '17': 'Girona', '18': 'Granada', '19': 'Guadalajara', '20': 'Gipuzkoa',
+  '21': 'Huelva', '22': 'Huesca', '23': 'Jaén', '24': 'León', '25': 'Lleida', '26': 'La Rioja', '27': 'Lugo', '28': 'Madrid', '29': 'Málaga', '30': 'Murcia',
+  '31': 'Navarra', '32': 'Ourense', '33': 'Asturias', '34': 'Palencia', '35': 'Las Palmas', '36': 'Pontevedra', '37': 'Salamanca', '38': 'Santa Cruz de Tenerife', '39': 'Cantabria', '40': 'Segovia',
+  '41': 'Sevilla', '42': 'Soria', '43': 'Tarragona', '44': 'Teruel', '45': 'Toledo', '46': 'Valencia', '47': 'Valladolid', '48': 'Bizkaia', '49': 'Zamora', '50': 'Zaragoza',
+  '51': 'Ceuta', '52': 'Melilla',
+};
+const provinciaDeCP = (cp) => PROVINCIA_POR_PREFIJO_CP[String(cp || '').slice(0, 2)] || '';
+
+// Validación de NIF español: DNI, NIE y CIF (comprueba la letra o dígito de control). Devuelve { ok, tipo } o { ok: false, msg }.
+function validarNifEspanol(valor) {
+  const nif = String(valor || '').toUpperCase().replace(/[\s.-]/g, '');
+  const LETRAS = 'TRWAGMYFPDXBNJZSQVHLCKE';
+  if (/^\d{8}[A-Z]$/.test(nif)) {
+    return LETRAS[parseInt(nif.slice(0, 8), 10) % 23] === nif[8] ? { ok: true, tipo: 'DNI' } : { ok: false, msg: 'La letra del DNI no coincide' };
+  }
+  if (/^[XYZ]\d{7}[A-Z]$/.test(nif)) {
+    const n = parseInt('XYZ'.indexOf(nif[0]) + nif.slice(1, 8), 10);
+    return LETRAS[n % 23] === nif[8] ? { ok: true, tipo: 'NIE' } : { ok: false, msg: 'La letra del NIE no coincide' };
+  }
+  if (/^[ABCDEFGHJKLMNPQRSUVW]\d{7}[0-9A-J]$/.test(nif)) {
+    let suma = 0;
+    for (let i = 0; i < 7; i++) {
+      const d = parseInt(nif[i + 1], 10);
+      if (i % 2 === 0) { const x = d * 2; suma += Math.floor(x / 10) + (x % 10); } else suma += d;
+    }
+    const control = (10 - (suma % 10)) % 10;
+    const letra = 'JABCDEFGHI'[control];
+    const ultimo = nif[8];
+    const exigeLetra = 'PQRSNWKLM'.includes(nif[0]);
+    const exigeNumero = 'ABEH'.includes(nif[0]);
+    const valido = exigeLetra ? ultimo === letra : exigeNumero ? ultimo === String(control) : (ultimo === letra || ultimo === String(control));
+    return valido ? { ok: true, tipo: 'CIF' } : { ok: false, msg: 'El dígito de control del CIF no coincide' };
+  }
+  return { ok: false, msg: 'Formato no válido (DNI 12345678Z, NIE X1234567L o CIF B12345678)' };
+}
+function validarNifIva(valor) {
+  const v = String(valor || '').toUpperCase().replace(/[\s.-]/g, '');
+  return /^[A-Z]{2}[A-Z0-9]{2,13}$/.test(v) ? { ok: true } : { ok: false, msg: 'Formato: código de país + número (por ejemplo DE123456789)' };
+}
+// Mensaje bajo el campo: ✓ válido o motivo del error
+const avisoNif = (res) => (res ? (res.ok ? <span className="text-emerald-600">✓ {res.tipo ? `${res.tipo} válido` : 'Formato correcto'}</span> : <span className="text-rose-600">{res.msg}</span>) : undefined);
+
+// Autocompletado "aprendido" de los propios clientes: CP → población y provincia más usadas, y listas de sugerencias
+function construirAprendizajeClientes(clientes) {
+  const porCP = {}; const poblaciones = new Set(); const etiquetas = new Set();
+  (clientes || []).forEach((c) => {
+    if (c.poblacion) poblaciones.add(c.poblacion);
+    (c.etiquetas || []).forEach((t) => etiquetas.add(t));
+    if (c.codigoPostal && c.poblacion) {
+      const g = porCP[c.codigoPostal] = porCP[c.codigoPostal] || { pob: {}, prov: {} };
+      g.pob[c.poblacion] = (g.pob[c.poblacion] || 0) + 1;
+      if (c.provincia) g.prov[c.provincia] = (g.prov[c.provincia] || 0) + 1;
+    }
+  });
+  const masFrecuente = (o) => Object.entries(o).sort((a, b) => b[1] - a[1])[0];
+  const cpMap = {};
+  Object.entries(porCP).forEach(([cp, g]) => { cpMap[cp] = { poblacion: (masFrecuente(g.pob) || [''])[0], provincia: (masFrecuente(g.prov) || [''])[0] }; });
+  return { cpMap, poblaciones: Array.from(poblaciones).sort(), etiquetas: Array.from(etiquetas).sort() };
+}
+
 const CLIENTE_EMPTY = {
   nombre: '', nombrePila: '', apellidos: '', cargo: '', personaContacto: '', telefono: '', telefono2: '',
   email: '', email2: '', emailFacturacion: '', empresa: '', nif: '', nifIntracomunitario: '', tipoCliente: '',
@@ -2869,7 +2940,7 @@ function SeccionForm({ icono: Ic, titulo, children, primera }) {
   );
 }
 
-function TagInput({ value, onChange, placeholder }) {
+function TagInput({ value, onChange, placeholder, sugerencias }) {
   const [texto, setTexto] = useState('');
   const tags = value || [];
   function agregar(t) {
@@ -2892,7 +2963,9 @@ function TagInput({ value, onChange, placeholder }) {
           else if (e.key === 'Backspace' && !texto && tags.length) onChange(tags.slice(0, -1));
         }}
         onBlur={() => { if (texto.trim()) agregar(texto); }}
+        list={sugerencias ? 'lista-etiquetas' : undefined}
         className="flex-1 min-w-[6rem] bg-transparent outline-none text-sm py-0.5" />
+      {sugerencias && <datalist id="lista-etiquetas">{sugerencias.filter((t) => !tags.includes(t)).map((t) => <option key={t} value={t} />)}</datalist>}
     </div>
   );
 }
@@ -2914,8 +2987,32 @@ function ClienteForm({ initial, onCancel, onSaved, onVerHistorial, onVista }) {
   const [form, setForm] = useState(() => clienteAFormulario(initial));
   const [saving, setSaving] = useState(false);
   const [historialReciente, setHistorialReciente] = useState([]);
+  const [apren, setApren] = useState({ cpMap: {}, poblaciones: [], etiquetas: [] });
+  const [autoMsg, setAutoMsg] = useState('');
+  const autoRef = useRef({ poblacion: '', provincia: '' });
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
   const setMayus = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value.toUpperCase() }));
+
+  useEffect(() => { api.list('Cliente').then((cs) => setApren(construirAprendizajeClientes(cs))).catch(() => {}); }, []);
+
+  // Al completar el código postal rellena provincia (por el prefijo) y población (de tus clientes con ese CP),
+  // solo si el campo está vacío o contiene un valor puesto antes automáticamente.
+  function alCambiarCP(valor) {
+    const cp = esEspana ? valor.replace(/\D/g, '') : valor;
+    const nf = { ...form, codigoPostal: cp };
+    const rellenados = [];
+    if (esEspana && cp.length === 5) {
+      const propio = apren.cpMap[cp];
+      const prov = (propio && propio.provincia) || provinciaDeCP(cp);
+      const pob = (propio && propio.poblacion) || '';
+      const libre = (campo) => !form[campo] || form[campo] === autoRef.current[campo];
+      if (prov && libre('provincia') && form.provincia !== prov) { nf.provincia = prov; autoRef.current.provincia = prov; rellenados.push('provincia'); }
+      if (pob && libre('poblacion') && form.poblacion !== pob) { nf.poblacion = pob; autoRef.current.poblacion = pob; rellenados.push('población'); }
+      else if (!pob && form.poblacion && form.poblacion === autoRef.current.poblacion) { nf.poblacion = ''; autoRef.current.poblacion = ''; }
+    }
+    setAutoMsg(rellenados.length ? `Rellenado automáticamente: ${rellenados.join(' y ')}` : '');
+    setForm(nf);
+  }
 
   const nombreCompleto = [form.nombrePila, form.apellidos].map((x) => (x || '').trim()).filter(Boolean).join(' ');
   const esUE = form.tipoCliente === 'ue';
@@ -2923,6 +3020,9 @@ function ClienteForm({ initial, onCancel, onSaved, onVerHistorial, onVista }) {
   const exigeEmpresa = ['empresa', 'ue', 'fuera_ue'].includes(form.tipoCliente);
   const fiscal = form.estado !== 'potencial';
   const paisUEnoEspana = PAISES_UE.includes(form.pais) && form.tipoCliente && !esUE;
+  const validaNifES = esEspana && !['ue', 'fuera_ue'].includes(form.tipoCliente);
+  const nifRes = validaNifES && (form.nif || '').trim() ? validarNifEspanol(form.nif) : null;
+  const nifIvaRes = esUE && (form.nifIntracomunitario || '').trim() ? validarNifIva(form.nifIntracomunitario) : null;
 
   useEffect(() => {
     if (onVista) onVista({ nombre: nombreCompleto, empresa: (form.empresa || '').trim(), tipo: form.tipoCliente });
@@ -2958,6 +3058,9 @@ function ClienteForm({ initial, onCancel, onSaved, onVerHistorial, onVista }) {
       }
     } else if (esUE && vacio('nifIntracomunitario')) faltan.push('NIF-IVA intracomunitario');
     if (faltan.length) { toast(`Falta rellenar: ${faltan.join(', ')}`, 'error'); return; }
+    const nifCambiado = esNuevo || (form.nif || '').trim() !== ((initial && initial.nif) || '').trim();
+    if (nifRes && !nifRes.ok && nifCambiado) { toast(`NIF/CIF no válido: ${nifRes.msg}`, 'error'); return; }
+    if (nifIvaRes && !nifIvaRes.ok) { toast(`NIF-IVA no válido: ${nifIvaRes.msg}`, 'error'); return; }
 
     const nulo = (v) => ((v || '').toString().trim() || null);
     const datos = {
@@ -3006,9 +3109,9 @@ function ClienteForm({ initial, onCancel, onSaved, onVerHistorial, onVista }) {
           <Field label="Empresa / Razón social" required={esNuevo && fiscal && exigeEmpresa} className={classNames('sm:col-span-6', esUE ? 'lg:col-span-6' : 'lg:col-span-9')}>
             <InputCopy value={form.empresa || ''} onChange={set('empresa')} copyLabel="empresa" placeholder={form.tipoCliente === 'particular' ? 'No aplica a particulares' : ''} />
           </Field>
-          <Field label="NIF / CIF" required={esNuevo && fiscal} className="sm:col-span-3 lg:col-span-3"><InputCopy value={form.nif || ''} onChange={setMayus('nif')} copyLabel="NIF" maxLength={15} className="uppercase" /></Field>
+          <Field label="NIF / CIF" required={esNuevo && fiscal} hint={avisoNif(nifRes)} className="sm:col-span-3 lg:col-span-3"><InputCopy value={form.nif || ''} onChange={setMayus('nif')} copyLabel="NIF" maxLength={15} className="uppercase" /></Field>
           {esUE && (
-            <Field label="NIF-IVA intracomunitario" required className="sm:col-span-3 lg:col-span-3"><InputCopy value={form.nifIntracomunitario || ''} onChange={setMayus('nifIntracomunitario')} copyLabel="NIF-IVA" maxLength={20} className="uppercase" placeholder="ES12345678A" /></Field>
+            <Field label="NIF-IVA intracomunitario" required hint={avisoNif(nifIvaRes)} className="sm:col-span-3 lg:col-span-3"><InputCopy value={form.nifIntracomunitario || ''} onChange={setMayus('nifIntracomunitario')} copyLabel="NIF-IVA" maxLength={20} className="uppercase" placeholder="ES12345678A" /></Field>
           )}
           <Field label="Tipo de cliente" required hint={CLIENTE_TIPO_AYUDA[form.tipoCliente]} className="sm:col-span-3 lg:col-span-4">
             <Select value={form.tipoCliente || ''} onChange={set('tipoCliente')}>
@@ -3029,9 +3132,12 @@ function ClienteForm({ initial, onCancel, onSaved, onVerHistorial, onVista }) {
           )}
           <Field label="Dirección fiscal" required={esNuevo && fiscal} className="sm:col-span-6 lg:col-span-12"><InputCopy value={form.direccion || ''} onChange={set('direccion')} copyLabel="dirección" autoComplete="street-address" /></Field>
           <Field label="Código postal" required={esNuevo && fiscal} className="sm:col-span-2 lg:col-span-2">
-            <InputCopy value={form.codigoPostal || ''} onChange={(e) => setForm((f) => ({ ...f, codigoPostal: esEspana ? e.target.value.replace(/\D/g, '') : e.target.value }))} copyLabel="código postal" maxLength={esEspana ? 5 : 10} inputMode={esEspana ? 'numeric' : 'text'} />
+            <InputCopy value={form.codigoPostal || ''} onChange={(e) => alCambiarCP(e.target.value)} copyLabel="código postal" maxLength={esEspana ? 5 : 10} inputMode={esEspana ? 'numeric' : 'text'} />
           </Field>
-          <Field label="Población" required={esNuevo && fiscal} className="sm:col-span-4 lg:col-span-4"><InputCopy value={form.poblacion || ''} onChange={set('poblacion')} copyLabel="población" /></Field>
+          <Field label="Población" required={esNuevo && fiscal} hint={autoMsg || undefined} className="sm:col-span-4 lg:col-span-4">
+            <InputCopy value={form.poblacion || ''} onChange={set('poblacion')} copyLabel="población" list="lista-poblaciones" autoComplete="off" />
+            <datalist id="lista-poblaciones">{apren.poblaciones.map((pb) => <option key={pb} value={pb} />)}</datalist>
+          </Field>
           <Field label="Provincia" required={esNuevo && fiscal} className="sm:col-span-3 lg:col-span-3">
             {esEspana ? (
               <Select value={form.provincia || ''} onChange={set('provincia')}>
@@ -3062,7 +3168,7 @@ function ClienteForm({ initial, onCancel, onSaved, onVerHistorial, onVista }) {
             </Select>
           </Field>
           <Field label="Etiquetas" hint="Escribe y pulsa Enter o coma para añadir" className="sm:col-span-6 lg:col-span-5">
-            <TagInput value={form.etiquetas} onChange={(etiquetas) => setForm((f) => ({ ...f, etiquetas }))} placeholder="Web, SEO, hosting…" />
+            <TagInput value={form.etiquetas} onChange={(etiquetas) => setForm((f) => ({ ...f, etiquetas }))} placeholder="Web, SEO, hosting…" sugerencias={apren.etiquetas} />
           </Field>
           <Field label="Notas" className="sm:col-span-6 lg:col-span-12"><Textarea rows={2} value={form.notas || ''} onChange={set('notas')} /></Field>
         </SeccionForm>
@@ -7533,6 +7639,8 @@ function Ajustes() {
     e.preventDefault();
     if (!(form.nombreFiscal || '').trim()) { toast('El nombre fiscal es obligatorio', 'error'); return; }
     if (!(form.nif || '').trim()) { toast('El NIF es obligatorio', 'error'); return; }
+    const nifEmpresa = validarNifEspanol(form.nif);
+    if (!nifEmpresa.ok) { toast(`Tu NIF no es válido: ${nifEmpresa.msg}`, 'error'); return; }
     if (!(form.direccion || '').trim()) { toast('La dirección es obligatoria', 'error'); return; }
     setSaving(true);
     try {
@@ -7570,7 +7678,7 @@ function Ajustes() {
           <Field label="Nombre comercial" className="sm:col-span-2" hint="Se muestra como marca en la factura.">
             <Input value={form.nombreComercial || ''} onChange={set('nombreComercial')} />
           </Field>
-          <Field label="NIF / CIF" required hint="Formato UE: ES12345678A">
+          <Field label="NIF / CIF" required hint={avisoNif((form.nif || '').trim() ? validarNifEspanol(form.nif) : null) || 'Tu NIF: se valida la letra de control'}>
             <Input value={form.nif || ''} onChange={(e) => setForm((f) => ({ ...f, nif: e.target.value.toUpperCase() }))} maxLength={15} className="uppercase" required />
           </Field>
           <Field label="Sitio web"><Input value={form.sitioWeb || ''} onChange={set('sitioWeb')} placeholder="https://" /></Field>
