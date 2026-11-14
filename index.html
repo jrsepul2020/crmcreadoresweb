@@ -124,7 +124,7 @@ const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_
 const LOGO_DATA_URI = "data:image/png;base64,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";
 
 // Versión de la app: la actualiza scripts/bump-version.py antes de cada commit/subida
-const APP_VERSION = { numero: '1.5', fecha: '2026-11-14T11:00:12+01:00' };
+const APP_VERSION = { numero: '1.6', fecha: '2026-11-14T12:31:22+01:00' };
 function textoVersion(corto) {
   const d = new Date(APP_VERSION.fecha);
   const fechaHora = isNaN(d.getTime()) ? '' : d.toLocaleString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }).replace(',', '');
@@ -875,6 +875,80 @@ function Textarea(props) { return <textarea {...props} className={classNames(inp
 function Select({ children, ...props }) {
   return <select {...props} className={classNames(inputCls, 'pr-8', props.className)}>{children}</select>;
 }
+// Celda editable en el propio listado: al pulsar sobre el valor se convierte en campo de edición.
+// Enter o salir del campo guarda; Esc cancela. Los campos de tipo lista guardan al elegir una opción.
+function EditableCell({ value, onSave, type = 'text', options, display, placeholder = '—', required, validate, maxLength, step, className }) {
+  const toast = useToast();
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState('');
+  const [saving, setSaving] = useState(false);
+  const stop = (e) => e.stopPropagation();
+
+  function start(e) { e.stopPropagation(); setDraft(value ?? ''); setEditing(true); }
+
+  async function commit(nuevo) {
+    const limpio = typeof nuevo === 'string' ? nuevo.trim() : nuevo;
+    if (limpio === (value ?? '')) { setEditing(false); return; }
+    if (required && !limpio) { toast('Este campo no puede quedar vacío', 'error'); setEditing(false); return; }
+    const problema = validate && limpio ? validate(limpio) : '';
+    if (problema) { toast(problema, 'error'); setEditing(false); return; }
+    setSaving(true);
+    try { await onSave(limpio); }
+    catch (err) { toast(err.message || 'No se pudo guardar', 'error'); }
+    finally { setSaving(false); setEditing(false); }
+  }
+
+  if (editing) {
+    const comun = 'rounded-md border border-brand-300 bg-white px-1.5 py-0.5 text-sm text-ink-800 focus:outline-none focus:ring-2 focus:ring-brand-500/40 max-w-full';
+    if (options) {
+      return (
+        <select autoFocus value={draft} disabled={saving} onClick={stop} className={comun}
+          onChange={(e) => { setDraft(e.target.value); commit(e.target.value); }} onBlur={() => setEditing(false)}
+          onKeyDown={(e) => { if (e.key === 'Escape') setEditing(false); }}>
+          {options.map(([k, label]) => <option key={k} value={k}>{label}</option>)}
+        </select>
+      );
+    }
+    return (
+      <input autoFocus type={type} step={step} value={draft} disabled={saving} maxLength={maxLength} onClick={stop} className={classNames(comun, type === 'date' ? 'w-36' : 'w-full min-w-[8rem]')}
+        onChange={(e) => setDraft(e.target.value)} onBlur={() => commit(draft)}
+        onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); commit(draft); } if (e.key === 'Escape') setEditing(false); }} />
+    );
+  }
+
+  return (
+    <button type="button" onClick={start} title="Pulsa para editar"
+      className={classNames('text-left rounded px-1 -mx-1 cursor-text hover:bg-slate-100 hover:ring-1 hover:ring-slate-200 transition', className)}>
+      {display !== undefined ? display : (value ? value : <span className="text-slate-300">{placeholder}</span>)}
+    </button>
+  );
+}
+
+const validarImporte = (v) => (Number.isFinite(Number(v)) && Number(v) >= 0 ? '' : 'Introduce un importe válido');
+const opcionesCategoria = (categorias, actual) => {
+  const nombres = categorias.map((c) => c.nombre);
+  if (actual && !nombres.includes(actual)) nombres.push(actual);
+  return [['', 'Sin categoría'], ...nombres.map((n) => [n, n])];
+};
+
+// Celda de cliente editable en el propio listado (empresa/nombre) con acceso a la ficha completa
+function ClienteCeldaEditable({ cliente, onUpdated, onSaved, vacio, claseNombre, claseSub }) {
+  if (!cliente) return vacio || <span className="text-slate-400">—</span>;
+  async function guardar(campo, v) {
+    const actualizado = await api.update('Cliente', cliente.id, { [campo]: v });
+    onUpdated(actualizado);
+  }
+  return (
+    <>
+      <div className="flex items-center gap-1">
+        <EditableCell value={cliente.empresa || cliente.nombre || ''} required className={claseNombre} onSave={(v) => guardar(cliente.empresa ? 'empresa' : 'nombre', v)} />
+        <EditarClienteBtn cliente={cliente} onSaved={onSaved} />
+      </div>
+      {cliente.empresa && <EditableCell value={cliente.nombre || ''} required className={claseSub || 'text-xs text-slate-400'} onSave={(v) => guardar('nombre', v)} />}
+    </>
+  );
+}
+
 function Switch({ checked, onChange, label }) {
   return (
     <label className="flex items-center gap-3 cursor-pointer select-none">
@@ -1652,7 +1726,7 @@ const NAV_ITEMS = [
   { key: 'productos', label: 'Productos y servicios', icon: Icons.Box },
   { key: 'proveedores', label: 'Proveedores', icon: Icons.Truck },
   { key: 'gastos', label: 'Gastos', icon: Icons.Wallet },
-  { key: 'facturasproveedor', label: 'Facturas proveedores', icon: Icons.FileText },
+  { key: 'archivofacturas', label: 'Archivo de facturas', icon: Icons.FileText },
   { key: 'contabilidad', label: 'Contabilidad', icon: Icons.BarChart },
   { key: 'resumen', label: 'Resumen trimestral', icon: Icons.Euro },
   { key: 'ajustes', label: 'Ajustes', icon: Icons.Settings },
@@ -3235,6 +3309,18 @@ function Clientes() {
   const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE_CLIENTES));
   const paged = sorted.slice((page - 1) * PAGE_SIZE_CLIENTES, page * PAGE_SIZE_CLIENTES);
 
+  // Guarda un solo campo de un cliente desde el listado y actualiza la fila sin recargar toda la lista
+  async function guardarCampo(c, campo, valor) {
+    const cambios = { [campo]: valor };
+    if (campo === 'tipoCliente') {
+      cambios.tipoCliente = valor || null;
+      if (valor !== 'ue') cambios.nifIntracomunitario = null;
+      else if (!c.nifIntracomunitario) toast('Tipo guardado. Completa el NIF-IVA intracomunitario en la ficha del cliente', 'info');
+    }
+    const actualizado = await api.update('Cliente', c.id, cambios);
+    setClientes((cs) => cs.map((x) => (x.id === c.id ? { ...x, ...actualizado } : x)));
+  }
+
   async function handleDelete() {
     try {
       await api.remove('Cliente', toDelete.id);
@@ -3291,25 +3377,37 @@ function Clientes() {
                       <Avatar name={c.nombre} />
                       <div className="min-w-0">
                         <div className="flex items-center gap-1">
-                          <p className="font-medium text-ink-800 truncate">{c.empresa || c.nombre || '—'}</p>
+                          <EditableCell value={c.empresa || c.nombre || ''} required className="font-medium text-ink-800 truncate"
+                            onSave={(v) => guardarCampo(c, c.empresa ? 'empresa' : 'nombre', v)} />
                           <CopyIconButton text={c.nombre} label="nombre" />
                         </div>
-                        {c.empresa && <p className="text-xs text-slate-400 truncate">{c.nombre}</p>}
+                        {c.empresa && <EditableCell value={c.nombre || ''} required className="text-xs text-slate-400 truncate" onSave={(v) => guardarCampo(c, 'nombre', v)} />}
                       </div>
                     </div>
                   </Td>
                   <Td onClick={(e) => e.stopPropagation()}>
-                    <div className="text-xs"><EmailLink email={c.email} /></div>
-                    <div className="text-xs mt-0.5"><PhoneLink phone={c.telefono} /></div>
+                    <div className="flex items-center gap-1 text-xs">
+                      <EditableCell value={c.email || ''} type="email" placeholder="Añadir email" onSave={(v) => guardarCampo(c, 'email', v)}
+                        validate={(v) => (/^\S+@\S+\.\S+$/.test(v) ? '' : 'El email no es válido')} />
+                      {c.email && <a href={mailtoLink(c.email)} title="Escribir un email" className="text-slate-300 hover:text-brand-600"><Icons.Mail className="w-3.5 h-3.5" /></a>}
+                    </div>
+                    <div className="flex items-center gap-1 text-xs mt-0.5">
+                      <EditableCell value={c.telefono || ''} type="tel" maxLength={12} placeholder="Añadir teléfono" onSave={(v) => guardarCampo(c, 'telefono', v)} />
+                      {c.telefono && <a href={telLink(c.telefono)} title="Llamar" className="text-slate-300 hover:text-brand-600"><Icons.Phone className="w-3.5 h-3.5" /></a>}
+                    </div>
                   </Td>
-                  <Td>
-                    <span className={classNames('inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ring-1 ring-inset',
-                      c.tipoCliente ? 'bg-slate-100 text-slate-600 ring-slate-500/20' : 'bg-rose-50 text-rose-700 ring-rose-600/20')}>
-                      {c.tipoCliente ? (CLIENTE_TIPOS[c.tipoCliente] || c.tipoCliente) : 'Falta tipo'}
-                    </span>
+                  <Td onClick={(e) => e.stopPropagation()}>
+                    <EditableCell value={c.tipoCliente || ''} options={[['', 'Sin tipo'], ...Object.entries(CLIENTE_TIPOS)]} onSave={(v) => guardarCampo(c, 'tipoCliente', v)}
+                      display={<span className={classNames('inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ring-1 ring-inset',
+                        c.tipoCliente ? 'bg-slate-100 text-slate-600 ring-slate-500/20' : 'bg-rose-50 text-rose-700 ring-rose-600/20')}>
+                        {c.tipoCliente ? (CLIENTE_TIPOS[c.tipoCliente] || c.tipoCliente) : 'Falta tipo'}
+                      </span>} />
                   </Td>
-                  <Td>{c.poblacion || '—'}</Td>
-                  <Td><EstadoBadge estado={c.estado} /></Td>
+                  <Td onClick={(e) => e.stopPropagation()}><EditableCell value={c.poblacion || ''} onSave={(v) => guardarCampo(c, 'poblacion', v)} /></Td>
+                  <Td onClick={(e) => e.stopPropagation()}>
+                    <EditableCell value={c.estado || 'activo'} options={[['activo', 'Activo'], ['potencial', 'Potencial'], ['inactivo', 'Inactivo']]} onSave={(v) => guardarCampo(c, 'estado', v)}
+                      display={<EstadoBadge estado={c.estado} />} />
+                  </Td>
                   <Td className="text-right" onClick={(e) => e.stopPropagation()}>
                     <div className="flex justify-end gap-1">
                       <button className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500" onClick={() => setModal({ mode: 'edit', cliente: c })}><Icons.Edit className="w-4 h-4" /></button>
@@ -3440,6 +3538,11 @@ function Proveedores() {
     estado: (p) => p.estado,
   });
 
+  async function guardarProveedor(p, cambios) {
+    const actualizado = await api.update('Proveedor', p.id, cambios);
+    setItems((prev) => prev.map((x) => (x.id === p.id ? { ...x, ...actualizado } : x)));
+  }
+
   async function handleDelete() {
     try { await api.remove('Proveedor', toDelete.id); toast('Proveedor eliminado'); setToDelete(null); load(); }
     catch (err) { toast('No se puede eliminar: tiene productos asociados', 'error'); setToDelete(null); }
@@ -3473,10 +3576,15 @@ function Proveedores() {
             <tbody className="divide-y divide-slate-200">
               {sorted.map((p) => (
                 <tr key={p.id} className="hover:bg-slate-50/60">
-                  <Td><div className="flex items-center gap-3"><Avatar name={p.nombre} /><span className="font-medium text-ink-800">{p.nombre}</span></div></Td>
-                  <Td>{p.categoria || '—'}</Td>
-                  <Td>{p.sitioWeb ? <WebLink url={p.sitioWeb} className="text-xs" /> : <span className="text-slate-400">—</span>}</Td>
-                  <Td><EstadoBadge estado={p.estado} /></Td>
+                  <Td><div className="flex items-center gap-3"><Avatar name={p.nombre} /><EditableCell value={p.nombre || ''} required className="font-medium text-ink-800" onSave={(v) => guardarProveedor(p, { nombre: v })} /></div></Td>
+                  <Td><EditableCell value={p.categoria || ''} options={opcionesCategoria(categorias, p.categoria)} display={p.categoria || '—'} onSave={(v) => guardarProveedor(p, { categoria: v })} /></Td>
+                  <Td>
+                    <div className="flex items-center gap-1 text-xs">
+                      <EditableCell value={p.sitioWeb || ''} placeholder="Añadir web" className="text-brand-600 break-all" onSave={(v) => guardarProveedor(p, { sitioWeb: v })} />
+                      {p.sitioWeb && <a href={normalizeUrl(p.sitioWeb)} target="_blank" rel="noopener noreferrer" title="Abrir web" className="text-slate-300 hover:text-brand-600 shrink-0"><Icons.Globe className="w-3.5 h-3.5" /></a>}
+                    </div>
+                  </Td>
+                  <Td><EditableCell value={p.estado || 'activo'} options={[['activo', 'Activo'], ['inactivo', 'Inactivo']]} display={<EstadoBadge estado={p.estado} />} onSave={(v) => guardarProveedor(p, { estado: v })} /></Td>
                   <Td className="text-right">
                     <div className="flex justify-end gap-1">
                       <button className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500" onClick={() => setModal({ mode: 'edit', item: p })}><Icons.Edit className="w-4 h-4" /></button>
@@ -3620,6 +3728,11 @@ function Productos() {
   const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE_PRODUCTOS));
   const paged = sorted.slice((page - 1) * PAGE_SIZE_PRODUCTOS, page * PAGE_SIZE_PRODUCTOS);
 
+  async function guardarProducto(p, cambios) {
+    const actualizado = await api.update('Producto', p.id, cambios);
+    setItems((prev) => prev.map((x) => (x.id === p.id ? { ...x, ...actualizado } : x)));
+  }
+
   async function handleDuplicar(p) {
     try {
       const { id, createdAt, ...rest } = p;
@@ -3664,12 +3777,15 @@ function Productos() {
             <tbody className="divide-y divide-slate-200">
               {paged.map((p) => (
                 <tr key={p.id} className="hover:bg-slate-50/60">
-                  <Td><p className="font-medium text-ink-800">{p.nombre}</p><p className="text-xs text-slate-400 capitalize">{p.tipo}</p></Td>
-                  <Td>{p.categoria || '—'}</Td>
-                  <Td>{(provById[p.proveedorId] || {}).nombre || '—'}</Td>
-                  <Td className="text-right">{formatCurrency(p.precio)}</Td>
-                  <Td className="text-right font-medium">{formatCurrency(priceWithIVA(p.precio, p.iva))} <span className="text-slate-400 font-normal">({p.iva}%)</span></Td>
-                  <Td>{p.activo ? <EstadoBadge estado="activo" /> : <EstadoBadge estado="inactivo" />}</Td>
+                  <Td>
+                    <EditableCell value={p.nombre || ''} required className="font-medium text-ink-800" onSave={(v) => guardarProducto(p, { nombre: v })} />
+                    <div><EditableCell value={p.tipo || 'servicio'} options={[['servicio', 'Servicio'], ['producto', 'Producto']]} className="text-xs text-slate-400 capitalize" onSave={(v) => guardarProducto(p, { tipo: v })} /></div>
+                  </Td>
+                  <Td><EditableCell value={p.categoria || ''} options={opcionesCategoria(categorias, p.categoria)} display={p.categoria || '—'} onSave={(v) => guardarProducto(p, { categoria: v })} /></Td>
+                  <Td><EditableCell value={p.proveedorId || ''} options={[['', 'Sin proveedor'], ...proveedores.map((x) => [x.id, x.nombre])]} display={(provById[p.proveedorId] || {}).nombre || '—'} onSave={(v) => guardarProducto(p, { proveedorId: v || null })} /></Td>
+                  <Td className="text-right"><EditableCell type="number" step="0.01" value={String(p.precio ?? '')} validate={validarImporte} display={formatCurrency(p.precio)} onSave={(v) => guardarProducto(p, { precio: Number(v) })} /></Td>
+                  <Td className="text-right font-medium">{formatCurrency(priceWithIVA(p.precio, p.iva))} <EditableCell type="number" step="1" value={String(p.iva ?? 21)} validate={validarImporte} display={<span className="text-slate-400 font-normal">({p.iva}%)</span>} onSave={(v) => guardarProducto(p, { iva: Number(v) })} /></Td>
+                  <Td><EditableCell value={p.activo ? '1' : '0'} options={[['1', 'Activo'], ['0', 'Inactivo']]} display={<EstadoBadge estado={p.activo ? 'activo' : 'inactivo'} />} onSave={(v) => guardarProducto(p, { activo: v === '1' })} /></Td>
                   <Td className="text-right">
                     <div className="flex justify-end gap-1">
                       <button className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500" title="Duplicar" onClick={() => handleDuplicar(p)}><Icons.Copy className="w-4 h-4" /></button>
@@ -4576,6 +4692,15 @@ function Presupuestos({ prefill, onConsumePrefill, navigate }) {
     } catch (err) { toast('No se pudo eliminar', 'error'); setToDelete(null); }
   }
 
+  async function guardarFechaPresupuesto(p, valor) {
+    const actualizado = await api.update('Presupuesto', p.id, { fechaEmision: valor });
+    setItems((prev) => prev.map((x) => (x.id === p.id ? { ...x, ...actualizado } : x)));
+  }
+  async function guardarClientePresupuesto(c, campo, valor) {
+    const actualizado = await api.update('Cliente', c.id, { [campo]: valor });
+    setClientes((cs) => cs.map((x) => (x.id === c.id ? { ...x, ...actualizado } : x)));
+  }
+
   async function cambiarEstado(p, nuevoEstado) {
     setItems((prev) => prev.map((x) => (x.id === p.id ? { ...x, estado: nuevoEstado } : x)));
     try {
@@ -4626,10 +4751,23 @@ function Presupuestos({ prefill, onConsumePrefill, navigate }) {
             <tbody className="divide-y divide-slate-200">
               {sorted.map((p) => (
                 <tr key={p.id} className="hover:bg-slate-50/60 cursor-pointer" onClick={() => setDetail(p)}>
-                  <Td className="font-medium text-ink-800">{formatDate(p.fechaEmision)}</Td>
-                  <Td>
-                    <div className="flex items-center gap-1"><p className="text-ink-800">{(clienteById[p.clienteId] || {}).empresa || (clienteById[p.clienteId] || {}).nombre || '—'}</p><EditarClienteBtn cliente={clienteById[p.clienteId]} onSaved={load} /></div>
-                    {(clienteById[p.clienteId] || {}).empresa && <p className="text-xs text-slate-400">{(clienteById[p.clienteId] || {}).nombre}</p>}
+                  <Td className="font-medium text-ink-800" onClick={(e) => e.stopPropagation()}>
+                    <EditableCell type="date" value={toDateInput(p.fechaEmision)} required display={formatDate(p.fechaEmision)} onSave={(v) => guardarFechaPresupuesto(p, v)} />
+                  </Td>
+                  <Td onClick={(e) => e.stopPropagation()}>
+                    {clienteById[p.clienteId] ? (
+                      <>
+                        <div className="flex items-center gap-1">
+                          <EditableCell value={clienteById[p.clienteId].empresa || clienteById[p.clienteId].nombre || ''} required className="text-ink-800"
+                            onSave={(v) => guardarClientePresupuesto(clienteById[p.clienteId], clienteById[p.clienteId].empresa ? 'empresa' : 'nombre', v)} />
+                          <EditarClienteBtn cliente={clienteById[p.clienteId]} onSaved={load} />
+                        </div>
+                        {clienteById[p.clienteId].empresa && (
+                          <EditableCell value={clienteById[p.clienteId].nombre || ''} required className="text-xs text-slate-400"
+                            onSave={(v) => guardarClientePresupuesto(clienteById[p.clienteId], 'nombre', v)} />
+                        )}
+                      </>
+                    ) : '—'}
                   </Td>
                   <Td className="text-right text-ink-800">{formatCurrency(p.subtotal)}</Td>
                   <Td className="text-right font-semibold text-ink-800">{formatCurrency(p.total)}</Td>
@@ -4934,6 +5072,8 @@ function EmitirFacturaForm({ factura, onCancel, onDone }) {
       const { data, error } = await supabaseClient.rpc('emitir_factura', args);
       if (error) await manejarError(error);
       toast(`Factura ${data.numero || ''} emitida`.replace('  ', ' '));
+      try { await archivarFacturaPDF(data.id); toast('Copia en PDF archivada'); }
+      catch (errArchivo) { toast('Factura emitida, pero no se pudo archivar su PDF: hazlo desde el detalle de la factura', 'error'); }
       onDone(data.id);
     } catch (err) { toast(err.message || 'No se pudo emitir la factura', 'error'); }
     finally { setSaving(false); }
@@ -5100,6 +5240,21 @@ function FacturaDetail({ factura, facturas, clienteById, onClose, onEdit, onChan
   const [loading, setLoading] = useState(true);
   const [recurrenteItem, setRecurrenteItem] = useState(null);
   const [accion, setAccion] = useState(null); // 'emitir' | 'cobro' | 'rectificar'
+  const [archivo, setArchivo] = useState('no-aplica'); // 'no-aplica' | 'si' | 'no' | 'guardando'
+
+  useEffect(() => {
+    if (!factura.numero || factura.estado === 'borrador') { setArchivo('no-aplica'); return undefined; }
+    let vivo = true;
+    supabaseClient.storage.from(BUCKET_FACTURAS_CLIENTES).createSignedUrl(rutaArchivoFactura(factura), 60)
+      .then(({ error }) => { if (vivo) setArchivo(error ? 'no' : 'si'); });
+    return () => { vivo = false; };
+  }, [factura.id, factura.numero, factura.estado]);
+
+  async function archivarAhora() {
+    setArchivo('guardando');
+    try { await archivarFacturaPDF(factura.id); setArchivo('si'); toast('Copia en PDF archivada'); }
+    catch (err) { setArchivo('no'); toast(err.message || 'No se pudo archivar el PDF', 'error'); }
+  }
 
   useEffect(() => {
     async function load() {
@@ -5231,6 +5386,8 @@ function FacturaDetail({ factura, facturas, clienteById, onClose, onEdit, onChan
         {puedeCobrar && <Button size="sm" icon={Icons.Euro} onClick={() => setAccion('cobro')}>Registrar cobro</Button>}
         {puedeRectificar && <Button size="sm" variant="danger" icon={Icons.Repeat} onClick={() => setAccion('rectificar')}>Rectificar</Button>}
         <Button size="sm" variant="secondary" icon={Icons.Download} onClick={descargarPDF}>Descargar PDF</Button>
+        {archivo === 'si' && <Button size="sm" variant="secondary" icon={Icons.FileText} onClick={() => abrirFacturaArchivada(factura).catch(() => toast('No se pudo abrir el PDF archivado', 'error'))}>PDF archivado</Button>}
+        {(archivo === 'no' || archivo === 'guardando') && <Button size="sm" variant="secondary" icon={Icons.FileText} onClick={archivarAhora} disabled={archivo === 'guardando'}>{archivo === 'guardando' ? 'Archivando...' : 'Archivar PDF'}</Button>}
         <Button size="sm" variant="ghost" icon={Icons.Print} onClick={() => window.open(`${window.location.pathname}${window.location.search}#facturas/${factura.id}/imprimir?print=1`, '_blank')}>Imprimir / PDF</Button>
         {esBorrador && <Button size="sm" variant="ghost" icon={Icons.Edit} onClick={onEdit}>Editar</Button>}
       </div>
@@ -5780,6 +5937,11 @@ function ServiciosRecurrentes() {
     return acc + p / 12;
   }, 0);
 
+  async function guardarServicio(i, cambios) {
+    const actualizado = await api.update('ServicioRecurrente', i.id, cambios);
+    setItems((prev) => prev.map((x) => (x.id === i.id ? { ...x, ...actualizado } : x)));
+  }
+
   async function handleDelete() {
     try { await api.remove('ServicioRecurrente', toDelete.id); toast('Servicio eliminado'); setToDelete(null); load(); }
     catch (err) { toast('No se pudo eliminar', 'error'); setToDelete(null); }
@@ -5827,12 +5989,12 @@ function ServiciosRecurrentes() {
                 return (
                   <tr key={i.id} className="hover:bg-slate-50/60">
                     <Td>
-                      <div className="flex items-center gap-1"><p className="text-ink-800">{(clienteById[i.clienteId] || {}).empresa || (clienteById[i.clienteId] || {}).nombre || '—'}</p><EditarClienteBtn cliente={clienteById[i.clienteId]} onSaved={load} /></div>
-                      {(clienteById[i.clienteId] || {}).empresa && <p className="text-xs text-rose-500">{(clienteById[i.clienteId] || {}).nombre}</p>}
+                      <ClienteCeldaEditable cliente={clienteById[i.clienteId]} claseNombre="text-ink-800" claseSub="text-xs text-rose-500" onSaved={load}
+                        onUpdated={(u) => setClientes((cs) => cs.map((x) => (x.id === u.id ? { ...x, ...u } : x)))} />
                     </Td>
                     <Td>
                       <div className="flex items-center gap-1.5">
-                        <span>{i.descripcion}</span>
+                        <EditableCell value={i.descripcion || ''} required onSave={(v) => guardarServicio(i, { descripcion: v })} />
                         {i.sinFactura && (
                           <span title="Cobro en efectivo, sin factura ni IVA" className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-amber-100 text-amber-700 shrink-0">
                             <Icons.X className="w-2.5 h-2.5" strokeWidth={3} />
@@ -5840,12 +6002,13 @@ function ServiciosRecurrentes() {
                         )}
                       </div>
                     </Td>
-                    <Td className="capitalize">{ESTADO_LABELS[i.periodicidad]}</Td>
-                    <Td className={classNames('text-right', i.sinFactura && 'text-amber-700')}>{formatCurrency(i.precio)}</Td>
+                    <Td><EditableCell value={i.periodicidad || 'anual'} options={[['mensual', 'Mensual'], ['trimestral', 'Trimestral'], ['anual', 'Anual']]} display={<span className="capitalize">{ESTADO_LABELS[i.periodicidad]}</span>} onSave={(v) => guardarServicio(i, { periodicidad: v })} /></Td>
+                    <Td className={classNames('text-right', i.sinFactura && 'text-amber-700')}><EditableCell type="number" step="0.01" value={String(i.precio ?? '')} validate={validarImporte} display={formatCurrency(i.precio)} onSave={(v) => guardarServicio(i, { precio: Number(v) })} /></Td>
                     <Td className={classNames('text-right font-medium', i.sinFactura && 'text-amber-700')}>
                       {i.sinFactura ? formatCurrency(i.precio) : formatCurrency(priceWithIVA(i.precio, i.iva))}
                     </Td>
-                    <Td><span className={proximo && i.estado === 'activo' ? 'text-amber-600 font-medium' : ''}>{formatDate(i.proximaRenovacion)}</span></Td>
+                    <Td><EditableCell type="date" value={toDateInput(i.proximaRenovacion)} required onSave={(v) => guardarServicio(i, { proximaRenovacion: v })}
+                      display={<span className={proximo && i.estado === 'activo' ? 'text-amber-600 font-medium' : ''}>{formatDate(i.proximaRenovacion)}</span>} /></Td>
                     <Td className="text-right">
                       <div className="flex justify-end gap-1">
                         <button className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500" onClick={() => setModal({ mode: 'edit', item: i })}><Icons.Edit className="w-4 h-4" /></button>
@@ -6256,6 +6419,14 @@ function Gastos() {
     setClientes((cs) => [...cs, c].sort((a, b) => a.nombre.localeCompare(b.nombre)));
   }
 
+  async function guardarGasto(g, cambios) {
+    const importe = cambios.importe !== undefined ? cambios.importe : Number(g.importe || 0);
+    const iva = cambios.ivaSoportado !== undefined ? cambios.ivaSoportado : Number(g.ivaSoportado || 0);
+    if (iva > importe) throw new Error('El IVA no puede ser mayor que el importe pagado');
+    const actualizado = await api.update('Gasto', g.id, cambios);
+    setItems((prev) => prev.map((x) => (x.id === g.id ? { ...x, ...actualizado } : x)));
+  }
+
   async function handleDuplicar(g) {
     try {
       const { id, createdAt, ...rest } = g;
@@ -6392,20 +6563,23 @@ function Gastos() {
                   return (
                     <tr key={g.id} className={classNames(filaRenovacionClass(null), 'hover:brightness-95 transition cursor-pointer')} onClick={() => setModal({ mode: 'edit', item: g })}>
                       <Td>
-                        <p className="font-medium text-ink-800">{g.descripcion}</p>
+                        <EditableCell value={g.descripcion || ''} required className="font-medium text-ink-800" onSave={(v) => guardarGasto(g, { descripcion: v })} />
                         <div className="flex items-center gap-1.5 mt-0.5">
                           {(proveedorById[g.proveedorId] || {}).nombre && <span className="text-xs text-slate-400">{(proveedorById[g.proveedorId] || {}).nombre}</span>}
                           <CategoriaBadge categoria={g.categoria} />
                         </div>
                       </Td>
                       <Td>
-                        <div className="flex items-center gap-1"><p>{(clienteById[g.clienteId] || {}).empresa || (clienteById[g.clienteId] || {}).nombre || <span className="text-slate-400">General</span>}</p><EditarClienteBtn cliente={clienteById[g.clienteId]} onSaved={load} /></div>
-                        {(clienteById[g.clienteId] || {}).empresa && <p className="text-xs text-slate-400">{(clienteById[g.clienteId] || {}).nombre}</p>}
+                        <ClienteCeldaEditable cliente={clienteById[g.clienteId]} vacio={<span className="text-slate-400">General</span>} onSaved={load}
+                          onUpdated={(u) => setClientes((cs) => cs.map((x) => (x.id === u.id ? { ...x, ...u } : x)))} />
                       </Td>
                       <Td>Puntual</Td>
-                      <Td className="text-right font-medium">{formatCurrency(g.importe)}</Td>
-                      <Td className="text-right text-slate-600">{formatCurrency(g.ivaSoportado)}{g.deducible === false && <p className="text-[11px] text-slate-400">No deducible</p>}</Td>
-                      <Td>{g.fecha ? formatDate(g.fecha) : <span className="text-slate-300">—</span>}</Td>
+                      <Td className="text-right font-medium" onClick={(e) => e.stopPropagation()}><EditableCell type="number" step="0.01" value={String(g.importe ?? '')} validate={validarImporte} display={formatCurrency(g.importe)} onSave={(v) => guardarGasto(g, { importe: Number(v) })} /></Td>
+                      <Td className="text-right text-slate-600" onClick={(e) => e.stopPropagation()}>
+                        <EditableCell type="number" step="0.01" value={String(g.ivaSoportado ?? 0)} validate={validarImporte} display={formatCurrency(g.ivaSoportado)} onSave={(v) => guardarGasto(g, { ivaSoportado: Number(v) })} />
+                        {g.deducible === false && <p className="text-[11px] text-slate-400">No deducible</p>}
+                      </Td>
+                      <Td onClick={(e) => e.stopPropagation()}><EditableCell type="date" value={toDateInput(g.fecha)} display={g.fecha ? formatDate(g.fecha) : <span className="text-slate-300">—</span>} onSave={(v) => guardarGasto(g, { fecha: v || null })} /></Td>
                       <Td className="text-right" onClick={(e) => e.stopPropagation()}>
                         <div className="flex justify-end gap-1">
                           {!g.pagado && <button className="p-1.5 rounded-lg hover:bg-emerald-50 text-emerald-600" title="Marcar como pagado" onClick={() => handleTogglePagado(g)}><Icons.Check className="w-4 h-4" /></button>}
@@ -6422,7 +6596,7 @@ function Gastos() {
                 return (
                   <tr key={p.id} className={classNames(filaRenovacionClass(tab === 'proximos' ? r.proximaPendiente : null), 'hover:brightness-95 transition cursor-pointer')} onClick={() => setDetalle(p.id)}>
                     <Td>
-                      <p className="font-medium text-ink-800">{p.descripcion}</p>
+                      <EditableCell value={p.descripcion || ''} required className="font-medium text-ink-800" onSave={(v) => guardarGasto(p, { descripcion: v })} />
                       <div className="flex items-center gap-1.5 mt-0.5">
                         {(proveedorById[p.proveedorId] || {}).nombre && <span className="text-xs text-slate-400">{(proveedorById[p.proveedorId] || {}).nombre}</span>}
                         <CategoriaBadge categoria={p.categoria} />
@@ -6431,15 +6605,18 @@ function Gastos() {
                       </div>
                     </Td>
                     <Td>
-                      <div className="flex items-center gap-1"><p>{(clienteById[p.clienteId] || {}).empresa || (clienteById[p.clienteId] || {}).nombre || <span className="text-slate-400">General</span>}</p><EditarClienteBtn cliente={clienteById[p.clienteId]} onSaved={load} /></div>
-                      {(clienteById[p.clienteId] || {}).empresa && <p className="text-xs text-slate-400">{(clienteById[p.clienteId] || {}).nombre}</p>}
+                      <ClienteCeldaEditable cliente={clienteById[p.clienteId]} vacio={<span className="text-slate-400">General</span>} onSaved={load}
+                          onUpdated={(u) => setClientes((cs) => cs.map((x) => (x.id === u.id ? { ...x, ...u } : x)))} />
                     </Td>
                     <Td className="capitalize">{ESTADO_LABELS[p.periodicidad]}</Td>
-                    <Td className="text-right font-medium">
-                      {formatCurrency(p.importe)}
+                    <Td className="text-right font-medium" onClick={(e) => e.stopPropagation()}>
+                      <EditableCell type="number" step="0.01" value={String(p.importe ?? '')} validate={validarImporte} display={formatCurrency(p.importe)} onSave={(v) => guardarGasto(p, { importe: Number(v) })} />
                       {p.periodicidad === 'mensual' && <p className="text-xs font-normal text-slate-400">{formatCurrency(Number(p.importe || 0) * 12)} / año</p>}
                     </Td>
-                    <Td className="text-right text-slate-600">{formatCurrency(p.ivaSoportado)}{p.deducible === false && <p className="text-[11px] text-slate-400">No deducible</p>}</Td>
+                    <Td className="text-right text-slate-600" onClick={(e) => e.stopPropagation()}>
+                      <EditableCell type="number" step="0.01" value={String(p.ivaSoportado ?? 0)} validate={validarImporte} display={formatCurrency(p.ivaSoportado)} onSave={(v) => guardarGasto(p, { ivaSoportado: Number(v) })} />
+                      {p.deducible === false && <p className="text-[11px] text-slate-400">No deducible</p>}
+                    </Td>
                     <Td>{fechaMostrada ? formatDate(fechaMostrada) : <EstadoBadge estado={p.estado} />}</Td>
                     <Td className="text-right" onClick={(e) => e.stopPropagation()}>
                       <div className="flex justify-end items-center gap-1">
@@ -6649,6 +6826,176 @@ function FacturasProveedores() {
 
       <ConfirmDialog open={!!toDelete} title="Eliminar archivo" danger message={`¿Eliminar "${toDelete ? nombreLegibleArchivo(toDelete.name) : ''}"? No se puede deshacer.`}
         onCancel={() => setToDelete(null)} onConfirm={handleDelete} />
+    </div>
+  );
+}
+
+// ===================== Archivo de facturas emitidas a clientes =====================
+// Al emitir una factura se guarda una copia en PDF en un bucket privado de Supabase Storage (solo se puede subir y leer,
+// no modificar ni borrar), como  <año>/<número>.pdf. Así queda conservada la factura tal y como se emitió.
+const BUCKET_FACTURAS_CLIENTES = 'facturas-clientes';
+
+function rutaArchivoFactura(factura) {
+  return `${String(factura.fechaEmision || '').slice(0, 4) || 'sin-fecha'}/${nombreSeguroArchivo(factura.numero)}.pdf`;
+}
+
+// Genera el PDF de una factura emitida y lo sube al archivo. Devuelve true si se ha guardado (o ya estaba guardada).
+async function archivarFacturaPDF(facturaId) {
+  const factura = await api.get('Factura', facturaId);
+  if (!factura.numero || factura.estado === 'borrador') throw new Error('Solo se archivan facturas ya emitidas');
+  const [items, cliente, empresas, original] = await Promise.all([
+    api.list('FacturaItem', { order: 'orden', ascending: true }),
+    api.get('Cliente', factura.clienteId),
+    api.list('Empresa'),
+    factura.facturaRectificadaId ? api.get('Factura', factura.facturaRectificadaId) : Promise.resolve(null),
+  ]);
+  const pdf = generarFacturaPDFBlob(factura, items.filter((i) => i.facturaId === factura.id), cliente, empresas[0] || {}, original);
+  const { error } = await supabaseClient.storage.from(BUCKET_FACTURAS_CLIENTES).upload(rutaArchivoFactura(factura), pdf, { contentType: 'application/pdf', upsert: false });
+  if (error && !/already exists|duplicate/i.test(error.message || '')) throw error;
+  return true;
+}
+
+function generarFacturaPDFBlob(factura, items, cliente, empresa, original) {
+  return generateDocumentoPDF('Factura', factura, items, cliente, empresa, { facturaOriginal: original }).output('blob');
+}
+
+async function abrirFacturaArchivada(factura) {
+  const { data, error } = await supabaseClient.storage.from(BUCKET_FACTURAS_CLIENTES).createSignedUrl(rutaArchivoFactura(factura), 60);
+  if (error) throw error;
+  window.open(data.signedUrl, '_blank');
+}
+
+function FacturasEmitidasArchivo() {
+  const toast = useToast();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [facturas, setFacturas] = useState([]);
+  const [clientes, setClientes] = useState([]);
+  const [guardadas, setGuardadas] = useState(new Set());
+  const [search, setSearch] = useState('');
+  const [filtro, setFiltro] = useState('todas');
+  const [archivando, setArchivando] = useState(false);
+  const [sort, setSort] = useState({ key: 'fecha', dir: 'desc' });
+  const onSort = (key) => setSort((s) => toggleSort(s, key));
+
+  async function load() {
+    setLoading(true); setError('');
+    try {
+      const [fa, cl] = await Promise.all([api.list('Factura'), api.list('Cliente')]);
+      setFacturas(fa.filter((f) => f.numero && f.estado !== 'borrador'));
+      setClientes(cl);
+      const bucket = supabaseClient.storage.from(BUCKET_FACTURAS_CLIENTES);
+      const { data: raiz, error: e1 } = await bucket.list('', { limit: 1000 });
+      if (e1) throw e1;
+      const rutas = new Set();
+      await Promise.all((raiz || []).filter((x) => !x.id).map(async (c) => {
+        const { data, error: e2 } = await bucket.list(c.name, { limit: 1000 });
+        if (e2) throw e2;
+        (data || []).filter((f) => f.id).forEach((f) => rutas.add(`${c.name}/${f.name}`));
+      }));
+      setGuardadas(rutas);
+    } catch (err) { setError(err.message || 'No se pudo cargar el archivo de facturas'); }
+    setLoading(false);
+  }
+  useEffect(() => { load(); }, []);
+
+  const clienteById = Object.fromEntries(clientes.map((c) => [c.id, c]));
+  const filas = facturas.map((f) => ({ ...f, archivada: guardadas.has(rutaArchivoFactura(f)) }));
+  const faltan = filas.filter((f) => !f.archivada);
+  const filtered = filas.filter((f) => {
+    if (filtro === 'faltan' && f.archivada) return false;
+    const q = search.toLowerCase();
+    if (!q) return true;
+    return [f.numero, csvCliente(clienteById[f.clienteId])].some((v) => String(v || '').toLowerCase().includes(q));
+  });
+  const sorted = sortRows(filtered, sort, {
+    numero: (f) => f.numero, cliente: (f) => csvCliente(clienteById[f.clienteId]).toLowerCase(),
+    fecha: (f) => f.fechaEmision || '', total: (f) => Number(f.total || 0), pdf: (f) => (f.archivada ? 1 : 0),
+  });
+
+  async function archivarFaltantes() {
+    setArchivando(true);
+    let ok = 0; let fallos = 0;
+    for (const f of faltan) {
+      try { await archivarFacturaPDF(f.id); ok += 1; } catch (err) { fallos += 1; }
+    }
+    setArchivando(false);
+    toast(fallos ? `${ok} archivadas, ${fallos} con error` : `${ok} factura${ok === 1 ? '' : 's'} archivada${ok === 1 ? '' : 's'}`, fallos ? 'error' : undefined);
+    load();
+  }
+
+  async function abrir(f) {
+    try { await abrirFacturaArchivada(f); } catch (err) { toast('No se pudo abrir el PDF archivado', 'error'); }
+  }
+
+  return (
+    <div className="fade-in">
+      <PageHeader title="Facturas emitidas a clientes" subtitle={`${facturas.length - faltan.length} de ${facturas.length} con copia en PDF archivada`}
+        action={<div className="flex flex-wrap gap-2">
+          <ExportCsvButton nombre="facturas_emitidas_archivo" filas={sorted} columnas={[
+            { titulo: 'Número', valor: (f) => f.numero }, { titulo: 'Cliente', valor: (f) => csvCliente(clienteById[f.clienteId]) },
+            { titulo: 'Fecha emisión', valor: (f) => csvFecha(f.fechaEmision) }, { titulo: 'Total', valor: (f) => Number(f.total || 0) },
+            { titulo: 'PDF archivado', valor: (f) => csvSiNo(f.archivada) }]} />
+          <Button icon={Icons.Download} onClick={archivarFaltantes} disabled={archivando || faltan.length === 0 || !!error}>
+            {archivando ? 'Archivando...' : `Archivar las que faltan (${faltan.length})`}
+          </Button>
+        </div>} />
+
+      <Toolbar search={search} onSearch={setSearch} placeholder="Buscar por número o cliente..."
+        right={
+          <Select value={filtro} onChange={(e) => setFiltro(e.target.value)} className="!py-1.5 !text-xs w-auto">
+            <option value="todas">Todas</option><option value="faltan">Sin PDF archivado</option>
+          </Select>
+        } />
+
+      {error ? (
+        <div className="text-amber-900 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 text-sm">{error}</div>
+      ) : loading ? <PageLoader /> : sorted.length === 0 ? (
+        <CardTable><EmptyState icon={Icons.Receipt} title="Sin facturas emitidas" message="Las facturas aparecerán aquí cuando las emitas." /></CardTable>
+      ) : (
+        <CardTable>
+          <table className="w-full min-w-[720px]">
+            <thead className="bg-slate-700 text-white"><tr>
+              <SortableTh sortKey="numero" sort={sort} onSort={onSort}>Número</SortableTh>
+              <SortableTh sortKey="cliente" sort={sort} onSort={onSort}>Cliente</SortableTh>
+              <SortableTh sortKey="fecha" sort={sort} onSort={onSort}>Emisión</SortableTh>
+              <SortableTh sortKey="total" sort={sort} onSort={onSort} className="text-right">Total</SortableTh>
+              <Th>Estado</Th>
+              <SortableTh sortKey="pdf" sort={sort} onSort={onSort}>PDF archivado</SortableTh>
+            </tr></thead>
+            <tbody className="divide-y divide-slate-200">
+              {sorted.map((f) => (
+                <tr key={f.id} className="hover:bg-slate-50/60">
+                  <Td className="font-medium text-ink-800">{f.numero}</Td>
+                  <Td>{csvCliente(clienteById[f.clienteId]) || '—'}</Td>
+                  <Td>{formatDate(f.fechaEmision)}</Td>
+                  <Td className="text-right font-medium">{formatCurrency(f.total)}</Td>
+                  <Td><FacturaEstadoBadge estado={f.estado} /></Td>
+                  <Td>
+                    {f.archivada
+                      ? <button type="button" onClick={() => abrir(f)} className="inline-flex items-center gap-1.5 text-sm text-brand-600 hover:underline"><Icons.FileText className="w-4 h-4" /> Abrir PDF</button>
+                      : <span className="text-xs text-amber-700 bg-amber-50 ring-1 ring-inset ring-amber-600/20 rounded-full px-2.5 py-1">Falta archivar</span>}
+                  </Td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </CardTable>
+      )}
+    </div>
+  );
+}
+
+// Pantalla "Archivo de facturas": pestañas para las recibidas (proveedores) y las emitidas (clientes)
+function ArchivoFacturas() {
+  const [tab, setTab] = useState('emitidas');
+  return (
+    <div>
+      <div className="flex gap-1 mb-4 bg-slate-100 rounded-xl p-1 w-fit">
+        <button className={classNames('px-4 py-1.5 rounded-lg text-sm font-medium transition', tab === 'emitidas' ? 'bg-white shadow-sm text-ink-800' : 'text-slate-500')} onClick={() => setTab('emitidas')}>Emitidas (clientes)</button>
+        <button className={classNames('px-4 py-1.5 rounded-lg text-sm font-medium transition', tab === 'recibidas' ? 'bg-white shadow-sm text-ink-800' : 'text-slate-500')} onClick={() => setTab('recibidas')}>Recibidas (proveedores)</button>
+      </div>
+      {tab === 'emitidas' ? <FacturasEmitidasArchivo /> : <FacturasProveedores />}
     </div>
   );
 }
@@ -7356,7 +7703,7 @@ function AppShell({ session }) {
       case 'productos': return <Productos />;
       case 'proveedores': return <Proveedores />;
       case 'gastos': return <Gastos />;
-      case 'facturasproveedor': return <FacturasProveedores />;
+      case 'archivofacturas': return <ArchivoFacturas />;
       case 'contabilidad': return <Contabilidad />;
       case 'resumen': return <ResumenTrimestral />;
       case 'ajustes': return <Ajustes />;
