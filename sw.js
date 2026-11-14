@@ -2,7 +2,7 @@
 // - Navegación (index.html): red primero, caché como respaldo, para que los despliegues nuevos se vean enseguida.
 // - Librerías y fuentes externas (CDN) e iconos: caché con actualización en segundo plano.
 // - Supabase (datos, auth, storage) nunca se cachea: siempre va a la red.
-const VERSION = 'v1';
+const VERSION = 'v2';
 const SHELL = `crm-shell-${VERSION}`;
 const RUNTIME = `crm-runtime-${VERSION}`;
 const PRECACHE = ['./', 'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/apple-touch-icon.png'];
