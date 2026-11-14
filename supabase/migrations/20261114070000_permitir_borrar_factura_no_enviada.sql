@@ -1,0 +1,1 @@
+-- Ya aplicada en Supabase (permitir_borrar_factura_no_enviada): proteger_factura_emitida solo impide borrar facturas con "enviadaAt".
