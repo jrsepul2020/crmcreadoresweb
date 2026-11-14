@@ -124,7 +124,7 @@ const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_
 const LOGO_DATA_URI = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAYAAACLz2ctAAAWD0lEQVR42u3de5RlVX0n8O9v733OuffWrVtV3dVPumkE5NGg4wTlIbqqAcNDY3CSVR0dQx6SNWNcI2pcOnEGKcq4ZhmHWbM0ZowmGWYSDGPXQpwoiVEiXfiAAAsalRawgX7Qr6qu132fs/f+/eaPWx3ISEK/0KL5fdaqP/quW1338T2/39777HsuoJRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppU5GAiHBqNVXQv2cgzhmBGNGXwn1MwscADy74QOXTK/9yBXP3b7FahB/ftwr7gnHUrO/vzaZb7jxq/W5qU9TffNDh4MIbGYCRGOhXpoqONardK1Xj90t53xGirU35u0VH/7zqf7rzjp8n3sw4gQgfbV+Nl5ZrWf8PAKA2F74EwlN2CSRcjb4nsFs7UOt2g3/7UDf21ddhslAgOhE5WfjFXekC8bMBMbp7ev+43dK2cAlMe+0EKRsgzGhqO8ruo0/vKu47082Y3txeGxIGGeNigbwhAWQMM6zg9e/tn9g7XedKfXHbqtA4Gh8LJMXhNB6pJCFT/YVf/WV3u+MWmBCx4cawBMbwpkV119ay1bfYkQuNtGB8zakKDo2Uhkc4LnztYIWxqr+jkd6vzfiCJMRGkQN4PG6B2PuMoyHXWv+3ZUD3l1SjuZ8K+ZyE7GMi+ApRhixSYQvCnS+0EoPfGpF5+59hysiYSJqfHQScsw2ASwYtf3Z8rxcW3mdlPq45etf7sb2AwJhCJsYOwVFsWWuvX+oOO3hlvu3N2wBUsJE1IVsrYAnrBW3137onWU7fDvaTeTt+pQJxYCNnDBHAQAisEWSgFIE6j7SRmNsIG752uG2DExGHR9qAI81hI4wHuoDv/uOsqne5nLpi3kjF/aOJULASEDUaxY2GkoTGEYhzTsarnHTcPHX27UtawBPiIXyr19UotqtqU/Ojb7hPTwCoi3BkEOCxbWYICCyJnWBOs2A/I+n+3Z++tT6/bMCIeBm0mUbDeARVj8QAbLr1N8dCt259Iyp/3MQANrpb3y+HJL3Rg5owhcJ2FWQEoMgIKbe70YQjDWJC5TvCtT4ZNnf+We6bKMBPIoAChFInjzld9atL6/+lsv5kfbM/r8caN/6jTn79ssyrny2LNl5c+igDBdLcCaCmEAQAliYDVisS1MkDgXm78399H+qha3f6820R9xlmAwn4EAxwMj/N+GZZAJYA/iyD+EWS9gcOxs+cnOpsm4s1A8gzs/vlPbCXzTN/FbL7m1W3PUOdjCBFQvL0quEAIQJ0ZIRlkom1pgkSItjbH1xf/uZ8Vdh+4HeTHkcxxKWXiXdwgSSf66CY2TEYuVKwcaNvfts3957T6emaCuATZNLO6gaQICAMXoM4+6M9R/dWqoMXeLbTU6mG6bRPZAH5H/dpfxgCnepFXt+FSXjYBFBEIAJsEQe0pcAFp5MdMbCFlLf64v6x6uN7956DNWQBKPm8KTmUHrqxpIbutAYWo8SCffRs90+fmB4+7btR/QcRQibN5e2Tk3JpsnJfCkNDXQS8o/LMZ/gfYPv2rBs4NRvZ656emg22n7mUJKEPJlBnQsq9gTIcCamNIwKUiQIBCaQJQmQMoHKlmFyEhvZOEmIAnyo/12r0/j9oYVHty1WQ/mXAtA7IAQEkkP2nCsrZuCj1mZvTjOXIgFQDkDZw2e+4IweDC75G3j70Exwe+m0klmTJcONQ8Up7MMwR67EvGiKTfe1Bt2+KZEdewcHZzZPLJ3Zugbwn4RwnPeWfunU5UNn3JqZ/svR6iJvzPp2bKJAnrSQS0EhGjCtlLIMUlkY1ogwiQugZSRkIsEGsPMRNohzJg2x2/F586bKs9tuObzV64VCeLgaT2Ccrk4u/HRVBn+PkCEkeaCsCHNph9L+QqoVJknZ2QpZ9BnIIIMSAuoOzf1xLu/QfV2O9xRkHpRWePz0Z340vVTbsAbwBUK4BbDX1H7znWlMf90EvtxFpO3QxBxaEhBjAU85FVJDwqtRsSkSiuIhy8Gmj41QgLjA5AoiI8xWyBm4bl6/rfTED38LY2OC8Z+qhP/Ydpv20r/qo9XvKqRbiFkAZV3jyuB/Nf8Ts24gwd+eP4SQeqLVhccgJfZQtPnOcH9nL3+xvmv2qxuAuRcO9wsHXwO4lEI4Omp3PrAxWV4r/iDttg50d+/ploK5iMRcknPY0EFhckTkFNCFZws2w0hpuaQwZXA8hQ2MJySegQAyTJwyG+JgHEpFtzmRbXtis4yOWkw8t1SzuNEhTKUjN64Iq/6gg2aHzaEkSbqECsOVmf9M5kwYDPK+szLE5SHaLGZhh9/Tesp/bHBH60vPfw5bp6Zo0+QkA5ClvBykAfypAG6xNLE5Ns/98HV91TV/Eef2zcrs/h93G3PTwrI+gTu/y8G1RKSLKAFsCvKUEWMFp1w7A0TL2Uj03FsqDIadRHJM5GI0iUnbjcZ/7fuHZz4qIyOOJifD4bMoz9gLNq3Ghm9DfCjoAKU2kCvnQM0D1cBuOVsMe8RlhbdGMv90ftfc/c3fWdXGARHQVoLdBPxLpwXpuYKoAVzSVZAmJmLj7A/dXO1fNYbWLFCfR2xOC/JGQPAmiKArwrmQ6YhQk4IUEjHYz7ThDRYShCGBiNkwYqQSE7lIsOINcdZoNH61du+Br/xo48b0/O3bi+2Vc9asKs54IONkrZd94qxHkhZw1RwYDMBAYO73RpZFTqsxae4s/mf/1tb1ACAjcDSJF5thWwBRK+DLZWlmdIuhic0xP/2Gz6aVgfcj5JGLTpRuA+gsGHTrkNAVcLQsjK6INElkjtkMnyNYdbaV2IogE4k5MplAthooGmFryYTCT88+23ndygemD24lZOfYt9zdR9mlLZ4pygiJcwUnqYcdyAnLCpYyw/QHMcs46S507ip/s/VLMgaDcRzJGqNB7z7VxX83l8prrduJXvioFExsZsGYyZ7+7A3t+sEPhKLbMKaS2tJQagfWOFq23kltFaHUL9Y5qphIy6nAKSZI/nSkrg+gPgFKQtTHQCkSmwiqBoqVIrqVWDV0uv3szbQxWdd34ZeqZC9dkJmuIbEACRkWmN7GMHgCGAwyNjT8QT/V+m167rEeUfjSNP3VSl/fo/39/ec9ryJqBXy5zIxnS2/dkA2suNYYc6WztFEkDhMkJXBCoSApGhLyBjM3TbtbAGcSL3+jJe5EIxRYEMgYT5Kw2IEocEKwPh783vJHw/2nvt6krUAAUgCZSQzcLKdZIFMtIP1B0Be9G4zlVmx9pHp345ajabtpmv6yS9P/64yB9/7CTqfz4FJpyVoBX9S4yOgWe/dw3xRn/SvZZNta3e638m73m91262npeJEIQVIVV1lBWWUVarUh2F0p8pkI08+CRIRKLCYTIQfhCOJyACdsV/3i1OsrFy0UpkitKQxsYUFdQ6aZEDcZCNKLSkJpCNJo5/FLAhAmX7Ty0WLbLVvnbrHGoPD+7zudzuPPa8laAV8eVbD3Ec3ilBU3paUVNyGvI7YXIuedgNi1UXKTo5BIIkLBiAkIoWAsa2LF27xFNBGmILKB4FgAJlP14HIQ5C2WtQMmhLMoPOYjtUAJ51YkRnQI5mAgzHWj6+O0WB6+n317/6WHd/EcSfVzzr05LZXuNUDsdrtvDiHct5QmJE7jdSRHaW8LfrZ3fKy+/F37yqb/vzublk0SLFEAxSAihFwCPHvkwcNbj2K/IfsDwYo3RoptwCQCNkxIIyAM5JHgEoNn5il7S52S10USH8iaiCiGYFNQUQHPrRV8rw1+bM8OAMDoqMGLn07rLTwTrSUiEeZmCGH34u1LZhlGW/ARh3CcBaO2NnP7F5qtfW/q8sL/LtB9xJMcImd9aqyUjZGKMegzFhVYVMsW9YcT1HczbL8gAgQHCATwERIEMAR4Bj+8FyzDhNkILIhQnYGFAsIMOt0I3jsA/OZpUwCA903RERXuXgA7BBAI2eIQc0ktSmsAj7oSjtqh9tcfLs/c/lvTcfbX5qh+XQOdL+ZWniRDsCRsDYsloZSAkjNy6O+tdOeFbJkhkUE+AhAiRxAvRNaJmZsHHVwAVq8Ex5wkEZBlwARgfg5YmIdZVxzNkEkAoCiKH8QYO0QmTUvp5qU29NIAHls7dk+eeXVWK6/+4MrS+r8dzFb+h8z1n21cZksudX3G2cwQHPXabuwSHbzLSuhEWIoCFrDtbTNFLiKFEKwFPbEDki4Dsj4gSi9BMYdIFzARiOFoJg68ONbbKUK3gchY425K0/TsxfGf0QC+fGfG8dU7vlHUpm57fyvOfaxAvotNCMHEuY4UT7RNvofJS4FCInu4LEqYBQ59PRUWIVMSACToRtB8AADhaCD1DnCoDSxfCxQBIAPQYpuGICLOHOUDZQCm22l9OIRwt3NJJcuy5UupCmoAj23pQBZ/uDrzlU9tPbTlvHo++7oG198bjf++Q/QEzw6Ry2D0CcGVGHP7mHbdmaBYEDLiCQcKwAvgAQSAAkCtLpD29xbDBRAhQCIhMgC756gn8L2fRrfdvjr44oN5LrPPb9EawJNgieYqoDXcvPfHJZO8sZpUf7ts09OrNkkHrU1TS2iJR90XQBbRPgjs/XJJmg8lMGRgLIhAQCGAt0C1H4gEIQOwgDgCwjbkMRYH608CADZN8lGGkADETqfzmaJoPv686qjLMCfHmBAEjBqam/i9+b7XPJBZvDuKH+wipE0u3jDPQTIiWCa4LEKi4ND9JbR3WFRP6Ui2xpMddojnnw309QOdBkAgEQGxiE2sKw42du+8beePF/+oHG0ZvBkwWwEz2Rv/LZmZsAbwBLVkLH5+Y7D1w9sB3A4AD6YrP9Rv3GlkpCLgEnMUyyJCgE0iccsgr6+AfW1N6KIhwlBF0C0IpgNEARkBUsuUe5HHD973um+hJVtgafPRLSLTc614ye2K1gC+BC0Z2CjAVoNi02eeGv7avadnq++2KWdscpJKgBmIlKwNYk91MKtSSI16K3Q+QjjCtubAbCHWEnImPDVDvhm/fGyPZ8RNYbq0Ett5sRV3ltL2fA3gS9CSF994QxjnUHrnx23WN8jSzE2tYzAcCDUPrCjATsDtCCIBnBGRBDR7EGy7kFICHOqyfXbBFS3/+O7amXeJbCeiI6t+h0/X/QQLQxuGLrk30hU1CJvIcg0W/se2pXIpEZ2EvATuWdxe31p+7b+3VL3WF+0iInexVFDIPQJ5cIgEH4Wi9D5mDEPkmwB3e7v1Hp0H/WCeUYBisJ88f3x7gYkjf796lxkeM2dh2zQo3WnT4bXWDaxObTXVFnxSt+AxY/CJMJ9deWZKA7cg+AjriaoBxFEkC0I2AJ5JmAjWiFCErdclNprAbAOYb0KIoh1O07yRT/7h51q3bxk9+rHfYoFh323cntrBq1mCRGLRAJ604QMB20kgVM6G/9RRWo1FI2DAGzIeSALgAhCFYAC0C6DVJqrXwZ02CTOQCFHZiuk31k/7+YX5cP3NgGDjsTyi8QgA0+0938yyZXVnKzUDrwE8eY1YwkRoln7lP6dS3cR5s6CKdyYT7l1NJoDyQMQdYP8cbKMJXi+QugBVA0osiRE2LgIHvWs9m79n1YPFUzIKS+NHv33qcBsmjB/Iw1nfh6ldjbC0ZsIawBM4+yVMhLnK5b9QktpN7LseLhope0JcABdzZObbBFOwtNtEMYLXJUBqAA4CFghzNCQGT3vX3JXfUNsd7pQROJrA8VzgyAgg3di+A8xXA5lWwJOz9QJPAllfXHGrhUlDzAvqrxvIXohvgsQLbCAUAbAGKBGwyoH39663ZcDeeKTtpzznU/n7ls2Ezx/htvsXa8NMgDTbu+8KbiB3rrakJiE6Cz5xrTeekr3jEwlqr2XfKZC0LEq7QdLuXUjLkKAbBQwQk2CFheQC0+AIJ4QZSed/GHZMPx1+cdlM+LzgRISv96ElwZip4jv7I3e+i1hUtQKejK03u/KyEgY+yqHlRYJDdVqEAogAWIEUgVAwJLWwGYBBisVPPIEpndnB3tf9F3a33I1vRj53D+AIxx++52xdbMPdrwauOw3gSdV6N8qTOLNWkYE/BcDCnpC2wGkLVgAxQogR0gkga9gR2NeQNrdFHFoAco53tjvxv1wUWotfmgh7YsMHHL6I+jzPfCPwfLl328YlMRbUDyUdVwB7C87d0rV/nsmK94TYzCkWiQwehPTNinERRDlxO4/GgowVxyXC4zO+3WzJXb7Mf/Sm+fnvHA4eetcbfEmDMQaY8SV0Kk4DeHytN7bKb/2VClbdgZgXMXojtm3cqmkAOYNaFDotRCHbsRF1xPum2/KVvQ3/1WtR37EYPHN4rPZKfB21BR9b6zXARqnjguHUDHwOLMxgwwiUlK3MFmV6pjNPjaLNJJxkJdnR7vL1VzQP3fv8/2Oid772Ff3VDhrAY5v1GsJ4aPW/43OOKmuitD0sucQhHoxzdN/M01Kw52oGOmtN0a7W/DvWPNp6TAC7FaCtvVarX+WgATz2WW9j8G3vrrjBX4ux68laK7Ej3bCHHmsfQEKBXj0EPm+Dz5AVN9J97cd+tBEpbUehr6COAY+z9Yp0Sm9a72rrt1ly/YBApGls5yl5tujIs6FNG1/lpbaSrXf+x3fva/zCNf8aARPQ7w15AboQfdStl8QOLv9iUsqGOAlBXMugeFxg2tYHT+cOM9VOi4IhpjwLN791B/LFI13DpwE8/iWXxvAVN6SVgauiLQokXSfhCbbW23nqPDFYKkLfqzzLoCTdxP/DLd/q3CFjMDQB/Q45DeDxjvsmw+zKi19Tri37FEz0cC2L+FRwWeGKzN9FrnP7wBpJzfoYUY4IafjYOMDYrsMcDeDxjfsIo8BDQNJfW3GrLSflmNatyM7osm4p2OKRH67Zs7ky5N5o1gcyyyTLKUz0b8nvkVFYrX46Cz7OYd+IpYmJkJ91xbirVC5AXIjCO6fzrMECmTkkc1edmdRKWJVfjHWEwGG60eh8QMZgoOM+DeBxt97JibBw5oUXu0rl92Hrgc2u2Oge/HpqZaCbFu9b+1jzUHNd5arklKQWB4Xz+XjdyjuxX5xWPw3gCWi9+59AX8Ut+18m8QbJDvJh9iONdvc7/eVsx7KHmwsCUGe9u0gGDYrcv7P6l/nf3XP8m0jVKz6AIyMOANpvuOhzMnKVyOWvkmKk+vF/ep/eAdx4d/8Hm7/Rfw0AyOjSuPi3ejmHb7R3Sd6F17/mGrniLRLf8urYuqLv/YcDJr1t7j81u10c9yl1XK3XAMD8xouXFVe+aT687TVz9cur/wYA7hl54SGLCGiLVj51ApCMjRm54IKkddW53/a/fO53p6/C2c9vt0q9dNVvsYUe2LT+2oUrN3z4uZas1U39DKvg31yNDOhd2VvHdernNBHRqqeUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZam/wco3+rHNixemAAAAABJRU5ErkJggg==";
 
 // Versión de la app: la actualiza scripts/bump-version.py antes de cada commit/subida
-const APP_VERSION = { numero: '1.6', fecha: '2026-11-14T12:31:22+01:00' };
+const APP_VERSION = { numero: '1.7', fecha: '2026-11-14T13:03:31+01:00' };
 function textoVersion(corto) {
   const d = new Date(APP_VERSION.fecha);
   const fechaHora = isNaN(d.getTime()) ? '' : d.toLocaleString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }).replace(',', '');
@@ -1016,7 +1016,7 @@ function EditarClienteBtn({ cliente, onSaved }) {
         className="p-0.5 rounded text-slate-300 hover:text-brand-600 hover:bg-slate-100 shrink-0 align-middle">
         <Icons.Edit className="w-3.5 h-3.5" />
       </button>
-      <Modal open={open} onClose={() => setOpen(false)} title="Editar cliente" size="xl">
+      <Modal open={open} onClose={() => setOpen(false)} title="Editar cliente" size="xl" bare>
         {open && <ClienteModalBody modal={{ mode: 'edit', cliente }} onCancel={() => setOpen(false)} onSaved={() => { setOpen(false); onSaved && onSaved(); }} />}
       </Modal>
     </span>
@@ -1027,19 +1027,22 @@ function EditarClienteBtn({ cliente, onSaved }) {
 function ClienteQuickForm({ onCancel, onCreated }) {
   const toast = useToast();
   const [form, setForm] = useState({
-    nombre: '', empresa: '', tipoCliente: '', nif: '', nifIntracomunitario: '', telefono: '', email: '',
-    direccion: '', codigoPostal: '', poblacion: '', provincia: '',
+    nombrePila: '', apellidos: '', empresa: '', tipoCliente: '', nif: '', nifIntracomunitario: '', telefono: '', email: '',
+    direccion: '', codigoPostal: '', poblacion: '', provincia: '', pais: 'España',
   });
   const [saving, setSaving] = useState(false);
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+  const esEspana = !form.pais || form.pais === 'España';
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (!form.nombre.trim()) { toast('El nombre es obligatorio', 'error'); return; }
+    if (!form.nombrePila.trim()) { toast('El nombre es obligatorio', 'error'); return; }
     setSaving(true);
     try {
+      const nombre = [form.nombrePila, form.apellidos].map((x) => x.trim()).filter(Boolean).join(' ');
       const creado = await api.insert('Cliente', {
-        ...form, estado: 'activo',
+        ...form, nombre, nombrePila: form.nombrePila.trim(), apellidos: form.apellidos.trim() || null, estado: 'activo',
+        pais: form.pais.trim() || null,
         tipoCliente: form.tipoCliente || null,
         nifIntracomunitario: form.tipoCliente === 'ue' ? (form.nifIntracomunitario.trim().toUpperCase() || null) : null,
       });
@@ -1052,34 +1055,44 @@ function ClienteQuickForm({ onCancel, onCreated }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <Field label="Nombre" required>
-          <Input value={form.nombre} onChange={set('nombre')} placeholder="Nombre del cliente" required autoFocus />
-        </Field>
-        <Field label="Empresa"><Input value={form.empresa} onChange={set('empresa')} placeholder="Razón social" /></Field>
-        <Field label="Tipo de cliente" hint={CLIENTE_TIPO_AYUDA[form.tipoCliente] || 'Necesario para calcular IVA y retención en presupuestos y facturas.'}>
+      <div className="grid grid-cols-1 sm:grid-cols-6 gap-3">
+        <Field label="Apellidos" className="sm:col-span-3"><Input value={form.apellidos} onChange={set('apellidos')} autoComplete="family-name" /></Field>
+        <Field label="Nombre" required className="sm:col-span-3"><Input value={form.nombrePila} onChange={set('nombrePila')} required autoFocus autoComplete="given-name" /></Field>
+        <Field label="Empresa / Razón social" className="sm:col-span-6"><Input value={form.empresa} onChange={set('empresa')} /></Field>
+        <Field label="Tipo de cliente" hint={CLIENTE_TIPO_AYUDA[form.tipoCliente] || 'Necesario para calcular IVA y retención en presupuestos y facturas.'} className="sm:col-span-3">
           <Select value={form.tipoCliente} onChange={set('tipoCliente')}>
             <option value="">Selecciona un tipo</option>
             {Object.entries(CLIENTE_TIPOS).map(([k, label]) => <option key={k} value={k}>{label}</option>)}
           </Select>
         </Field>
-        <Field label="NIF / CIF"><Input value={form.nif} onChange={(e) => setForm((f) => ({ ...f, nif: e.target.value.toUpperCase() }))} maxLength={15} className="uppercase" /></Field>
+        <Field label="NIF / CIF" className="sm:col-span-3"><Input value={form.nif} onChange={(e) => setForm((f) => ({ ...f, nif: e.target.value.toUpperCase() }))} maxLength={15} className="uppercase" /></Field>
         {form.tipoCliente === 'ue' && (
-          <Field label="NIF-IVA intracomunitario" className="sm:col-span-2">
+          <Field label="NIF-IVA intracomunitario" className="sm:col-span-6">
             <Input value={form.nifIntracomunitario} onChange={(e) => setForm((f) => ({ ...f, nifIntracomunitario: e.target.value.toUpperCase() }))} maxLength={20} className="uppercase" />
           </Field>
         )}
-        <Field label="Dirección" className="sm:col-span-2"><Input value={form.direccion} onChange={set('direccion')} /></Field>
-        <Field label="Código postal"><Input value={form.codigoPostal} onChange={set('codigoPostal')} maxLength={5} inputMode="numeric" /></Field>
-        <Field label="Población"><Input value={form.poblacion} onChange={set('poblacion')} /></Field>
-        <Field label="Provincia"><Input value={form.provincia} onChange={set('provincia')} /></Field>
-        <Field label="Teléfono"><Input type="tel" inputMode="tel" maxLength={12} value={form.telefono} onChange={set('telefono')} /></Field>
-        <Field label="Email" className="sm:col-span-2"><Input type="email" value={form.email} onChange={set('email')} /></Field>
+        <Field label="Dirección fiscal" className="sm:col-span-6"><Input value={form.direccion} onChange={set('direccion')} /></Field>
+        <Field label="Código postal" className="sm:col-span-2"><Input value={form.codigoPostal} onChange={(e) => setForm((f) => ({ ...f, codigoPostal: esEspana ? e.target.value.replace(/\D/g, '') : e.target.value }))} maxLength={esEspana ? 5 : 10} inputMode={esEspana ? 'numeric' : 'text'} /></Field>
+        <Field label="Población" className="sm:col-span-4"><Input value={form.poblacion} onChange={set('poblacion')} /></Field>
+        <Field label="Provincia" className="sm:col-span-3">
+          {esEspana ? (
+            <Select value={form.provincia} onChange={set('provincia')}>
+              <option value="">Selecciona…</option>
+              {PROVINCIAS_ES.map((pv) => <option key={pv} value={pv}>{pv}</option>)}
+            </Select>
+          ) : <Input value={form.provincia} onChange={set('provincia')} />}
+        </Field>
+        <Field label="País" className="sm:col-span-3">
+          <Input list="lista-paises" value={form.pais} onChange={set('pais')} />
+          <datalist id="lista-paises">{PAISES_SUGERIDOS.map((pa) => <option key={pa} value={pa} />)}</datalist>
+        </Field>
+        <Field label="Teléfono" className="sm:col-span-2"><Input type="tel" inputMode="tel" maxLength={16} value={form.telefono} onChange={set('telefono')} /></Field>
+        <Field label="Email" className="sm:col-span-4"><Input type="email" value={form.email} onChange={set('email')} /></Field>
       </div>
       <p className="text-[11px] text-slate-400 mt-2">Solo el nombre es obligatorio; puedes completar el resto más tarde desde la ficha del cliente.</p>
-      <div className="flex justify-end gap-2 mt-4">
-        <Button variant="secondary" type="button" onClick={onCancel}>Cancelar</Button>
-        <Button type="submit" disabled={saving}>{saving ? 'Creando...' : 'Crear cliente'}</Button>
+      <div className="grid grid-cols-5 gap-3 mt-4">
+        <button type="button" onClick={onCancel} className="col-span-2 h-12 rounded-xl bg-slate-100 hover:bg-slate-200 text-ink-800 text-base font-bold transition">Cancelar</button>
+        <button type="submit" disabled={saving} className="col-span-3 h-12 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-base font-bold disabled:opacity-60 transition">{saving ? 'Creando...' : 'Crear cliente'}</button>
       </div>
     </form>
   );
@@ -1363,7 +1376,7 @@ function ProyectoSelect({ value, proyectos, clienteId, onChange, placeholder, cl
 // Se renderiza con un portal a document.body: los formularios de alta rápida (cliente/producto)
 // abren su propio <Modal> desde dentro de otro formulario, y sin portal quedaría un <form> anidado
 // dentro de otro <form> (HTML inválido) que rompe el submit. El portal saca el DOM fuera del <form> padre.
-function Modal({ open, onClose, title, children, footer, wide, size }) {
+function Modal({ open, onClose, title, children, footer, wide, size, bare }) {
   if (!open) return null;
   const sizeCls = size === 'xl' ? 'sm:max-w-5xl' : (wide || size === 'lg') ? 'sm:max-w-3xl' : 'sm:max-w-lg';
   return ReactDOM.createPortal(
@@ -1371,16 +1384,19 @@ function Modal({ open, onClose, title, children, footer, wide, size }) {
       <div className="absolute inset-0 bg-ink-900/50 backdrop-blur-[2px]" onClick={onClose}></div>
       <div className={classNames(
         'relative bg-white w-full sm:rounded-2xl shadow-2xl fade-in flex flex-col max-h-full sm:max-h-[95vh]',
+        bare && 'overflow-hidden',
         sizeCls
       )}>
-        <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 shrink-0">
-          <h3 className="text-base font-semibold text-ink-900">{title}</h3>
-          <button onClick={onClose} className="text-slate-400 hover:text-ink-700 rounded-lg p-1 hover:bg-slate-100">
-            <Icons.X className="w-5 h-5" />
-          </button>
-        </div>
-        <div className="px-5 py-4 overflow-y-auto">{children}</div>
-        {footer && <div className="px-5 py-3.5 border-t border-slate-100 flex justify-end gap-2 shrink-0">{footer}</div>}
+        {!bare && (
+          <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 shrink-0">
+            <h3 className="text-base font-semibold text-ink-900">{title}</h3>
+            <button onClick={onClose} className="text-slate-400 hover:text-ink-700 rounded-lg p-1 hover:bg-slate-100">
+              <Icons.X className="w-5 h-5" />
+            </button>
+          </div>
+        )}
+        {bare ? children : <div className="px-5 py-4 overflow-y-auto">{children}</div>}
+        {!bare && footer && <div className="px-5 py-3.5 border-t border-slate-100 flex justify-end gap-2 shrink-0">{footer}</div>}
       </div>
     </div>,
     document.body
@@ -2814,12 +2830,72 @@ function Calendario({ navigate }) {
 }
 
 // ===================== pages/Clientes.js =====================
+const PROVINCIAS_ES = ['Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias', 'Ávila', 'Badajoz', 'Baleares', 'Barcelona', 'Burgos', 'Cáceres', 'Cádiz', 'Cantabria', 'Castellón', 'Ceuta', 'Ciudad Real', 'Córdoba', 'A Coruña', 'Cuenca', 'Girona', 'Granada', 'Guadalajara', 'Gipuzkoa', 'Huelva', 'Huesca', 'Jaén', 'León', 'Lleida', 'Lugo', 'Madrid', 'Málaga', 'Melilla', 'Murcia', 'Navarra', 'Ourense', 'Palencia', 'Las Palmas', 'Pontevedra', 'La Rioja', 'Salamanca', 'Santa Cruz de Tenerife', 'Segovia', 'Sevilla', 'Soria', 'Tarragona', 'Teruel', 'Toledo', 'Valencia', 'Valladolid', 'Bizkaia', 'Zamora', 'Zaragoza'];
+const PAISES_UE = ['Alemania', 'Austria', 'Bélgica', 'Bulgaria', 'Chipre', 'Croacia', 'Dinamarca', 'Eslovaquia', 'Eslovenia', 'Estonia', 'Finlandia', 'Francia', 'Grecia', 'Hungría', 'Irlanda', 'Italia', 'Letonia', 'Lituania', 'Luxemburgo', 'Malta', 'Países Bajos', 'Polonia', 'Portugal', 'Chequia', 'Rumanía', 'Suecia'];
+const PAISES_SUGERIDOS = ['España', ...PAISES_UE, 'Reino Unido', 'Suiza', 'Noruega', 'Estados Unidos', 'México', 'Argentina', 'Colombia', 'Chile', 'Marruecos'];
+const SERVICIOS_INTERES = ['Diseño web', 'Tienda online', 'SEO / posicionamiento', 'Mantenimiento y hosting', 'Dominio y correo', 'Diseño gráfico / branding', 'Marketing digital y redes', 'Otro'];
+const ORIGENES_LEAD = ['Recomendación', 'Búsqueda en Google', 'Redes sociales', 'Directorio o web', 'Cliente anterior', 'Publicidad', 'Evento o networking', 'Otro'];
+
 const CLIENTE_EMPTY = {
-  nombre: '', empresa: '', personaContacto: '', telefono: '', telefono2: '',
-  email: '', email2: '', email3: '', nif: '', direccion: '', codigoPostal: '',
-  poblacion: '', provincia: '', sitioWeb: '', sitioWeb2: '', sitioWeb3: '', estado: 'activo', notas: '',
-  tipoCliente: '', nifIntracomunitario: '',
+  nombre: '', nombrePila: '', apellidos: '', cargo: '', personaContacto: '', telefono: '', telefono2: '',
+  email: '', email2: '', emailFacturacion: '', empresa: '', nif: '', nifIntracomunitario: '', tipoCliente: '',
+  direccion: '', codigoPostal: '', poblacion: '', provincia: '', pais: 'España',
+  sitioWeb: '', sitioWeb2: '', servicioInteres: '', origenLead: '', etiquetas: [], estado: 'activo', notas: '',
 };
+
+// "nombre" guarda siempre el nombre completo (así el resto de la app no cambia); nombrePila y apellidos son el desglose.
+// Los clientes antiguos solo tienen "nombre": se muestra entero en el campo Nombre para que puedas separar los apellidos.
+function clienteAFormulario(c) {
+  if (!c) return { ...CLIENTE_EMPTY };
+  const compuesto = [c.nombrePila, c.apellidos].filter(Boolean).join(' ');
+  const desglosado = (c.nombrePila || c.apellidos) && compuesto === (c.nombre || '');
+  return {
+    ...CLIENTE_EMPTY, ...c,
+    nombrePila: desglosado ? (c.nombrePila || '') : (c.nombre || ''),
+    apellidos: desglosado ? (c.apellidos || '') : '',
+    etiquetas: c.etiquetas || [],
+  };
+}
+
+function SeccionForm({ icono: Ic, titulo, children, primera }) {
+  return (
+    <section className={primera ? '' : 'pt-5 border-t border-slate-200'}>
+      <div className="flex items-center gap-3 mb-4">
+        <span className="w-9 h-9 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0"><Ic className="w-5 h-5" /></span>
+        <h4 className="text-lg font-bold text-ink-900">{titulo}</h4>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-6 lg:grid-cols-12 gap-x-4 gap-y-3.5">{children}</div>
+    </section>
+  );
+}
+
+function TagInput({ value, onChange, placeholder }) {
+  const [texto, setTexto] = useState('');
+  const tags = value || [];
+  function agregar(t) {
+    const limpio = t.replace(/,/g, '').trim();
+    if (limpio && !tags.some((x) => x.toLowerCase() === limpio.toLowerCase())) onChange([...tags, limpio]);
+    setTexto('');
+  }
+  return (
+    <div className={classNames(inputCls, 'flex flex-wrap items-center gap-1.5 !py-1.5 min-h-[40px]')}>
+      {tags.map((t) => (
+        <span key={t} className="inline-flex items-center gap-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium pl-2.5 pr-1.5 py-1">
+          {t}
+          <button type="button" aria-label={`Quitar ${t}`} onClick={() => onChange(tags.filter((x) => x !== t))} className="hover:text-rose-600"><Icons.X className="w-3 h-3" /></button>
+        </span>
+      ))}
+      <input value={texto} placeholder={tags.length ? '' : placeholder}
+        onChange={(e) => { if (e.target.value.includes(',')) agregar(e.target.value); else setTexto(e.target.value); }}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') { e.preventDefault(); agregar(texto); }
+          else if (e.key === 'Backspace' && !texto && tags.length) onChange(tags.slice(0, -1));
+        }}
+        onBlur={() => { if (texto.trim()) agregar(texto); }}
+        className="flex-1 min-w-[6rem] bg-transparent outline-none text-sm py-0.5" />
+    </div>
+  );
+}
 
 const CLIENTE_TIPOS = {
   particular: 'Particular', autonomo: 'Autónomo', empresa: 'Empresa', ue: 'Empresa de la UE', fuera_ue: 'Fuera de la UE',
@@ -2832,12 +2908,26 @@ const CLIENTE_TIPO_AYUDA = {
   fuera_ue: 'Factura sin IVA (operación no sujeta).',
 };
 
-function ClienteForm({ initial, onCancel, onSaved, onVerHistorial }) {
+function ClienteForm({ initial, onCancel, onSaved, onVerHistorial, onVista }) {
   const toast = useToast();
-  const [form, setForm] = useState(initial || CLIENTE_EMPTY);
+  const esNuevo = !(initial && initial.id);
+  const [form, setForm] = useState(() => clienteAFormulario(initial));
   const [saving, setSaving] = useState(false);
   const [historialReciente, setHistorialReciente] = useState([]);
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+  const setMayus = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value.toUpperCase() }));
+
+  const nombreCompleto = [form.nombrePila, form.apellidos].map((x) => (x || '').trim()).filter(Boolean).join(' ');
+  const esUE = form.tipoCliente === 'ue';
+  const esEspana = !form.pais || form.pais === 'España';
+  const exigeEmpresa = ['empresa', 'ue', 'fuera_ue'].includes(form.tipoCliente);
+  const fiscal = form.estado !== 'potencial';
+  const paisUEnoEspana = PAISES_UE.includes(form.pais) && form.tipoCliente && !esUE;
+
+  useEffect(() => {
+    if (onVista) onVista({ nombre: nombreCompleto, empresa: (form.empresa || '').trim(), tipo: form.tipoCliente });
+    // eslint-disable-next-line
+  }, [nombreCompleto, form.empresa, form.tipoCliente]);
 
   useEffect(() => {
     if (!form.id) return;
@@ -2848,12 +2938,37 @@ function ClienteForm({ initial, onCancel, onSaved, onVerHistorial }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (!form.nombre.trim()) { toast('El nombre es obligatorio', 'error'); return; }
-    if (!form.tipoCliente) { toast('Selecciona el tipo de cliente', 'error'); return; }
-    if (form.tipoCliente === 'ue' && !(form.nifIntracomunitario || '').trim()) { toast('El NIF-IVA intracomunitario es obligatorio para empresas de la UE', 'error'); return; }
+    const vacio = (k) => !(form[k] || '').toString().trim();
+    const faltan = [];
+    if (vacio('nombrePila')) faltan.push('Nombre');
+    if (!form.tipoCliente) faltan.push('Tipo de cliente');
+    if (esNuevo) {
+      if (vacio('apellidos')) faltan.push('Apellidos');
+      if (vacio('telefono')) faltan.push('Teléfono principal');
+      if (vacio('email')) faltan.push('Email principal');
+      if (fiscal) {
+        if (exigeEmpresa && vacio('empresa')) faltan.push('Empresa / Razón social');
+        if (vacio('nif')) faltan.push('NIF / CIF');
+        if (esUE && vacio('nifIntracomunitario')) faltan.push('NIF-IVA intracomunitario');
+        if (vacio('direccion')) faltan.push('Dirección fiscal');
+        if (vacio('codigoPostal')) faltan.push('Código postal');
+        if (vacio('poblacion')) faltan.push('Población');
+        if (vacio('provincia')) faltan.push('Provincia');
+        if (vacio('pais')) faltan.push('País');
+      }
+    } else if (esUE && vacio('nifIntracomunitario')) faltan.push('NIF-IVA intracomunitario');
+    if (faltan.length) { toast(`Falta rellenar: ${faltan.join(', ')}`, 'error'); return; }
+
+    const nulo = (v) => ((v || '').toString().trim() || null);
     const datos = {
       ...form,
-      nifIntracomunitario: form.tipoCliente === 'ue' ? form.nifIntracomunitario.trim().toUpperCase() : null,
+      nombre: nombreCompleto,
+      nombrePila: nulo(form.nombrePila), apellidos: nulo(form.apellidos),
+      cargo: nulo(form.cargo), pais: nulo(form.pais), emailFacturacion: nulo(form.emailFacturacion),
+      servicioInteres: nulo(form.servicioInteres), origenLead: nulo(form.origenLead),
+      tipoCliente: form.tipoCliente || null,
+      nifIntracomunitario: esUE ? form.nifIntracomunitario.trim().toUpperCase() : null,
+      etiquetas: form.etiquetas || [],
     };
     setSaving(true);
     try {
@@ -2874,88 +2989,127 @@ function ClienteForm({ initial, onCancel, onSaved, onVerHistorial }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Field label="Nombre" required className="sm:col-span-2 lg:col-span-1">
-          <InputCopy value={form.nombre} onChange={set('nombre')} copyLabel="nombre" required placeholder="Nombre del cliente" autoFocus />
-        </Field>
-        <Field label="Empresa"><InputCopy value={form.empresa || ''} onChange={set('empresa')} copyLabel="empresa" placeholder="Razón social" /></Field>
-        <Field label="NIF / CIF" hint="Formato UE: ES12345678A">
-          <InputCopy value={form.nif || ''} onChange={(e) => setForm((f) => ({ ...f, nif: e.target.value.toUpperCase() }))} copyLabel="NIF" maxLength={15} className="uppercase" />
-        </Field>
-        <Field label="Persona de contacto"><InputCopy value={form.personaContacto || ''} onChange={set('personaContacto')} copyLabel="contacto" /></Field>
-        <Field label="Estado">
-          <Select value={form.estado} onChange={set('estado')}>
-            <option value="activo">Activo</option>
-            <option value="potencial">Potencial</option>
-            <option value="inactivo">Inactivo</option>
-          </Select>
-        </Field>
-        <Field label="Tipo de cliente" required hint={CLIENTE_TIPO_AYUDA[form.tipoCliente]}>
-          <Select value={form.tipoCliente || ''} onChange={set('tipoCliente')} required>
-            <option value="">Selecciona un tipo</option>
-            {Object.entries(CLIENTE_TIPOS).map(([k, label]) => <option key={k} value={k}>{label}</option>)}
-          </Select>
-        </Field>
-        {form.tipoCliente === 'ue' && (
-          <Field label="NIF-IVA intracomunitario" required>
-            <InputCopy value={form.nifIntracomunitario || ''} onChange={(e) => setForm((f) => ({ ...f, nifIntracomunitario: e.target.value.toUpperCase() }))}
-              copyLabel="NIF-IVA" maxLength={20} required className="uppercase" />
+    <form onSubmit={handleSubmit} className="flex flex-col min-h-0 flex-1">
+      <div className="flex-1 overflow-y-auto px-5 sm:px-6 py-5 space-y-6">
+        <SeccionForm primera icono={Icons.Users} titulo="Datos personales">
+          <Field label="Apellidos" required={esNuevo} className="sm:col-span-3 lg:col-span-5"><InputCopy value={form.apellidos || ''} onChange={set('apellidos')} copyLabel="apellidos" autoComplete="family-name" /></Field>
+          <Field label="Nombre" required className="sm:col-span-3 lg:col-span-4"><InputCopy value={form.nombrePila || ''} onChange={set('nombrePila')} copyLabel="nombre" autoFocus autoComplete="given-name" /></Field>
+          <Field label="Cargo" className="sm:col-span-6 lg:col-span-3"><Input value={form.cargo || ''} onChange={set('cargo')} placeholder="Gerente, propietario…" /></Field>
+          <Field label="Persona de contacto" className="sm:col-span-6 lg:col-span-4"><InputCopy value={form.personaContacto || ''} onChange={set('personaContacto')} copyLabel="contacto" placeholder="Si es distinta del titular" /></Field>
+          <Field label="Teléfono principal" required={esNuevo} className="sm:col-span-3 lg:col-span-4"><InputCopy type="tel" inputMode="tel" maxLength={16} value={form.telefono || ''} onChange={set('telefono')} copyLabel="teléfono" /></Field>
+          <Field label="Teléfono secundario" className="sm:col-span-3 lg:col-span-4"><InputCopy type="tel" inputMode="tel" maxLength={16} value={form.telefono2 || ''} onChange={set('telefono2')} copyLabel="teléfono" /></Field>
+          <Field label="Email principal" required={esNuevo} className="sm:col-span-3 lg:col-span-6"><InputCopy type="email" value={form.email || ''} onChange={set('email')} copyLabel="email" autoComplete="email" /></Field>
+          <Field label="Email secundario" className="sm:col-span-3 lg:col-span-6"><InputCopy type="email" value={form.email2 || ''} onChange={set('email2')} copyLabel="email" /></Field>
+        </SeccionForm>
+
+        <SeccionForm icono={Icons.Receipt} titulo="Facturación">
+          <Field label="Empresa / Razón social" required={esNuevo && fiscal && exigeEmpresa} className={classNames('sm:col-span-6', esUE ? 'lg:col-span-6' : 'lg:col-span-9')}>
+            <InputCopy value={form.empresa || ''} onChange={set('empresa')} copyLabel="empresa" placeholder={form.tipoCliente === 'particular' ? 'No aplica a particulares' : ''} />
           </Field>
+          <Field label="NIF / CIF" required={esNuevo && fiscal} className="sm:col-span-3 lg:col-span-3"><InputCopy value={form.nif || ''} onChange={setMayus('nif')} copyLabel="NIF" maxLength={15} className="uppercase" /></Field>
+          {esUE && (
+            <Field label="NIF-IVA intracomunitario" required className="sm:col-span-3 lg:col-span-3"><InputCopy value={form.nifIntracomunitario || ''} onChange={setMayus('nifIntracomunitario')} copyLabel="NIF-IVA" maxLength={20} className="uppercase" placeholder="ES12345678A" /></Field>
+          )}
+          <Field label="Tipo de cliente" required hint={CLIENTE_TIPO_AYUDA[form.tipoCliente]} className="sm:col-span-3 lg:col-span-4">
+            <Select value={form.tipoCliente || ''} onChange={set('tipoCliente')}>
+              <option value="">Selecciona un tipo</option>
+              {Object.entries(CLIENTE_TIPOS).map(([k, label]) => <option key={k} value={k}>{label}</option>)}
+            </Select>
+          </Field>
+          <Field label="Estado" required className="sm:col-span-3 lg:col-span-3">
+            <Select value={form.estado} onChange={set('estado')}>
+              <option value="activo">Activo</option>
+              <option value="potencial">Potencial</option>
+              <option value="inactivo">Inactivo</option>
+            </Select>
+          </Field>
+          <Field label="Email de facturación" hint="Si es distinto del principal: aquí se envían las facturas" className="sm:col-span-6 lg:col-span-5"><InputCopy type="email" value={form.emailFacturacion || ''} onChange={set('emailFacturacion')} copyLabel="email" /></Field>
+          {paisUEnoEspana && (
+            <p className="sm:col-span-6 lg:col-span-12 text-xs text-amber-700 bg-amber-50 rounded-lg px-3 py-2">El país es de la UE: revisa si el tipo de cliente debería ser «Empresa de la UE».</p>
+          )}
+          <Field label="Dirección fiscal" required={esNuevo && fiscal} className="sm:col-span-6 lg:col-span-12"><InputCopy value={form.direccion || ''} onChange={set('direccion')} copyLabel="dirección" autoComplete="street-address" /></Field>
+          <Field label="Código postal" required={esNuevo && fiscal} className="sm:col-span-2 lg:col-span-2">
+            <InputCopy value={form.codigoPostal || ''} onChange={(e) => setForm((f) => ({ ...f, codigoPostal: esEspana ? e.target.value.replace(/\D/g, '') : e.target.value }))} copyLabel="código postal" maxLength={esEspana ? 5 : 10} inputMode={esEspana ? 'numeric' : 'text'} />
+          </Field>
+          <Field label="Población" required={esNuevo && fiscal} className="sm:col-span-4 lg:col-span-4"><InputCopy value={form.poblacion || ''} onChange={set('poblacion')} copyLabel="población" /></Field>
+          <Field label="Provincia" required={esNuevo && fiscal} className="sm:col-span-3 lg:col-span-3">
+            {esEspana ? (
+              <Select value={form.provincia || ''} onChange={set('provincia')}>
+                <option value="">Selecciona…</option>
+                {(PROVINCIAS_ES.includes(form.provincia) || !form.provincia ? PROVINCIAS_ES : [form.provincia, ...PROVINCIAS_ES]).map((p) => <option key={p} value={p}>{p}</option>)}
+              </Select>
+            ) : <Input value={form.provincia || ''} onChange={set('provincia')} placeholder="Región / estado" />}
+          </Field>
+          <Field label="País" required={esNuevo && fiscal} className="sm:col-span-3 lg:col-span-3">
+            <Input list="lista-paises" value={form.pais || ''} onChange={set('pais')} autoComplete="country-name" />
+            <datalist id="lista-paises">{PAISES_SUGERIDOS.map((p) => <option key={p} value={p} />)}</datalist>
+          </Field>
+        </SeccionForm>
+
+        <SeccionForm icono={Icons.Target} titulo="CRM">
+          <Field label="Sitio web principal" className="sm:col-span-3 lg:col-span-6"><InputCopy value={form.sitioWeb || ''} onChange={set('sitioWeb')} copyLabel="sitio web" placeholder="https://" /></Field>
+          <Field label="Sitio web secundario" className="sm:col-span-3 lg:col-span-6"><InputCopy value={form.sitioWeb2 || ''} onChange={set('sitioWeb2')} copyLabel="sitio web" placeholder="https://" /></Field>
+          <Field label="Servicio de interés" className="sm:col-span-3 lg:col-span-4">
+            <Select value={form.servicioInteres || ''} onChange={set('servicioInteres')}>
+              <option value="">Selecciona…</option>
+              {(SERVICIOS_INTERES.includes(form.servicioInteres) || !form.servicioInteres ? SERVICIOS_INTERES : [form.servicioInteres, ...SERVICIOS_INTERES]).map((s) => <option key={s} value={s}>{s}</option>)}
+            </Select>
+          </Field>
+          <Field label="Origen del lead" className="sm:col-span-3 lg:col-span-3">
+            <Select value={form.origenLead || ''} onChange={set('origenLead')}>
+              <option value="">Selecciona…</option>
+              {(ORIGENES_LEAD.includes(form.origenLead) || !form.origenLead ? ORIGENES_LEAD : [form.origenLead, ...ORIGENES_LEAD]).map((s) => <option key={s} value={s}>{s}</option>)}
+            </Select>
+          </Field>
+          <Field label="Etiquetas" hint="Escribe y pulsa Enter o coma para añadir" className="sm:col-span-6 lg:col-span-5">
+            <TagInput value={form.etiquetas} onChange={(etiquetas) => setForm((f) => ({ ...f, etiquetas }))} placeholder="Web, SEO, hosting…" />
+          </Field>
+          <Field label="Notas" className="sm:col-span-6 lg:col-span-12"><Textarea rows={2} value={form.notas || ''} onChange={set('notas')} /></Field>
+        </SeccionForm>
+
+        {form.id && (
+          <div>
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-xs font-semibold text-ink-600">Historial reciente</span>
+              {onVerHistorial && <button type="button" onClick={onVerHistorial} className="text-xs text-brand-600 hover:underline">Ver todo</button>}
+            </div>
+            {historialReciente.length === 0 ? (
+              <p className="text-xs text-slate-400">Sin registros en el historial todavía.</p>
+            ) : (
+              <div className="border border-slate-100 rounded-lg divide-y divide-slate-100">
+                {historialReciente.map((it) => {
+                  const info = INTERACCION_TIPOS[it.tipo] || INTERACCION_TIPOS.nota;
+                  const Ic = Icons[info.icon] || Icons.FileText;
+                  return (
+                    <div key={it.id} className="flex items-center gap-3 px-3 py-2">
+                      <div className={classNames('w-7 h-7 rounded-lg flex items-center justify-center shrink-0', TIPO_TONES[info.color])}>
+                        <Ic className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="text-xs font-semibold text-ink-700 shrink-0 w-16 truncate">{info.label}</span>
+                      <span className="text-xs text-slate-400 shrink-0 w-20">{formatDate(it.fecha)}</span>
+                      <p className="text-sm text-ink-600 truncate min-w-0 flex-1">{it.descripcion}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         )}
-        <Field label="Teléfono principal"><InputCopy type="tel" inputMode="tel" maxLength={12} value={form.telefono || ''} onChange={set('telefono')} copyLabel="teléfono" /></Field>
-        <Field label="Teléfono secundario"><InputCopy type="tel" inputMode="tel" maxLength={12} value={form.telefono2 || ''} onChange={set('telefono2')} copyLabel="teléfono" /></Field>
-        <Field label="Email principal"><InputCopy type="email" value={form.email || ''} onChange={set('email')} copyLabel="email" /></Field>
-        <Field label="Email secundario"><InputCopy type="email" value={form.email2 || ''} onChange={set('email2')} copyLabel="email" /></Field>
-        <Field label="Email adicional"><InputCopy type="email" value={form.email3 || ''} onChange={set('email3')} copyLabel="email" /></Field>
-        <Field label="Sitio web principal"><InputCopy value={form.sitioWeb || ''} onChange={set('sitioWeb')} copyLabel="sitio web" placeholder="https://" /></Field>
-        <Field label="Sitio web secundario"><InputCopy value={form.sitioWeb2 || ''} onChange={set('sitioWeb2')} copyLabel="sitio web" placeholder="https://" /></Field>
-        <Field label="Sitio web adicional"><InputCopy value={form.sitioWeb3 || ''} onChange={set('sitioWeb3')} copyLabel="sitio web" placeholder="https://" /></Field>
-        <Field label="Dirección"><InputCopy value={form.direccion || ''} onChange={set('direccion')} copyLabel="dirección" /></Field>
-        <Field label="Código postal"><InputCopy value={form.codigoPostal || ''} onChange={set('codigoPostal')} copyLabel="código postal" maxLength={5} inputMode="numeric" /></Field>
-        <Field label="Población"><InputCopy value={form.poblacion || ''} onChange={set('poblacion')} copyLabel="población" /></Field>
-        <Field label="Provincia"><InputCopy value={form.provincia || ''} onChange={set('provincia')} copyLabel="provincia" /></Field>
-        <Field label="Notas"><Input value={form.notas || ''} onChange={set('notas')} /></Field>
+        {esNuevo && <p className="text-xs text-slate-400">Los campos con * son obligatorios al crear un cliente. Los datos fiscales no se exigen a los clientes «potenciales».</p>}
       </div>
 
-      {form.id && (
-        <div className="mt-4">
-          <div className="flex items-center justify-between mb-1.5">
-            <span className="text-xs font-semibold text-ink-600">Historial reciente</span>
-            {onVerHistorial && <button type="button" onClick={onVerHistorial} className="text-xs text-brand-600 hover:underline">Ver todo</button>}
-          </div>
-          {historialReciente.length === 0 ? (
-            <p className="text-xs text-slate-400">Sin registros en el historial todavía.</p>
-          ) : (
-            <div className="border border-slate-100 rounded-lg divide-y divide-slate-100">
-              {historialReciente.map((it) => {
-                const info = INTERACCION_TIPOS[it.tipo] || INTERACCION_TIPOS.nota;
-                const Ic = Icons[info.icon] || Icons.FileText;
-                return (
-                  <div key={it.id} className="flex items-center gap-3 px-3 py-2">
-                    <div className={classNames('w-7 h-7 rounded-lg flex items-center justify-center shrink-0', TIPO_TONES[info.color])}>
-                      <Ic className="w-3.5 h-3.5" />
-                    </div>
-                    <span className="text-xs font-semibold text-ink-700 shrink-0 w-16 truncate">{info.label}</span>
-                    <span className="text-xs text-slate-400 shrink-0 w-20">{formatDate(it.fecha)}</span>
-                    <p className="text-sm text-ink-600 truncate min-w-0 flex-1">{it.descripcion}</p>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
-      )}
-
-      <div className="flex justify-end gap-2 mt-5">
-        <Button variant="secondary" type="button" onClick={onCancel}>Cancelar</Button>
-        <Button type="submit" disabled={saving}>{saving ? 'Guardando...' : 'Guardar cliente'}</Button>
+      <div className="shrink-0 border-t border-slate-200 bg-white px-5 sm:px-6 py-4 grid grid-cols-5 gap-3">
+        <button type="button" onClick={onCancel}
+          className="col-span-2 h-14 rounded-xl bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-ink-800 text-base font-bold transition">Cancelar</button>
+        <button type="submit" disabled={saving}
+          className="col-span-3 h-14 rounded-xl bg-brand-600 hover:bg-brand-700 active:bg-brand-800 text-white text-base font-bold flex items-center justify-center gap-2 shadow-sm shadow-brand-600/30 disabled:opacity-60 transition">
+          <Icons.Check className="w-5 h-5" /> {saving ? 'Guardando...' : 'Guardar cliente'}
+        </button>
       </div>
     </form>
   );
 }
 
-// ---------- Accesos (usuarios/contraseñas de hosting, email, redes sociales...) ----------
 const ACCESO_EMPTY = { servicio: '', usuario: '', contrasena: '', url: '', notas: '' };
 const SERVICIOS_SUGERIDOS = ['Hosting', 'Dominio', 'Email', 'Facebook', 'Instagram', 'Google', 'WordPress', 'Otro'];
 
@@ -3250,25 +3404,40 @@ function ClienteHistorial({ clienteId }) {
 function ClienteModalBody({ modal, onCancel, onSaved }) {
   const [tab, setTab] = useState('datos');
   const isEdit = modal.mode === 'edit' && modal.cliente && modal.cliente.id;
+  const [vista, setVista] = useState({ nombre: '', empresa: '', tipo: '' });
   const tabBtn = (key, label, Ic) => (
     <button type="button" onClick={() => setTab(key)}
-      className={classNames('px-3 py-2 text-sm font-medium border-b-2 -mb-px flex items-center gap-1.5 transition',
+      className={classNames('px-4 py-2.5 text-sm font-medium border-b-2 -mb-px flex items-center gap-1.5 transition',
         tab === key ? 'border-brand-600 text-brand-600' : 'border-transparent text-slate-400 hover:text-ink-600')}>
-      {Ic && <Ic className="w-3.5 h-3.5" />} {label}
+      {Ic && <Ic className="w-4 h-4" />} {label}
     </button>
   );
   return (
-    <div>
+    <div className="flex flex-col min-h-0 flex-1">
+      <div className="bg-black text-white px-5 sm:px-6 h-16 flex items-center gap-4 shrink-0">
+        <Icons.Users className="w-6 h-6 text-white/80 shrink-0" />
+        <h3 className="text-xl font-bold whitespace-nowrap">{isEdit ? 'Editar cliente' : 'Nuevo cliente'}</h3>
+        <span className="hidden sm:block w-px h-7 bg-white/25 shrink-0"></span>
+        <p className="hidden sm:block min-w-0 flex-1 truncate text-base">
+          {vista.nombre
+            ? <><span className="font-semibold">{vista.nombre}</span>{vista.empresa && <span className="text-white/60"> · {vista.empresa}</span>}</>
+            : <span className="text-white/40">Escribe el nombre del cliente…</span>}
+        </p>
+        {vista.tipo && <span className="hidden md:inline-flex shrink-0 rounded-full bg-white/10 px-3 py-1 text-xs font-medium">{CLIENTE_TIPOS[vista.tipo]}</span>}
+        <button type="button" onClick={onCancel} aria-label="Cerrar" className="ml-auto sm:ml-0 shrink-0 p-2 -mr-2 rounded-lg hover:bg-white/15 transition">
+          <Icons.X className="w-6 h-6" />
+        </button>
+      </div>
       {isEdit && (
-        <div className="flex gap-1 border-b border-slate-100 mb-4 -mt-1">
+        <div className="flex gap-1 border-b border-slate-200 px-5 sm:px-6 shrink-0">
           {tabBtn('datos', 'Datos generales')}
           {tabBtn('accesos', 'Accesos', Icons.Lock)}
           {tabBtn('historial', 'Historial', Icons.ListTasks)}
         </div>
       )}
-      {tab === 'datos' && <ClienteForm initial={isEdit ? modal.cliente : null} onCancel={onCancel} onSaved={onSaved} onVerHistorial={isEdit ? () => setTab('historial') : undefined} />}
-      {tab === 'accesos' && isEdit && <ClienteAccesos clienteId={modal.cliente.id} />}
-      {tab === 'historial' && isEdit && <ClienteHistorial clienteId={modal.cliente.id} />}
+      {tab === 'datos' && <ClienteForm initial={isEdit ? modal.cliente : null} onCancel={onCancel} onSaved={onSaved} onVista={setVista} onVerHistorial={isEdit ? () => setTab('historial') : undefined} />}
+      {tab === 'accesos' && isEdit && <div className="flex-1 overflow-y-auto px-5 sm:px-6 py-5"><ClienteAccesos clienteId={modal.cliente.id} /></div>}
+      {tab === 'historial' && isEdit && <div className="flex-1 overflow-y-auto px-5 sm:px-6 py-5"><ClienteHistorial clienteId={modal.cliente.id} /></div>}
     </div>
   );
 }
@@ -3338,11 +3507,14 @@ function Clientes() {
       <PageHeader title="Clientes" subtitle={`${clientes.length} clientes registrados`}
         action={<div className="flex gap-2">
           <ExportCsvButton nombre="clientes" filas={sorted} columnas={[
-            { titulo: 'Nombre', valor: (c) => c.nombre }, { titulo: 'Empresa', valor: (c) => c.empresa }, { titulo: 'Tipo de cliente', valor: (c) => CLIENTE_TIPOS[c.tipoCliente] || '' },
+            { titulo: 'Nombre completo', valor: (c) => c.nombre }, { titulo: 'Apellidos', valor: (c) => c.apellidos }, { titulo: 'Nombre', valor: (c) => c.nombrePila },
+            { titulo: 'Cargo', valor: (c) => c.cargo }, { titulo: 'Empresa', valor: (c) => c.empresa }, { titulo: 'Tipo de cliente', valor: (c) => CLIENTE_TIPOS[c.tipoCliente] || '' },
             { titulo: 'NIF/CIF', valor: (c) => c.nif }, { titulo: 'NIF-IVA intracomunitario', valor: (c) => c.nifIntracomunitario }, { titulo: 'Persona de contacto', valor: (c) => c.personaContacto },
             { titulo: 'Email', valor: (c) => c.email }, { titulo: 'Email 2', valor: (c) => c.email2 }, { titulo: 'Teléfono', valor: (c) => c.telefono }, { titulo: 'Teléfono 2', valor: (c) => c.telefono2 },
             { titulo: 'Dirección', valor: (c) => c.direccion }, { titulo: 'Código postal', valor: (c) => c.codigoPostal }, { titulo: 'Población', valor: (c) => c.poblacion },
-            { titulo: 'Provincia', valor: (c) => c.provincia }, { titulo: 'Sitio web', valor: (c) => c.sitioWeb }, { titulo: 'Estado', valor: (c) => c.estado }, { titulo: 'Notas', valor: (c) => c.notas }]} />
+            { titulo: 'Provincia', valor: (c) => c.provincia }, { titulo: 'País', valor: (c) => c.pais }, { titulo: 'Email de facturación', valor: (c) => c.emailFacturacion },
+            { titulo: 'Sitio web', valor: (c) => c.sitioWeb }, { titulo: 'Servicio de interés', valor: (c) => c.servicioInteres }, { titulo: 'Origen del lead', valor: (c) => c.origenLead },
+            { titulo: 'Etiquetas', valor: (c) => (c.etiquetas || []).join(', ') }, { titulo: 'Estado', valor: (c) => c.estado }, { titulo: 'Notas', valor: (c) => c.notas }]} />
           <Button icon={Icons.Plus} onClick={() => setModal({ mode: 'new' })}>Nuevo cliente</Button>
         </div>} />
 
@@ -3421,7 +3593,7 @@ function Clientes() {
         </CardTable>
       )}
 
-      <Modal open={!!modal} onClose={() => setModal(null)} title={modal?.mode === 'edit' ? 'Editar cliente' : 'Nuevo cliente'} size="xl">
+      <Modal open={!!modal} onClose={() => setModal(null)} title={modal?.mode === 'edit' ? 'Editar cliente' : 'Nuevo cliente'} size="xl" bare>
         {modal && <ClienteModalBody modal={modal} onCancel={() => setModal(null)} onSaved={() => { setModal(null); load(); }} />}
       </Modal>
 
