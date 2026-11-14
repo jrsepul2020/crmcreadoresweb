@@ -1,0 +1,7 @@
+-- Ya aplicada en Supabase (migraciones: factura_editable_descuentos_recurrentes, emitir_factura_sincroniza_recurrentes,
+-- sincronizar_recurrentes_reevalua_estado). Resumen:
+--  * FacturaItem/PresupuestoItem: descuentoPct, descuentoImporte. FacturaItem: recurrente, recPeriodicidad, recInicio, recPrecio, recRenovacionAuto, recPrimeraGratis.
+--  * ServicioRecurrente: facturaOrigenId, facturaItemId (único), primeraAnualidadGratis, renovacionAutomatica, avisoDias, ultimaFacturaId.
+--  * Tabla RenovacionServicio (historial; única por servicio y periodo).
+--  * Triggers: una factura emitida es editable por completo (salvo número/serie) mientras "enviadaAt" sea nulo; al enviarla queda bloqueada.
+--  * Funciones: sincronizar_recurrentes_factura (llamada desde emitir_factura), generar_renovacion_servicio, crear_factura_desde_presupuesto (copia descuentos).
