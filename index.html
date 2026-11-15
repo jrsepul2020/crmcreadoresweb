@@ -127,7 +127,7 @@ const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_
 const ICONO_BLANCO_DATA_URI = "data:image/png;base64,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";
 
 // Versión de la app: la actualiza scripts/bump-version.py antes de cada commit/subida
-const APP_VERSION = { numero: '1.14', fecha: '2026-11-14T16:09:25+01:00' };
+const APP_VERSION = { numero: '1.15', fecha: '2026-11-15T13:09:00+01:00' };
 function textoVersion(corto) {
   const d = new Date(APP_VERSION.fecha);
   const fechaHora = isNaN(d.getTime()) ? '' : d.toLocaleString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }).replace(',', '');
@@ -206,8 +206,10 @@ function titularPago(empresa) {
   const n = ((empresa && empresa.nombreFiscal) || '').trim();
   return n && !/creadores\s*web/i.test(n) ? n : TITULAR_PAGO_DEFECTO;
 }
+const TEXTO_PAGO_FACTURA = 'El pago se realizará en el plazo acordado mediante transferencia bancaria en el IBAN indicado, incluyendo el número de factura como concepto y a nombre del titular:';
 function textoDetallesPago(empresa, esPresupuesto) {
   const que = esPresupuesto ? 'presupuesto' : 'factura';
+  if (!esPresupuesto) return TEXTO_PAGO_FACTURA;
   const iban = empresa && empresa.iban ? ` en el IBAN ${empresa.iban}` : '';
   return `El pago se realizará en el plazo acordado mediante transferencia bancaria${iban}, indicando el número de ${que} y al titular: ${titularPago(empresa)}.`;
 }
@@ -349,11 +351,26 @@ function generateDocumentoPDF(tipo, documento, items, cliente, empresa, opciones
 
   // Detalles de pago
   y += 8;
-  if (y > H - 48) { doc.addPage(); y = 20; }
+  if (y > H - (esFactura ? 70 : 48)) { doc.addPage(); y = 20; }
   doc.setFont(undefined, 'bold'); doc.setFontSize(8); gris(20); t('DETALLES DE PAGO', margin, y);
   linea(margin, y + 1.8, right, 200, 0.3); y += 7;
   doc.setFont(undefined, 'normal'); doc.setFontSize(9); gris(60);
   const pago = doc.splitTextToSize(textoDetallesPago(empresa, !esFactura), right - margin); t(pago, margin, y); y += pago.length * 4.2;
+  if (esFactura) {
+    // Datos de la transferencia destacados, cada uno en su línea
+    const lineasPago = [
+      `IBAN ${empresa && empresa.iban ? formatIban(empresa.iban) : '—'}`,
+      titularPago(empresa),
+      `Concepto: ${documento.numero || 'Factura'}`,
+      `Importe: ${formatCurrency(retImporte > 0 ? documento.totalATransferir : documento.total)}`,
+    ];
+    y += 2.5;
+    const altoCaja = lineasPago.length * 5.4 + 4;
+    doc.setDrawColor(60); doc.setLineWidth(0.5); doc.rect(margin, y - 1, right - margin, altoCaja, 'S');
+    doc.setFont(undefined, 'bold'); doc.setFontSize(10.5); gris(20);
+    lineasPago.forEach((l, i) => { t(l, margin + 4, y + 4.4 + i * 5.4); });
+    y += altoCaja;
+  }
 
   if (esFactura && documento.estado === 'pagada') {
     y += 5;
@@ -5303,7 +5320,7 @@ function FacturaForm({ initial, clientes, proyectos, productos, onClienteCreado,
         <Field label="Beneficio real (€)" className="sm:col-span-2 lg:col-span-2">
           <Input type="number" step="0.01" value={header.beneficioReal ?? ''} onChange={set('beneficioReal')} placeholder="Solo informativo, no se contabiliza" />
         </Field>
-        <Field label="Notas" className="sm:col-span-2 lg:col-span-2"><Input value={header.notas || ''} onChange={set('notas')} /></Field>
+        <Field label="Observaciones / notas de la factura" hint="Aparecen en la factura, justo encima de los detalles de pago" className="sm:col-span-2 lg:col-span-4"><Textarea rows={2} value={header.notas || ''} onChange={set('notas')} /></Field>
       </div>
 
       {clienteSel && (
@@ -5639,6 +5656,19 @@ function FacturaDetail({ factura, facturas, clienteById, onClose, onEdit, onChan
   const enviada = !!factura.enviadaAt;
   const puedeEditarFechas = !esBorrador && !enviada && factura.estado !== 'cancelada';
   const [confirmEnviar, setConfirmEnviar] = useState(false);
+  const [confirmBorrar, setConfirmBorrar] = useState(false);
+  async function borrarFactura() {
+    setConfirmBorrar(false);
+    try {
+      if (factura.enviadaAt) throw new Error('Una factura enviada al cliente no se puede borrar. Crea una rectificativa.');
+      if (!esBorrador) await api.removeWhere('Pago', 'facturaId', factura.id);
+      await api.removeWhere('FacturaItem', 'facturaId', factura.id);
+      await api.remove('Factura', factura.id);
+      if (factura.presupuestoId) { try { await api.update('Presupuesto', factura.presupuestoId, { estado: 'aceptado' }); } catch (e2) { /* sin presupuesto */ } }
+      toast(esBorrador ? 'Borrador eliminado' : 'Factura eliminada');
+      onClose(); onChanged();
+    } catch (err) { toast(err.message || 'No se pudo eliminar', 'error'); }
+  }
   async function marcarEnviada() {
     setConfirmEnviar(false);
     try {
@@ -5779,9 +5809,13 @@ function FacturaDetail({ factura, facturas, clienteById, onClose, onEdit, onChan
         {archivo === 'si' && <Button size="sm" variant="secondary" icon={Icons.FileText} onClick={() => abrirFacturaArchivada(factura).catch(() => toast('No se pudo abrir el PDF archivado', 'error'))}>PDF archivado</Button>}
         {(archivo === 'no' || archivo === 'guardando') && <Button size="sm" variant="secondary" icon={Icons.FileText} onClick={archivarAhora} disabled={archivo === 'guardando'}>{archivo === 'guardando' ? 'Archivando...' : 'Archivar PDF'}</Button>}
         <Button size="sm" variant="ghost" icon={Icons.Print} onClick={() => window.open(`${window.location.pathname}${window.location.search}#facturas/${factura.id}/imprimir?print=1`, '_blank')}>Imprimir / PDF</Button>
+        {!enviada && <Button size="sm" variant="danger" icon={Icons.Trash} onClick={() => setConfirmBorrar(true)}>Eliminar</Button>}
         {!enviada && factura.estado !== 'cancelada' && <Button size="sm" variant="ghost" icon={Icons.Edit} onClick={onEdit}>{esBorrador ? 'Editar' : 'Editar factura (líneas, cantidades, fechas)'}</Button>}
       </div>
 
+      <ConfirmDialog open={confirmBorrar} title={esBorrador ? 'Eliminar borrador' : 'Eliminar factura'} danger
+        message={esBorrador ? '¿Eliminar este borrador de factura?' : `¿Eliminar la factura ${factura.numero}? Se borran también sus cobros y su número quedará sin usar (hueco en la numeración). No se puede deshacer.`}
+        onCancel={() => setConfirmBorrar(false)} onConfirm={borrarFactura} />
       <ConfirmDialog open={confirmEnviar} title="Marcar como enviada" message="Al marcarla como enviada se guarda la copia en PDF en el archivo y se bloquean las fechas de emisión y de cobro. Después solo se puede corregir con una rectificativa. ¿Continuar?"
         onCancel={() => setConfirmEnviar(false)} onConfirm={marcarEnviada} />
       <Modal open={accion === 'emitir'} onClose={() => setAccion(null)} title="Emitir factura">
@@ -8065,6 +8099,14 @@ function FacturaHoja({ datos }) {
           </div>
         </div>
 
+        {/* 5a. Observaciones de la factura (justo encima de los detalles de pago) */}
+        {(factura.notas || '').trim() && (
+          <div style={{ marginTop: '8mm', breakInside: 'avoid' }}>
+            <p style={{ ...etiqueta, marginBottom: '3px' }}>Observaciones</p>
+            <p style={{ fontSize: '12px', lineHeight: 1.45, whiteSpace: 'pre-line' }}>{factura.notas}</p>
+          </div>
+        )}
+
         {/* 5. Detalles de pago (o sello de pagada) */}
         {pagada ? (
           <div style={{ marginTop: '10mm', breakInside: 'avoid' }}>
@@ -8075,20 +8117,13 @@ function FacturaHoja({ datos }) {
         ) : (
           <div style={{ marginTop: '10mm', border: `2px solid ${oscuro}`, background: '#f4f6f8', borderRadius: '6px', padding: '16px 18px', breakInside: 'avoid' }}>
             <p style={{ fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', color: oscuro }}>Detalles de pago</p>
-            <p style={{ fontSize: '11px', color: '#4b5563', marginTop: '2px' }}>Para que podamos identificar tu pago, indica exactamente estos datos en la transferencia:</p>
-            <div className="pago-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 2fr 1.3fr 1fr', gap: '14px', marginTop: '12px' }}>
-              <div><p style={etiqueta}>Titular</p><p style={{ fontSize: '14px', fontWeight: 700 }}>{empresa.nombreFiscal || '—'}</p></div>
-              <div><p style={etiqueta}>IBAN</p><p style={{ fontSize: '14px', fontWeight: 700, fontVariantNumeric: 'tabular-nums', wordBreak: 'break-word' }}>{empresa.iban ? formatIban(empresa.iban) : '—'}</p></div>
-              <div>
-                <p style={etiqueta}>Concepto</p>
-                <p style={{ fontSize: '14px', fontWeight: 700 }}>{factura.numero ? `Factura ${factura.numero}` : 'Factura (nº al emitir)'}</p>
-                <p style={{ fontSize: '10.5px', color: '#6b7280', marginTop: '1px' }}>{nombreCliente}</p>
-              </div>
-              <div><p style={etiqueta}>Importe</p><p style={{ fontSize: '16px', fontWeight: 700 }}>{formatCurrency(importePago)}</p></div>
+            <p style={{ fontSize: '12px', color: '#374151', marginTop: '6px', lineHeight: 1.45 }}>{TEXTO_PAGO_FACTURA}</p>
+            <div style={{ marginTop: '10px', border: `1.5px solid ${oscuro}`, background: '#fff', borderRadius: '4px', padding: '10px 14px', fontSize: '14px', fontWeight: 700, lineHeight: 1.7 }}>
+              <p style={{ fontVariantNumeric: 'tabular-nums', wordBreak: 'break-word' }}>IBAN {empresa.iban ? formatIban(empresa.iban) : '—'}</p>
+              <p>{titularPago(empresa)}</p>
+              <p>Concepto: {factura.numero || 'Factura (nº al emitir)'}</p>
+              <p>Importe: {formatCurrency(importePago)}</p>
             </div>
-            <p style={{ fontSize: '11px', fontStyle: 'italic', color: '#4b5563', marginTop: '12px' }}>
-              Plazo de pago: el acordado en el presupuesto. Sin el número de factura en el concepto no podremos identificar tu pago.
-            </p>
           </div>
         )}
 
