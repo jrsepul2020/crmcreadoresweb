@@ -127,7 +127,7 @@ const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_
 const ICONO_BLANCO_DATA_URI = "data:image/png;base64,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";
 
 // Versión de la app: la actualiza scripts/bump-version.py antes de cada commit/subida
-const APP_VERSION = { numero: '1.23', fecha: '2026-11-18T09:29:15+01:00' };
+const APP_VERSION = { numero: '1.24', fecha: '2026-11-18T10:00:59+01:00' };
 function textoVersion(corto) {
   const d = new Date(APP_VERSION.fecha);
   const fechaHora = isNaN(d.getTime()) ? '' : d.toLocaleString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }).replace(',', '');
@@ -2994,8 +2994,8 @@ function construirAprendizajeClientes(clientes) {
 const CLIENTE_EMPTY = {
   nombre: '', nombrePila: '', apellidos: '', cargo: '', nombreComercial: '', personaContacto: '', telefono: '', telefono2: '',
   email: '', email2: '', emailFacturacion: '', empresa: '', nif: '', nifIntracomunitario: '', tipoCliente: '',
-  direccion: '', codigoPostal: '', poblacion: '', provincia: '', pais: 'España',
-  sitioWeb: '', sitioWeb2: '', servicioInteres: '', origenLead: '', etiquetas: [], estado: 'activo', notas: '',
+  direccion: '', codigoPostal: '', poblacion: '', provincia: 'Sevilla', pais: 'España',
+  sitioWeb: 'https://', sitioWeb2: 'https://', servicioInteres: '', origenLead: '', etiquetas: [], estado: 'activo', notas: '',
 };
 
 // "nombre" guarda siempre el nombre completo (así el resto de la app no cambia); nombrePila y apellidos son el desglose.
@@ -3008,9 +3008,19 @@ function clienteAFormulario(c) {
     ...CLIENTE_EMPTY, ...c,
     nombrePila: desglosado ? (c.nombrePila || '') : (c.nombre || ''),
     apellidos: desglosado ? (c.apellidos || '') : '',
+    provincia: c.provincia || 'Sevilla', pais: c.pais || 'España',
+    sitioWeb: c.sitioWeb || 'https://', sitioWeb2: c.sitioWeb2 || 'https://',
     etiquetas: c.etiquetas || [],
   };
 }
+
+// "https://" solo, o vacío, se guarda como sin web; si falta el protocolo se añade
+function normalizarWeb(v) {
+  const t = (v || '').trim();
+  if (!t || /^https?:\/\/$/i.test(t)) return null;
+  return /^https?:\/\//i.test(t) ? t : 'https://' + t;
+}
+function webCorta(v) { return String(v || '').replace(/^https?:\/\//i, '').replace(/\/$/, ''); }
 
 function SeccionForm({ icono: Ic, titulo, children, primera }) {
   return (
@@ -3019,7 +3029,7 @@ function SeccionForm({ icono: Ic, titulo, children, primera }) {
         <span className="w-9 h-9 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0"><Ic className="w-5 h-5" /></span>
         <h4 className="text-lg font-bold text-ink-900">{titulo}</h4>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-6 lg:grid-cols-12 gap-x-4 gap-y-3.5">{children}</div>
+      <div className="grid grid-cols-1 sm:grid-cols-6 lg:grid-cols-12 gap-x-4 gap-y-4">{children}</div>
     </section>
   );
 }
@@ -3073,7 +3083,7 @@ function ClienteForm({ initial, onCancel, onSaved, onVerHistorial, onVista }) {
   const [historialReciente, setHistorialReciente] = useState([]);
   const [apren, setApren] = useState({ cpMap: {}, poblaciones: [], etiquetas: [] });
   const [autoMsg, setAutoMsg] = useState('');
-  const autoRef = useRef({ poblacion: '', provincia: '' });
+  const autoRef = useRef({ poblacion: '', provincia: 'Sevilla' });
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
   const setMayus = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value.toUpperCase() }));
 
@@ -3156,6 +3166,7 @@ function ClienteForm({ initial, onCancel, onSaved, onVerHistorial, onVista }) {
       tipoCliente: form.tipoCliente || null,
       nifIntracomunitario: esUE ? form.nifIntracomunitario.trim().toUpperCase() : null,
       etiquetas: form.etiquetas || [],
+      sitioWeb: normalizarWeb(form.sitioWeb), sitioWeb2: normalizarWeb(form.sitioWeb2),
     };
     setSaving(true);
     try {
@@ -3179,19 +3190,19 @@ function ClienteForm({ initial, onCancel, onSaved, onVerHistorial, onVista }) {
     <form onSubmit={handleSubmit} className="flex flex-col min-h-0 flex-1">
       <div className="flex-1 overflow-y-auto px-5 sm:px-6 py-5 space-y-6 bg-slate-100/80">
         <SeccionForm primera icono={Icons.Users} titulo="Datos personales">
-          <Field label="Apellidos" required={esNuevo} className="sm:col-span-3 lg:col-span-5"><InputCopy value={form.apellidos || ''} onChange={set('apellidos')} copyLabel="apellidos" autoComplete="family-name" /></Field>
-          <Field label="Nombre" required className="sm:col-span-3 lg:col-span-4"><InputCopy value={form.nombrePila || ''} onChange={set('nombrePila')} copyLabel="nombre" autoFocus autoComplete="given-name" /></Field>
-          <Field label="Cargo" className="sm:col-span-6 lg:col-span-3"><Input value={form.cargo || ''} onChange={set('cargo')} placeholder="Gerente, propietario…" /></Field>
-          <Field label="Nombre comercial" className="sm:col-span-6 lg:col-span-12"><InputCopy value={form.nombreComercial || ''} onChange={set('nombreComercial')} copyLabel="nombre comercial" placeholder="Marca o nombre con el que se conoce el negocio" /></Field>
-          <Field label="Persona de contacto" className="sm:col-span-6 lg:col-span-4"><InputCopy value={form.personaContacto || ''} onChange={set('personaContacto')} copyLabel="contacto" placeholder="Si es distinta del titular" /></Field>
-          <Field label="Teléfono principal" required={esNuevo} className="sm:col-span-3 lg:col-span-4"><InputCopy type="tel" inputMode="tel" maxLength={16} value={form.telefono || ''} onChange={set('telefono')} copyLabel="teléfono" /></Field>
-          <Field label="Teléfono secundario" className="sm:col-span-3 lg:col-span-4"><InputCopy type="tel" inputMode="tel" maxLength={16} value={form.telefono2 || ''} onChange={set('telefono2')} copyLabel="teléfono" /></Field>
-          <Field label="Email principal" required={esNuevo} className="sm:col-span-3 lg:col-span-6"><InputCopy type="email" value={form.email || ''} onChange={set('email')} copyLabel="email" autoComplete="email" /></Field>
-          <Field label="Email secundario" className="sm:col-span-3 lg:col-span-6"><InputCopy type="email" value={form.email2 || ''} onChange={set('email2')} copyLabel="email" /></Field>
+          <Field label="Apellidos" required={esNuevo} className="sm:col-span-3 lg:col-span-3"><InputCopy value={form.apellidos || ''} onChange={set('apellidos')} copyLabel="apellidos" autoComplete="family-name" /></Field>
+          <Field label="Nombre" required className="sm:col-span-3 lg:col-span-3"><InputCopy value={form.nombrePila || ''} onChange={set('nombrePila')} copyLabel="nombre" autoFocus autoComplete="given-name" /></Field>
+          <Field label="Cargo" className="sm:col-span-6 lg:col-span-2"><Input value={form.cargo || ''} onChange={set('cargo')} placeholder="Gerente, propietario…" /></Field>
+          <Field label="Nombre comercial" className="sm:col-span-3 lg:col-span-4"><InputCopy value={form.nombreComercial || ''} onChange={set('nombreComercial')} copyLabel="nombre comercial" placeholder="Marca o nombre con el que se conoce el negocio" /></Field>
+          <Field label="Persona de contacto" className="sm:col-span-6 lg:col-span-3"><InputCopy value={form.personaContacto || ''} onChange={set('personaContacto')} copyLabel="contacto" placeholder="Si es distinta del titular" /></Field>
+          <Field label="Teléfono principal" required={esNuevo} className="sm:col-span-3 lg:col-span-2"><InputCopy type="tel" inputMode="tel" maxLength={16} value={form.telefono || ''} onChange={set('telefono')} copyLabel="teléfono" /></Field>
+          <Field label="Teléfono secundario" className="sm:col-span-3 lg:col-span-2"><InputCopy type="tel" inputMode="tel" maxLength={16} value={form.telefono2 || ''} onChange={set('telefono2')} copyLabel="teléfono" /></Field>
+          <Field label="Email principal" required={esNuevo} className="sm:col-span-3 lg:col-span-5"><InputCopy type="email" value={form.email || ''} onChange={set('email')} copyLabel="email" autoComplete="email" /></Field>
+          <Field label="Email secundario" className="sm:col-span-3 lg:col-span-5"><InputCopy type="email" value={form.email2 || ''} onChange={set('email2')} copyLabel="email" /></Field>
         </SeccionForm>
 
         <SeccionForm icono={Icons.Receipt} titulo="Facturación">
-          <Field label="Empresa / Razón social" required={esNuevo && fiscal && exigeEmpresa} className={classNames('sm:col-span-6', esUE ? 'lg:col-span-6' : 'lg:col-span-9')}>
+          <Field label="Empresa / Razón social" required={esNuevo && fiscal && exigeEmpresa} className="sm:col-span-6 lg:col-span-5">
             <InputCopy value={form.empresa || ''} onChange={set('empresa')} copyLabel="empresa" placeholder={form.tipoCliente === 'particular' ? 'No aplica a particulares' : ''} />
           </Field>
           <Field label="NIF / CIF" required={esNuevo && fiscal} hint={avisoNif(nifRes)} className="sm:col-span-3 lg:col-span-3"><InputCopy value={form.nif || ''} onChange={setMayus('nif')} copyLabel="NIF" maxLength={15} className="uppercase" /></Field>
@@ -3204,7 +3215,7 @@ function ClienteForm({ initial, onCancel, onSaved, onVerHistorial, onVista }) {
               {Object.entries(CLIENTE_TIPOS).map(([k, label]) => <option key={k} value={k}>{label}</option>)}
             </Select>
           </Field>
-          <Field label="Estado" required className="sm:col-span-3 lg:col-span-3">
+          <Field label="Estado" required className="sm:col-span-3 lg:col-span-2">
             <Select value={form.estado} onChange={set('estado')}>
               <option value="activo">Activo</option>
               <option value="potencial">Potencial</option>
@@ -3215,11 +3226,11 @@ function ClienteForm({ initial, onCancel, onSaved, onVerHistorial, onVista }) {
           {paisUEnoEspana && (
             <p className="sm:col-span-6 lg:col-span-12 text-xs text-amber-700 bg-amber-50 rounded-lg px-3 py-2">El país es de la UE: revisa si el tipo de cliente debería ser «Empresa de la UE».</p>
           )}
-          <Field label="Dirección fiscal" required={esNuevo && fiscal} className="sm:col-span-6 lg:col-span-12"><InputCopy value={form.direccion || ''} onChange={set('direccion')} copyLabel="dirección" autoComplete="street-address" /></Field>
+          <Field label="Dirección fiscal" required={esNuevo && fiscal} className="sm:col-span-6 lg:col-span-7"><InputCopy value={form.direccion || ''} onChange={set('direccion')} copyLabel="dirección" autoComplete="street-address" /></Field>
           <Field label="Código postal" required={esNuevo && fiscal} className="sm:col-span-2 lg:col-span-2">
             <InputCopy value={form.codigoPostal || ''} onChange={(e) => alCambiarCP(e.target.value)} copyLabel="código postal" maxLength={esEspana ? 5 : 10} inputMode={esEspana ? 'numeric' : 'text'} />
           </Field>
-          <Field label="Población" required={esNuevo && fiscal} hint={autoMsg || undefined} className="sm:col-span-4 lg:col-span-4">
+          <Field label="Población" required={esNuevo && fiscal} hint={autoMsg || undefined} className="sm:col-span-4 lg:col-span-3">
             <InputCopy value={form.poblacion || ''} onChange={set('poblacion')} copyLabel="población" list="lista-poblaciones" autoComplete="off" />
             <datalist id="lista-poblaciones">{apren.poblaciones.map((pb) => <option key={pb} value={pb} />)}</datalist>
           </Field>
@@ -3428,7 +3439,7 @@ function ClienteAccesos({ clienteId }) {
     <div>
       <div className="flex items-center justify-between gap-3 mb-3">
         <p className="text-xs text-slate-400">Usuarios y contraseñas de hosting, email, redes sociales... para consultar cuando los necesites.</p>
-        {!formOpen && <Button size="sm" variant="secondary" icon={Icons.Plus} type="button" onClick={() => setFormOpen('new')}>Añadir acceso</Button>}
+        {!formOpen && <Button size="lg" variant="dangerSolid" icon={Icons.Plus} type="button" className="!text-base !font-semibold !px-6 !py-3 shadow-md shadow-rose-600/30" onClick={() => setFormOpen('new')}>Añadir acceso</Button>}
       </div>
 
       {formOpen && (
@@ -3546,7 +3557,7 @@ function ClienteHistorial({ clienteId }) {
     <div>
       <div className="flex items-center justify-between gap-3 mb-3">
         <p className="text-xs text-slate-400">Llamadas, reuniones, emails y notas de seguimiento con este cliente.</p>
-        {!formState && <Button size="sm" variant="secondary" icon={Icons.Plus} type="button" onClick={() => setFormState('new')}>Añadir</Button>}
+        {!formState && <Button size="lg" variant="dangerSolid" icon={Icons.Plus} type="button" className="!text-base !font-semibold !px-6 !py-3 shadow-md shadow-rose-600/30" onClick={() => setFormState('new')}>Añadir</Button>}
       </div>
 
       {formState && (
@@ -3659,11 +3670,11 @@ function Clientes() {
     if (filterEstado !== 'todos' && c.estado !== filterEstado) return false;
     const q = search.toLowerCase();
     if (!q) return true;
-    return [c.nombre, c.empresa, c.email, c.telefono, c.nif].filter(Boolean).some((v) => v.toLowerCase().includes(q));
+    return [c.nombre, c.nombreComercial, c.empresa, c.sitioWeb, c.email, c.telefono, c.nif].filter(Boolean).some((v) => v.toLowerCase().includes(q));
   });
   const sorted = sortRows(filtered, sort, {
-    nombre: (c) => (c.empresa || c.nombre || '').toLowerCase(),
-    poblacion: (c) => c.poblacion,
+    nombre: (c) => (c.nombre || c.empresa || '').toLowerCase(),
+    sitioWeb: (c) => (c.sitioWeb || '').toLowerCase(),
     estado: (c) => c.estado,
   });
   const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE_CLIENTES));
@@ -3728,7 +3739,7 @@ function Clientes() {
               <SortableTh sortKey="nombre" sort={sort} onSort={onSort}>Cliente</SortableTh>
               <Th>Contacto</Th>
               <Th>Tipo</Th>
-              <SortableTh sortKey="poblacion" sort={sort} onSort={onSort}>Población</SortableTh>
+              <SortableTh sortKey="sitioWeb" sort={sort} onSort={onSort}>Web</SortableTh>
               <SortableTh sortKey="estado" sort={sort} onSort={onSort}>Estado</SortableTh>
               <Th className="text-right">Acciones</Th>
             </tr></thead>
@@ -3740,11 +3751,13 @@ function Clientes() {
                       <Avatar name={c.nombre} />
                       <div className="min-w-0">
                         <div className="flex items-center gap-1">
-                          <EditableCell value={c.empresa || c.nombre || ''} required className="font-medium text-ink-800 truncate"
-                            onSave={(v) => guardarCampo(c, c.empresa ? 'empresa' : 'nombre', v)} />
+                          <EditableCell value={c.nombre || ''} required className="font-medium text-ink-800 truncate"
+                            onSave={(v) => guardarCampo(c, 'nombre', v)} />
                           <CopyIconButton text={c.nombre} label="nombre" />
                         </div>
-                        {c.empresa && <EditableCell value={c.nombre || ''} required className="text-xs text-slate-400 truncate" onSave={(v) => guardarCampo(c, 'nombre', v)} />}
+                        {c.nombreComercial
+                          ? <EditableCell value={c.nombreComercial} className="text-xs text-slate-500 truncate" onSave={(v) => guardarCampo(c, 'nombreComercial', v)} />
+                          : (c.empresa && <span className="block text-xs text-slate-400 truncate">{c.empresa}</span>)}
                       </div>
                     </div>
                   </Td>
@@ -3766,7 +3779,11 @@ function Clientes() {
                         {c.tipoCliente ? (CLIENTE_TIPOS[c.tipoCliente] || c.tipoCliente) : 'Falta tipo'}
                       </span>} />
                   </Td>
-                  <Td onClick={(e) => e.stopPropagation()}><EditableCell value={c.poblacion || ''} onSave={(v) => guardarCampo(c, 'poblacion', v)} /></Td>
+                  <Td onClick={(e) => e.stopPropagation()}>
+                    {c.sitioWeb
+                      ? <a href={c.sitioWeb} target="_blank" rel="noopener noreferrer" title="Abrir el sitio web" className="text-sm text-brand-700 hover:underline break-all">{webCorta(c.sitioWeb)}</a>
+                      : <span className="text-xs text-slate-300">—</span>}
+                  </Td>
                   <Td onClick={(e) => e.stopPropagation()}>
                     <EditableCell value={c.estado || 'activo'} options={[['activo', 'Activo'], ['potencial', 'Potencial'], ['inactivo', 'Inactivo']]} onSave={(v) => guardarCampo(c, 'estado', v)}
                       display={<EstadoBadge estado={c.estado} />} />
