@@ -127,7 +127,7 @@ const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_
 const ICONO_BLANCO_DATA_URI = "data:image/png;base64,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";
 
 // Versión de la app: la actualiza scripts/bump-version.py antes de cada commit/subida
-const APP_VERSION = { numero: '1.22', fecha: '2026-11-17T19:03:07+01:00' };
+const APP_VERSION = { numero: '1.23', fecha: '2026-11-18T09:29:15+01:00' };
 function textoVersion(corto) {
   const d = new Date(APP_VERSION.fecha);
   const fechaHora = isNaN(d.getTime()) ? '' : d.toLocaleString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }).replace(',', '');
@@ -918,7 +918,7 @@ function Field({ label, hint, required, children, className }) {
     </label>
   );
 }
-const inputCls = 'w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-ink-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/40 focus:border-brand-400 transition';
+const inputCls = 'w-full rounded-lg border border-brand-200 hover:border-brand-300 bg-white px-3 py-2 text-sm text-ink-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/40 focus:border-brand-400 transition';
 function Input(props) { return <input {...props} className={classNames(inputCls, props.className)} />; }
 function Textarea(props) { return <textarea {...props} className={classNames(inputCls, 'min-h-[80px] resize-y', props.className)} />; }
 function Select({ children, ...props }) {
@@ -1451,7 +1451,7 @@ function Modal({ open, onClose, title, children, footer, wide, size, bare }) {
             </button>
           </div>
         )}
-        {bare ? children : <div className="px-5 py-4 overflow-y-auto">{children}</div>}
+        {bare ? children : <div className="px-5 py-4 overflow-y-auto bg-slate-100/80">{children}</div>}
         {!bare && footer && <div className="px-5 py-3.5 border-t border-slate-100 flex justify-end gap-2 shrink-0">{footer}</div>}
       </div>
     </div>,
@@ -2992,7 +2992,7 @@ function construirAprendizajeClientes(clientes) {
 }
 
 const CLIENTE_EMPTY = {
-  nombre: '', nombrePila: '', apellidos: '', cargo: '', personaContacto: '', telefono: '', telefono2: '',
+  nombre: '', nombrePila: '', apellidos: '', cargo: '', nombreComercial: '', personaContacto: '', telefono: '', telefono2: '',
   email: '', email2: '', emailFacturacion: '', empresa: '', nif: '', nifIntracomunitario: '', tipoCliente: '',
   direccion: '', codigoPostal: '', poblacion: '', provincia: '', pais: 'España',
   sitioWeb: '', sitioWeb2: '', servicioInteres: '', origenLead: '', etiquetas: [], estado: 'activo', notas: '',
@@ -3151,7 +3151,7 @@ function ClienteForm({ initial, onCancel, onSaved, onVerHistorial, onVista }) {
       ...form,
       nombre: nombreCompleto,
       nombrePila: nulo(form.nombrePila), apellidos: nulo(form.apellidos),
-      cargo: nulo(form.cargo), pais: nulo(form.pais), emailFacturacion: nulo(form.emailFacturacion),
+      cargo: nulo(form.cargo), nombreComercial: nulo(form.nombreComercial), pais: nulo(form.pais), emailFacturacion: nulo(form.emailFacturacion),
       servicioInteres: nulo(form.servicioInteres), origenLead: nulo(form.origenLead),
       tipoCliente: form.tipoCliente || null,
       nifIntracomunitario: esUE ? form.nifIntracomunitario.trim().toUpperCase() : null,
@@ -3177,11 +3177,12 @@ function ClienteForm({ initial, onCancel, onSaved, onVerHistorial, onVista }) {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col min-h-0 flex-1">
-      <div className="flex-1 overflow-y-auto px-5 sm:px-6 py-5 space-y-6">
+      <div className="flex-1 overflow-y-auto px-5 sm:px-6 py-5 space-y-6 bg-slate-100/80">
         <SeccionForm primera icono={Icons.Users} titulo="Datos personales">
           <Field label="Apellidos" required={esNuevo} className="sm:col-span-3 lg:col-span-5"><InputCopy value={form.apellidos || ''} onChange={set('apellidos')} copyLabel="apellidos" autoComplete="family-name" /></Field>
           <Field label="Nombre" required className="sm:col-span-3 lg:col-span-4"><InputCopy value={form.nombrePila || ''} onChange={set('nombrePila')} copyLabel="nombre" autoFocus autoComplete="given-name" /></Field>
           <Field label="Cargo" className="sm:col-span-6 lg:col-span-3"><Input value={form.cargo || ''} onChange={set('cargo')} placeholder="Gerente, propietario…" /></Field>
+          <Field label="Nombre comercial" className="sm:col-span-6 lg:col-span-12"><InputCopy value={form.nombreComercial || ''} onChange={set('nombreComercial')} copyLabel="nombre comercial" placeholder="Marca o nombre con el que se conoce el negocio" /></Field>
           <Field label="Persona de contacto" className="sm:col-span-6 lg:col-span-4"><InputCopy value={form.personaContacto || ''} onChange={set('personaContacto')} copyLabel="contacto" placeholder="Si es distinta del titular" /></Field>
           <Field label="Teléfono principal" required={esNuevo} className="sm:col-span-3 lg:col-span-4"><InputCopy type="tel" inputMode="tel" maxLength={16} value={form.telefono || ''} onChange={set('telefono')} copyLabel="teléfono" /></Field>
           <Field label="Teléfono secundario" className="sm:col-span-3 lg:col-span-4"><InputCopy type="tel" inputMode="tel" maxLength={16} value={form.telefono2 || ''} onChange={set('telefono2')} copyLabel="teléfono" /></Field>
@@ -3699,7 +3700,7 @@ function Clientes() {
           <ExportCsvButton nombre="clientes" filas={sorted} columnas={[
             { titulo: 'Nombre completo', valor: (c) => c.nombre }, { titulo: 'Apellidos', valor: (c) => c.apellidos }, { titulo: 'Nombre', valor: (c) => c.nombrePila },
             { titulo: 'Cargo', valor: (c) => c.cargo }, { titulo: 'Empresa', valor: (c) => c.empresa }, { titulo: 'Tipo de cliente', valor: (c) => CLIENTE_TIPOS[c.tipoCliente] || '' },
-            { titulo: 'NIF/CIF', valor: (c) => c.nif }, { titulo: 'NIF-IVA intracomunitario', valor: (c) => c.nifIntracomunitario }, { titulo: 'Persona de contacto', valor: (c) => c.personaContacto },
+            { titulo: 'NIF/CIF', valor: (c) => c.nif }, { titulo: 'NIF-IVA intracomunitario', valor: (c) => c.nifIntracomunitario }, { titulo: 'Nombre comercial', valor: (c) => c.nombreComercial }, { titulo: 'Persona de contacto', valor: (c) => c.personaContacto },
             { titulo: 'Email', valor: (c) => c.email }, { titulo: 'Email 2', valor: (c) => c.email2 }, { titulo: 'Teléfono', valor: (c) => c.telefono }, { titulo: 'Teléfono 2', valor: (c) => c.telefono2 },
             { titulo: 'Dirección', valor: (c) => c.direccion }, { titulo: 'Código postal', valor: (c) => c.codigoPostal }, { titulo: 'Población', valor: (c) => c.poblacion },
             { titulo: 'Provincia', valor: (c) => c.provincia }, { titulo: 'País', valor: (c) => c.pais }, { titulo: 'Email de facturación', valor: (c) => c.emailFacturacion },
